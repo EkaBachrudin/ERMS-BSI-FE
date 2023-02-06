@@ -1,0 +1,26 @@
+<form [formGroup]="addIAMForm">
+<div style="width: 40rem; height: fit-content; font-size: small">
+  <h5 mat-dialog-title>ADD IAM</h5>
+  <p class="title1">UNIT KERJA</p>
+  <input type="text" class="option" formControlName="unit" />
+  <p class="title1" style="margin-top: 1rem">Periode</p>
+  <div class="choise">
+    <select name="select-periode" id="select-periode" formControlName="periode_tahun">
+      <option value="2022">2022</option>
+      <option value="2022">2021</option>
+      <option value="2020" selected>2020</option>
+      <option value="2020">2019</option>
+    </select>
+    <select name="select-q" id="select-q"  formControlName="periode_q">
+      <option value="Q1">Q1</option>
+      <option value="Q1">Q2</option>
+      <option value="Q1" selected>Q3</option>
+      <option value="Q1">Q4</option>
+    </select>
+  </div>
+  <div class="action">
+    <button class="btn-cancel" (click)="cancelDialog()">CANCEL</button>
+    <button class="btn-submit" (click)="submitDialog()">ADD IAM</button>
+  </div>
+</div>
+</form>

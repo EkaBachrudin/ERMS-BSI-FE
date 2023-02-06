@@ -1,0 +1,52 @@
+.input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    width: 20%;
+    margin-top: 13px;
+    color: #686868;
+  }
+  .preview {
+    background-color: #f7f7f7;
+    width: 78%;
+    border: none;
+    height: 2rem;
+  }
+  input {
+    background-color: #f7f7f7;
+    width: 78%;
+    border: none;
+    padding: 0.4rem;
+  }
+  select {
+    background-color: #f7f7f7;
+    width: 78%;
+    border: none;
+    padding: 0.4rem;
+    option {
+      color: red;
+    }
+  }
+}
+
+.action-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.3rem;
+  .cancel {
+    border: none;
+    background-color: #ffffff;
+    width: 6rem;
+    font-weight: 500;
+  }
+  .add {
+    background-color: var(--blue-button);
+    border: none;
+    color: white;
+    width: 8.5rem;
+    height: 2.3rem;
+    border-radius: 5px;
+  }
+}

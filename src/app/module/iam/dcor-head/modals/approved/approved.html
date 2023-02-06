@@ -1,0 +1,42 @@
+<div style="width: 40rem; height: fit-content; font-size: small">
+  <h6 mat-dialog-title>TINDAK LANJUT IAM</h6>
+  <hr />
+  <form>
+    <p class="title1">APAKAH TERDAPAT KERUGIAN FINANCIAL</p>
+    <select name="" id="" disabled class="option">
+      <option value="">RCSA</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">
+      PENJELASAN PENYEBAB SECARA SPESIFIK
+    </p>
+    <textarea
+      name="penjelasanpenyebab"
+      id="penjelasanpenyebab"
+      cols="13"
+      rows="4"
+      disabled
+    >
+    Sudah mengirimkan surat permintaan pemenuhan Teller ke Area</textarea
+    >
+    <p class="title1" style="margin-top: 1rem">SOURCE</p>
+    <select name="" id="" disabled class="option">
+      <option value="">KRI</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">SOURCE</p>
+    <select name="" id="" disabled class="option">
+      <option value="">LED</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">SOURCE</p>
+    <select name="" id="" disabled class="option">
+      <option value="">CT</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">SOURCE</p>
+    <select name="" id="" disabled class="option">
+      <option value="">DMTL</option>
+    </select>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="approved()">APPROVE</button>
+    </div>
+  </form>
+</div>

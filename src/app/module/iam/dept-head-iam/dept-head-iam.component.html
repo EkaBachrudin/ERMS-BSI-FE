@@ -1,0 +1,139 @@
+<app-content>
+  <ng-container content>
+    <div style="background-color: #f1f1f1; height: 100vh; padding-top: 0.2rem">
+      <div class="example-large-box">
+        <div class="list-action">
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-add" (click)="openDialog()">
+          <p>+</p>
+          ADD IAM
+        </button>
+      </div>
+      <div class="data-dcor">
+        <table>
+          <thead>
+            <th>No</th>
+            <th>Unit</th>
+            <th>Periode</th>
+            <th>Jumlah Action Plan</th>
+            <th>Selesai</th>
+            <th>On Progress</th>
+            <th>Status</th>
+            <th>Action</th>
+          </thead>
+          <tbody *ngFor="let item of rows index as i">
+            <tr >
+              <td>{{i+1}}</td>
+              <td>{{item.unit}}</td>
+              <td>{{item.periode_q}}/{{item.periode_tahun}}</td>
+              <td class="silver">
+                <div class="status">{{item.jumlahAction}}</div>
+              </td>
+              <td class="blue"><div class="status">{{item.totalClose}}</div></td>
+              <td class="yellow"><div class="status">{{item.totalOpen}}</div></td>
+              <td class="waiting">
+                <div class="status">{{item.status}}</div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-cloud-arrow-down" id="download"></i>
+                  <i
+                  class="fa fa-check"
+                  id="check"
+                  *ngIf="isApprover"
+                  (click)="approve(item)"
+                ></i>
+                <i
+                  class="fa fa-xmark"
+                  id="xmark"
+                  *ngIf="isApprover"
+                  (click)="reject(item)"
+                ></i>
+                  <i
+                    class="fa fa-chevron-up"
+                    id="up"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#tablecontent'+item.id"
+                    aria-expanded="false"
+                    aria-controls="tablecontent"
+                  ></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="collapse" [attr.id]="'tablecontent' + item.id">
+              <td colspan="8" id="dataexpand">
+                <div class="content">
+                  <div class="data">
+                    <table>
+                      <tr>
+                        <th rowspan="2" style="width: 2rem">No</th>
+                        <th rowspan="2">Source</th>
+                        <th rowspan="2">Rincian Issue</th>
+                        <th rowspan="2">Rencana Action Plan</th>
+                        <th rowspan="2">Group in Charge</th>
+                        <th rowspan="2">Jumlah Action Plan/Open</th>
+                        <th colspan="2" style="padding: 0.5rem">
+                          Status Action Plan
+                        </th>
+                        <th rowspan="2" style="border-right: none">Action</th>
+                      </tr>
+                      <tr>
+                        <td>Selesai/Close</td>
+                        <td>On Progress/Open</td>
+                      </tr>
+                      <tr  *ngFor="let items of item.source index as i">
+                        <td style="border-left: none" >{{i+1}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.rician}}</td>
+                        <td>{{items.rencana}}</td>
+                        <td>{{items.grup}}</td>
+                        <td>{{items.jumlahAction}}</td>
+                        <td>{{items.close}}</td>
+                        <td>{{items.open}}</td>
+                        <td style="border-right: none">
+                          <i
+                            class="fa-solid fa-pen-to-square"
+                            id="pen"
+                            (click)="openAddIamRcsa(items,item)"
+                          ></i>
+                        </td>
+                      </tr>
+                    </table>
+                    <button
+                      class="form-control"
+                      style="
+                        background-color: #aaaaaa;
+                        margin-top: 2rem;
+                        color: #ffffff;
+                      "
+                      (click)="openSubmitDialog()"
+                    >
+                      SUBMIT IAM
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</app-content>

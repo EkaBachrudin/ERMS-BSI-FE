@@ -1,0 +1,1203 @@
+<!-- head -->
+<div *ngIf="utama; else report" style="height: 100vh">
+  <div class="head-sorh-rcsa-kantor-pusat">
+    <div class="list-action">
+      <div class="directorate">
+        <p>Pilih Direktorat</p>
+        <select name="select-directorate" id="select-directorate">
+          <option value="">All</option>
+          <option value="">WHOLESALE & TRANSACTION BANKING DIRECTORATE</option>
+          <option value="">SALES & DISTRIBUTION DIRECTORATE (DSD)</option>
+          <option value="">RISK MANAGEMENT DIRECTORATE (RMD)</option>
+          <option value="">COMPLIANCE & HUMAN CAPITAL DIRECTORATE (CHC)</option>
+          <option value="">FINANCE & STRATEGY DIRECTORATE (FSD)</option>
+          <option value="">
+            TREASURY & INTERNATIONAL BANKING DIRECTORATE (TID)
+          </option>
+          <option value="">INFORMATION TECHNOLOGY DIRECTORATE (ITD)</option>
+          <option value="">VICE PRESIDENT DIRECTORATE (VPD)</option>
+          <option value="">CEO DIRECTORATE (CEO)</option>
+        </select>
+      </div>
+      <div class="unit">
+        <p>Status</p>
+        <select name="select-unit" id="select-unit">
+          <option value="">All</option>
+          <option value="">DRAFTED</option>
+          <option value="">WAITING FOR APPROVAL</option>
+          <option value="">WAITING FOR CHECKED</option>
+          <option value="">APPROVED</option>
+          <option value="">REJECTED</option>
+        </select>
+      </div>
+      <div class="periode">
+        <p>Periode</p>
+        <select name="select-periode" id="select-periode">
+          <option value="">2022</option>
+          <option value="">2021</option>
+          <option value="">2020</option>
+          <option value="">2019</option>
+        </select>
+        <select name="select-q" id="select-q">
+          <option value="">All</option>
+          <option value="">Q1</option>
+          <option value="">Q2</option>
+          <option value="" selected>Q3</option>
+          <option value="">Q4</option>
+        </select>
+      </div>
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Cari" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+      </div>
+    </div>
+    <div class="action-button">
+      <!-- <button class="approve" (click)="openApproveSorhKantorPusat()">
+        APPROVE
+      </button>
+      <button class="rejected" (click)="openRejectedSorhKantorPusat()">
+        REJECTED
+      </button> -->
+    </div>
+  </div>
+
+  <!-- end head -->
+
+  <!-- data table -->
+  <div class="data-sorh-kantor-pusat">
+    <table aria-describedby="">
+      <thead>
+        <!-- <th><input type="checkbox" /></th> -->
+        <th>No.</th>
+        <th>GROUP</th>
+        <th>IHRR</th>
+        <th>Control</th>
+        <th>Composite</th>
+        <th>Periode</th>
+        <th>Status</th>
+        <th style="text-align: left; width: 6rem">Action</th>
+      </thead>
+      <tbody
+        *ngFor="let element of dataSource; let i = index"
+        [attr.data-index]="i"
+      >
+        <tr>
+          <!-- <td><input type="checkbox" /></td> -->
+          <td>{{ i + 1 }}</td>
+          <td>{{ element.group_name }}</td>
+          <td>
+            <div
+              *ngIf="element.ihrr; else ihrr"
+              [ngClass]="{
+                green: Math.trunc(element.ihrr) === 1,
+                'green-light': Math.trunc(element.ihrr) === 2,
+                yellow: Math.trunc(element.ihrr) === 3,
+                orange: Math.trunc(element.ihrr) === 4,
+                red: Math.trunc(element.ihrr) === 5
+              }"
+            >
+              <span>{{ element.ihrr | number : "1.2" }}</span>
+            </div>
+            <ng-template #ihrr>
+              <span> - </span>
+            </ng-template>
+          </td>
+          <td>
+            <div
+              *ngIf="element.control; else control"
+              [ngClass]="{
+                green: Math.trunc(element.control) === 1,
+                'green-light': Math.trunc(element.control) === 2,
+                yellow: Math.trunc(element.control) === 3,
+                orange: Math.trunc(element.control) === 4,
+                red: Math.trunc(element.control) === 5
+              }"
+            >
+              <span>{{ element.control | number : "1.2" }}</span>
+            </div>
+            <ng-template #control>
+              <span>-</span>
+            </ng-template>
+          </td>
+          <td>
+            <div
+              *ngIf="element.composite; else composite"
+              [ngClass]="{
+                green: Math.trunc(element.composite) === 1,
+                'green-light': Math.trunc(element.composite) === 2,
+                yellow: Math.trunc(element.composite) === 3,
+                orange: Math.trunc(element.composite) === 4,
+                red: Math.trunc(element.composite) === 5
+              }"
+            >
+              <span>{{ element.composite | number : "1.2" }}</span>
+            </div>
+            <ng-template #composite>
+              <span>-</span>
+            </ng-template>
+          </td>
+          <td>{{ element.quarter + "/" + element.periode }}</td>
+          <td>
+            <div *ngIf="element.currentStatus != null; else showStatusCurrent">
+              <div
+                *ngIf="
+                  element.currentStatus.toLowerCase().search('rejected ') != -1;
+                  else notRejected
+                "
+              >
+                <div
+                  (click)="showNoteRejected($event, element.noted)"
+                  class="btn btn-danger btn-sm reject-btn"
+                >
+                  <div class="status">{{ element.currentStatus }}</div>
+                </div>
+              </div>
+              <ng-template #notRejected>
+                <div
+                  [ngClass]="{
+                    approved:
+                      element.currentStatus.toLowerCase().search('approved') !=
+                      -1,
+                    waiting:
+                      element.currentStatus.toLowerCase().search('approval') !=
+                      -1
+                  }"
+                >
+                  <div class="status">{{ element.currentStatus }}</div>
+                </div>
+              </ng-template>
+            </div>
+            <ng-template #showStatusCurrent>
+              <span> - </span>
+            </ng-template>
+          </td>
+          <td>
+            <div class="action-table">
+              <em
+                [ngClass]="{
+                  disable: element.currentStatus != 'Ready for Approval'
+                }"
+                class="fa fa-check"
+                (click)="openApproved(element)"
+                id="check"
+              ></em>
+              <em
+                [ngClass]="{
+                  disable: element.currentStatus != 'Ready for Approval'
+                }"
+                class="fa fa-xmark"
+                (click)="openRejected(element)"
+                id="xmark"
+              ></em>
+              <!-- <em class="fa fa-file-invoice" id="document"></em> -->
+              <em class="fa fa-eye" id="eye" (click)="showData(element)"></em>
+              <em
+                class="fa fa-chevron-down"
+                id="sorh{{ element.id }}"
+                (click)="expandByID(element.id)"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#expandDcorHeadRcsa' + i"
+                aria-expanded="false"
+                aria-controls="expandDcorHeadRcsa"
+              ></em>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="collapse" [attr.id]="'expandDcorHeadRcsa' + i">
+          <td colspan="9" class="expand">
+            <mat-progress-bar
+              mode="indeterminate"
+              *ngIf="isLoading == true; else showExpand"
+            ></mat-progress-bar>
+            <ng-template #showExpand>
+              <div class="expandData">
+                <table>
+                  <thead>
+                    <th>No.</th>
+                    <th>Key Process</th>
+                    <th>Key Risk Issue</th>
+                    <th>Key Control</th>
+                    <th>Ketentuan</th>
+                    <th>IHRR</th>
+                    <th>Control</th>
+                    <th>Composite</th>
+                  </thead>
+                  <tbody
+                    aria-describedby="expand"
+                    *ngFor="let Details of dataRcsaByID; let o = index"
+                    [attr.data-index]="o"
+                  >
+                    <tr>
+                      <td>{{ currentPage * pageSize + o + 1 }}</td>
+                      <td>{{ Details.keyprocess }}</td>
+                      <td style="text-align: left">
+                        {{ Details.keyrisk }}
+                      </td>
+                      <td style="text-align: left;">
+                        <ol>
+                          <li *ngFor=" let control of Details.keycontrol.split('\n \n')" class="mb-2">
+                            {{removeNumber(control.replace('.', ' '))}}
+                          </li>
+                        </ol>
+                      </td>
+                      <td>
+                        <Strong>{{ Details.ketentuan }}</Strong>
+                        <div *ngFor="let desc of Details.descriptionItem">
+                          <p>{{ desc.description }}</p>
+                        </div>
+                      </td>
+                      <td>
+                        <div
+                          [ngClass]="{
+                            green: Details.ihrr === 1,
+                            'green-light': Details.ihrr === 2,
+                            yellow: Details.ihrr === 3,
+                            orange: Details.ihrr === 4,
+                            red: Details.ihrr === 5
+                          }"
+                          *ngIf="Details.ihrr != null; else showIhrrlExpand"
+                        >
+                          <span>{{ Details.ihrr }}</span>
+                        </div>
+                        <ng-template #showIhrrlExpand>
+                          <span>-</span>
+                        </ng-template>
+                      </td>
+                      <td>
+                        <div
+                          [ngClass]="{
+                            green: Details.control === 1,
+                            'green-light': Details.control === 2,
+                            yellow: Details.control === 3,
+                            orange: Details.control === 4,
+                            red: Details.control === 5
+                          }"
+                          *ngIf="
+                            Details.control != null;
+                            else showControlExpand
+                          "
+                        >
+                          <span>{{ Details.control }}</span>
+                        </div>
+                        <ng-template #showControlExpand>
+                          <span>-</span>
+                        </ng-template>
+                      </td>
+                      <td>
+                        <div
+                          [ngClass]="{
+                            green: Details.rating === 1,
+                            'green-light': Details.rating === 2,
+                            yellow: Details.rating === 3,
+                            orange: Details.rating === 4,
+                            red: Details.rating === 5
+                          }"
+                          *ngIf="Details.rating != null; else showRatingExpand"
+                        >
+                          <span>{{ Details.rating }}</span>
+                        </div>
+                        <ng-template #showRatingExpand>
+                          <span>-</span>
+                        </ng-template>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <mat-paginator
+                  [length]="totalPage"
+                  [pageSize]="RcsaByIDSetting.size"
+                  [pageSizeOptions]="[10, 25, 100]"
+                  (page)="onPageChange($event, element.id)"
+                ></mat-paginator>
+              </div>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- end data table -->
+
+<ng-template #report>
+  <div class="head">
+    <p><i class="fa fa-chevron-left"></i></p>
+    <button><i class="fa-solid fa-cloud-arrow-down"></i> DOWNLOAD</button>
+  </div>
+  <div class="report">
+    <h6>Risk Map</h6>
+    <div class="data">
+      <div class="data1">
+        <div class="title">Risk Issue Map</div>
+        <div class="kategori">Kategori</div>
+        <div class="jumlah">Jumlah</div>
+        <div class="persentase">Persentase</div>
+        <div class="low">Low</div>
+        <div class="jumlah1">21</div>
+        <div class="persentase1">45%</div>
+        <div class="lowtomedium">Low to medium</div>
+        <div class="jumlah2">3</div>
+        <div class="persentase2">15%</div>
+        <div class="medium">Medium</div>
+        <div class="jumlah3">5</div>
+        <div class="persentase3">5%</div>
+        <div class="mediumtohigh">Medium to High</div>
+        <div class="jumlah4">2</div>
+        <div class="persentase4">5%</div>
+        <div class="mediumtohigh2">Medium to High</div>
+        <div class="jumlah5">6</div>
+        <div class="persentase5">35%</div>
+        <div class="total">Total</div>
+        <div class="jumlahtotal">37</div>
+        <div class="jumlahpersentase">100%</div>
+      </div>
+      <div class="data2">
+        <div class="box"></div>
+        <div class="likelihood">Likelihood</div>
+        <div class="impact">
+          <p>impact</p>
+        </div>
+        <div class="data1">1</div>
+        <div class="data2">2</div>
+        <div class="data3">3</div>
+        <div class="data4">4</div>
+        <div class="data5">5</div>
+        <div class="data6">1</div>
+        <div class="data7">1</div>
+        <div class="data8">2</div>
+        <div class="data9">2</div>
+        <div class="data10">3</div>
+        <div class="data11">3</div>
+        <div class="data12">2</div>
+        <div class="data13">2</div>
+        <div class="data14">3</div>
+        <div class="data15">3</div>
+        <div class="data16">3</div>
+        <div class="data17">14</div>
+        <div class="data18">3</div>
+        <div class="data19">2</div>
+        <div class="data20">3</div>
+        <div class="data21">4</div>
+        <div class="data22">4</div>
+        <div class="data23">5</div>
+        <div class="data24">4</div>
+        <div class="data25">3</div>
+        <div class="data26">3</div>
+        <div class="data27">4</div>
+        <div class="data28">5</div>
+        <div class="data29">5</div>
+        <div class="data30">5</div>
+        <div class="data31">3</div>
+        <div class="data32">4</div>
+        <div class="data33">5</div>
+        <div class="data34">5</div>
+        <div class="data35">5</div>
+      </div>
+      <!-- <div class="data3">
+              <div class="box">box</div>
+              <div class="risk-control">r</div>
+              <div class="strong">s</div>
+              <div class="satisfactory">st</div>
+              <div class="fair">f</div>
+              <div class="marginal">m</div>
+              <div class="unsatisfactory">un</div>
+              <div class="predicate-ihrr">p</div>
+            </div> -->
+    </div>
+  </div>
+  <div class="peringkat-rcsa">
+    <h5>Peringkat RCSA</h5>
+    <p>Berdasarkan skor Inherent, Control, dan Composite</p>
+    <table>
+      <thead>
+        <th>SEGMEN</th>
+        <th style="width: 12rem">Inherent Risk</th>
+        <th style="width: 12rem">Control</th>
+        <th style="width: 12rem">Composite Risk</th>
+        <th style="width: 2rem"></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>OPERASIONAL</td>
+          <td>
+            <div class="red"><span>111- HIGH</span></div>
+          </td>
+          <td>
+            <div class="yellow"><span>21 - FAIR</span></div>
+          </td>
+          <td>
+            <div class="orange"><span>32 - MEDIUM TO HIGH</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr class="rowcolor">
+          <td>GADAI</td>
+          <td>
+            <div class="green"><span>12 - LOW</span></div>
+          </td>
+          <td>
+            <div class="green-black"><span>21 - SATISFACTORY</span></div>
+          </td>
+          <td>
+            <div class="orange"><span>42 - MEDIUM TO HIGH</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>MIKRO</td>
+          <td>
+            <div class="yellow"><span>22 - MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="green"><span>21 - STRONG</span></div>
+          </td>
+          <td>
+            <div class="green-light"><span>15 - LOW TO MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr class="rowcolor">
+          <td>CONSUMER CF 1</td>
+          <td>
+            <div class="green-light"><span>15 - LOW TO MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="green-black"><span>21 - SATISFACTORY</span></div>
+          </td>
+          <td>
+            <div class="yellow"><span>22 - MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CONSUMER CF 2</td>
+          <td>
+            <div class="red"><span>111- HIGH</span></div>
+          </td>
+          <td>
+            <div class="yellow"><span>21 - FAIR</span></div>
+          </td>
+          <td>
+            <div class="orange"><span>32 - MEDIUM TO HIGH</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr class="rowcolor">
+          <td>SME</td>
+          <td>
+            <div class="green"><span>12 - LOW</span></div>
+          </td>
+          <td>
+            <div class="green-black"><span>21 - SATISFACTORY</span></div>
+          </td>
+          <td>
+            <div class="orange"><span>42 - MEDIUM TO HIGH</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRIORITY BANKING</td>
+          <td>
+            <div class="yellow"><span>22 - MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="green"><span>21 - STRONG</span></div>
+          </td>
+          <td>
+            <div class="green-light"><span>15 - LOW TO MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr class="rowcolor">
+          <td>FUNDING</td>
+          <td>
+            <div class="green-light"><span>15 - LOW TO MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="green-black"><span>21 - SATISFACTORY</span></div>
+          </td>
+          <td>
+            <div class="yellow"><span>22 - MEDIUM</span></div>
+          </td>
+          <td>
+            <div class="action-table">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+          </td>
+        </tr>
+        <tr class="bottom">
+          <td><strong>SKOR RCSA AREA</strong></td>
+          <td>
+            <div class="orange"><span>42 - MEDIUM TO HIGH</span></div>
+          </td>
+          <td>
+            <div class="orange-black"><span>21 - MARGINAL</span></div>
+          </td>
+          <td>
+            <div class="green-light"><span>12 - LOW</span></div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="top-risk-issue">
+    <h5>Top 10 Risk Issues</h5>
+    <table>
+      <thead>
+        <th>No.</th>
+        <th style="text-align: left">Key Risk</th>
+        <th>Segmen</th>
+        <th>Skor</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+          <td>RCSA Operasional</td>
+          <td>
+            <div class="red"><span>25</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Risiko kesalahan penanganan transaksi Teller</td>
+          <td>RCSA Operasional</td>
+          <td>
+            <div class="red"><span>23</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Risiko Terdapat kelemahan dalam penyelenggaraan public expose</td>
+          <td>RCSA Operasional</td>
+          <td>
+            <div class="red"><span>22</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+            dokumen legal
+          </td>
+          <td>RCSA Funding</td>
+          <td>
+            <div class="orange"><span>21</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+          <td>RCSA Gadai</td>
+          <td>
+            <div class="orange"><span>20</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Risiko kesalahan proses penagihan nasabah</td>
+          <td>RCSA CF2</td>
+          <td>
+            <div class="orange"><span>19</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>
+            Risiko perjanjian kerjasama kepada developer yang dibuat kurang
+            komprehensif, tidak cukup melindungi Bank
+          </td>
+          <td>RCSA CF1</td>
+          <td>
+            <div class="yellow"><span>17</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Risiko kegagalan dalam pengikatan jaminan</td>
+          <td>RCSA SME</td>
+          <td>
+            <div class="yellow"><span>15</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Risiko agunan tidak dapat dieksekusi</td>
+          <td>RCSA Operasional</td>
+          <td>
+            <div class="green-light"><span>14</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>
+            Risiko kelemahan dalam pemantauan first way out dan/atau second way
+            out
+          </td>
+          <td>RCSA Operasional</td>
+          <td>
+            <div class="green"><span>12</span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA Operasional
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end top 5 risk issues RCSA Operasional -->
+
+  <!-- top 5 risk issues RCSA Gadai -->
+
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA Gadai
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end top 5 risk issues RCSA Gadai -->
+
+  <!-- top 5 risk issues RCSA Mikro -->
+
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA Mikro
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end top 5 risk issues RCSA Mikro -->
+
+  <!-- top risk issues RCSA CF 1 -->
+
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA CF1
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end top 5 risk issues RCSA CF 1 -->
+  <!-- top 5 risk issues RCSA CF 2  -->
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA CF2
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- top 5 risk issues RCSA CF 2 -->
+
+  <!-- risk issues RCSA SME -->
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA SME
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end risk issues RCSA SME -->
+
+  <!-- top 5 risk issues RCSA priority banking -->
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA Priority Banking
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- end top 5 risk issues RCSA priority banking -->
+
+  <!-- top 5 risk issues RCSA funding -->
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    style="
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+    "
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bold">
+        Top 5 Risk Issues RCSA Funding
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table id="risk-issues" style="width: 100%; border-spacing: 0">
+      <tr>
+        <th>No.</th>
+        <th>Key Risk</th>
+        <th>Skor</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">25</p>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Risiko kesalahan penanganan transaksi Teller</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">23</p>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+        <td>
+          <p class="high" style="width: 150px; border-radius: 3px">22</p>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan
+          dokumen legal
+        </td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">21</p>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+        <td>
+          <p class="mtoh" style="width: 150px; border-radius: 3px">20</p>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+  <!-- end top 5 risk issues RCSA funding -->
+</ng-template>

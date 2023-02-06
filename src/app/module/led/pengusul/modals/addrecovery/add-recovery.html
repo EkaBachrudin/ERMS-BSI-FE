@@ -1,0 +1,19 @@
+<div style="width: 40rem; font-size: small">
+  <h5 mat-dialog-title>ADD RECOVERY</h5>
+  <p class="title1">NOMINAL RECOVERY</p>
+  <div class="form-group">
+    <input type="text" class="form-control" [formControl]="recoveryAdd" />
+  </div>
+  <p class="title1" style="margin-top: 1rem">SUMBER</p>
+  <div class="form-group">
+    <input type="text" class="form-control" [formControl]="sumber" />
+  </div>
+  <div class="action">
+    <button class="btn-cancel" (click)="cancel()">
+      <strong>CANCEL</strong>
+    </button>
+    <button class="btn-submit" (click)="submit()">
+      <strong>SUBMIT RECOVERY</strong>
+    </button>
+  </div>
+</div>

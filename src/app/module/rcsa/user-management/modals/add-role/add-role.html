@@ -1,0 +1,116 @@
+<div style="width: 35rem; font-size: small">
+  <form [formGroup]="addRoleForm" method="post">
+    <div class="input">
+      <p>Unit</p>
+      <select formControlName="unit" id="unitKerja">
+        <option value="KANTOR PUSAT">KANTOR PUSAT</option>
+      </select>
+    </div>
+    <div class="input">
+      <!-- <p>Directorat <br />/ Region</p> -->
+      <p>Directorat</p>
+      <select formControlName="directorat" id="direktoratRegion">
+        <option value="WHOLESALES & TRANSACTION BANKING DIRECTORATE">WHOLESALES & TRANSACTION BANKING DIRECTORATE</option>
+      </select>
+    </div>
+    <div class="input">
+      <p>Group</p>
+      <!-- <p>Group <br />/ Area</p> -->
+      <select formControlName="group" id="groupArea">
+        <option value="CORPORATE FINANCE & SOLUTION GROUP">CORPORATE FINANCE & SOLUTION GROUP</option>
+      </select>
+    </div>
+    <!-- <div class="input">
+      <p>Cabang</p>
+      <select name="Cabang" id="Cabang">
+        <option>CORPORATE FINANCE & SOLUTION GROUP</option>
+      </select>
+    </div> -->
+    <div class="input">
+      <p>Role</p>
+      <input type="text" formControlName="name" />
+    </div>
+    <div class="auth">
+      <div class="maintenance-rcsa">
+        MAINTENANCE <br />
+        RCSA
+        <div class="unitauth">
+          <div class="action">MAKE<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">REVIEW<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">APPROVAL<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">VIEWER<input type="checkbox" /></div>
+        </div>
+      </div>
+      <div class="rcsa">
+        <p>RCSA</p>
+        <div class="unitauth">
+          <div class="action">MAKE<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">REVIEW<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">APPROVAL<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">VIEWER<input type="checkbox" /></div>
+        </div>
+      </div>
+      <div class="kri">
+        <p>KRI</p>
+        <div class="unitauth">
+          <div class="action">MAKE<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">REVIEW<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">APPROVAL<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">VIEWER<input type="checkbox" /></div>
+        </div>
+      </div>
+      <div class="iam">
+        <p>IAM</p>
+        <div class="unitauth">
+          <div class="action">MAKE<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">REVIEW<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">APPROVAL<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">VIEWER<input type="checkbox" /></div>
+        </div>
+      </div>
+      <div class="led">
+        <p>LED</p>
+        <div class="unitauth">
+          <div class="action">MAKE<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">REVIEW<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">APPROVAL<input type="checkbox" /></div>
+        </div>
+        <div class="unitauth">
+          <div class="action">VIEWER<input type="checkbox" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="action-btn">
+      <button class="btn-add" type="submit" (click)="submit()">Tambah</button>
+      <button class="btn-cancel" (click)="cancel()">Batal</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="DialogExample">
+  <h1 mat-dialog-title>Setting IHRR</h1>
+  <mat-dialog-content style="opacity: 0;">This dialog showcases the title, close, content and actions elements.
+  </mat-dialog-content>
+  <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+          <mat-form-field>
+              <mat-label>Likelihood</mat-label>
+              <mat-select [(ngModel)]="data.LikeLiHood">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                  <mat-option value="5">5</mat-option>
+              </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+              <mat-label>IHRR</mat-label>
+              <mat-select [(ngModel)]="data.Ihrr">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                  <mat-option value="5">5</mat-option>
+              </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+              <mat-label>Impact</mat-label>
+              <mat-select [(ngModel)]="data.Impact">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                  <mat-option value="5">5</mat-option>
+              </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Rating</mat-label>
+          <mat-select [(ngModel)]="data.IhrrRating">
+            <mat-option value="LOW">LOW</mat-option>
+            <mat-option value="MEDIUM">MEDIUM</mat-option>
+            <mat-option value="LOW TO MEDIUM">LOW TO MEDIUM</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+  </mat-grid-list>
+  <div mat-dialog-actions>
+      <button class="buttonDialogClose" mat-raised-button>Add LikeLiHood</button>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+.content {
+  width: 35rem;
+  height: 37rem;
+  font-size: small;
+  .title {
+    color: #686868;
+  }
+  input {
+    border: none;
+    width: 100%;
+    border-bottom: var(--blue-button) solid 2px;
+    background-color: #e4e4e4;
+    padding: 0.3rem;
+  }
+  select {
+    border: none;
+    width: 100%;
+    border-bottom: var(--blue-button) solid 2px;
+    background-color: #f7f7f7;
+    padding: 0.4rem;
+  }
+  .title2 {
+    margin-top: 1rem;
+    color: #686868;
+  }
+  .title3 {
+    margin-top: 1.5rem;
+    color: #686868;
+  }
+  .title4 {
+    margin-top: 2rem;
+    color: #686868;
+  }
+  .input {
+    text-align: center;
+    border: none;
+    width: 100%;
+    border-bottom: var(--blue-button) solid 2px;
+    background-color: #e4e4e4;
+    padding: 0.3rem;
+  }
+  .status {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #686868;
+    .selesai {
+      width: 49.5%;
+      padding: 0.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .onprogress {
+      width: 49.5%;
+      padding: 0.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .action {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    .btn-cancel {
+      border: 1px solid black;
+      background-color: white;
+      border-radius: 5px;
+      font-size: small;
+      cursor: pointer;
+      width: 20%;
+      height: 2.5rem;
+      text-align: center;
+      border-color: var(--blue-button);
+    }
+    .btn-submit {
+      background-color: var(--blue-button);
+      width: 77%;
+      height: 2.5rem;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+  }
+}

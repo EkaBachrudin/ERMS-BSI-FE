@@ -1,0 +1,72 @@
+<div class="kantor-pusat">
+  <div class="head">
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Cari" [(ngModel)]="searchText"/>
+ 
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </label>
+    </div>
+    <button class="btn-key-control-add" style="display: none;">
+      <p>+</p>
+      KEY RISK
+    </button>
+  </div>
+  <table style="width: 100%" aria-hidden="true">
+    <thead>
+      <th>No.</th>
+      <th style="width: 30%;text-align: left;">Key Process</th>
+      <th style="text-align: left;">Key Risk</th>
+      <th>Status</th>
+      <th style="display: none;">Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of keyRisk| searchFilterMulti: 'kr_name':searchText; let i = index">
+        <td>{{(currentPage*pageSize) + i + 1 }}</td>
+        <td style="text-align: left;">{{ item.kp_name }}</td>
+        <td style="text-align: left;">{{ item.kr_name }}</td>
+        <td class="approved" *ngIf="item.status === statusApprove; else reject">
+          <div class="status">
+            <strong>{{ item.status }}</strong>
+          </div>
+        </td>
+        <ng-template #reject>
+          <td
+            class="rejected"
+            *ngIf="item.currentStatus === statusReject; else waiting"
+          >
+            <div class="status">
+              <strong>{{ item.status }}</strong>
+            </div>
+          </td>
+        </ng-template>
+        <ng-template #waiting>
+          <td class="approved">
+            <div class="status">
+              <strong style=" text-transform: uppercase;">{{ item.currentStatus }} <u></u> </strong>
+            </div>
+          </td>
+        </ng-template>
+        <td style="display: none;">
+          <div class="action" *ngIf="!isApprover; else approverRisk">
+            <i class="fa fa-trash" id="trash" (click)="deleteKeyRisk()" aria-hidden="true"></i>
+            <i class="fa-solid fa-pen-to-square" id="edit" (click)="edit()" aria-hidden="true"></i>
+          </div>
+          <ng-template #approverRisk>
+            <div class="action">
+              <i class="fa fa-check" id="check" (click)="toApprove(item)" aria-hidden="true"></i>
+              <i class="fa fa-xmark" id="xmark" (click)="toReject(item)" aria-hidden="true"></i>
+            </div>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+    [length]="totalPages"
+    [pageSizeOptions]="[10, 25, 100]"
+    aria-label="Select page"
+    (page)="onPaginateChange($event)"
+  >
+  </mat-paginator>
+</div>

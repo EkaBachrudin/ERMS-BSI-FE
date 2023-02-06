@@ -1,0 +1,40 @@
+.content-modal {
+  width: 30rem;
+  height: 16rem;
+  font-size: small;
+  textarea {
+    // border: none;
+    width: 100%;
+    border-bottom: var(--button) solid 2px;
+    background-color: #f7f7f7;
+    padding: 0.4rem;
+    border-radius: 5px;
+  }
+  .action {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    .btn-cancel {
+      font-weight: 300;
+      background-color: var(--white);
+      width: 48%;
+      height: 2.5rem;
+      border: var(--button) solid 1px;
+      border-radius: 5px;
+      //   color: white;
+      cursor: pointer;
+    }
+    .btn-submit {
+      font-weight: 300;
+      background-color: var(--button);
+      width: 48%;
+      height: 2.5rem;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

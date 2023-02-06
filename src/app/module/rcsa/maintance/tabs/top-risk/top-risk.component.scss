@@ -1,0 +1,95 @@
+.MediumTohighTopRisk {
+  display: inline-block;
+  .status {
+    padding: 5px;
+    text-align: center;
+    height: auto;
+    width: 160px;
+    color: var(--approved);
+    background-color: #ff842c;
+  }
+}
+
+.HighTopRisk {
+  display: inline-block;
+  .status {
+    padding: 5px;
+    text-align: center;
+    height: auto;
+    width: 160px;
+    color: white;
+    background-color: #a10d0d;
+  }
+}
+
+.LowTopRisk {
+  display: inline-block;
+  .status {
+    padding: 5px;
+    text-align: center;
+    height: auto;
+    width: 160px;
+    color: var(--approved);
+    background-color: #0da136;
+  }
+}
+
+.LowToMediumTopRisk {
+  display: inline-block;
+  .status {
+    padding: 5px;
+    text-align: center;
+    height: auto;
+    width: 160px;
+    color: var(--approved);
+    background-color: #74d99c;
+  }
+}
+
+.MediumTopRisk {
+  display: inline-block;
+  .status {
+    padding: 5px;
+    text-align: center;
+    height: auto;
+    width: 160px;
+    color: var(--approved);
+    background-color: #fedb21;
+  }
+}
+
+mat-select {
+  height: auto;
+  width: 160px;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+th.mat-header-cell {
+  background-color: transparent;
+}
+
+.mat-column-Control {
+  text-align: center;
+}
+
+.mat-column-Ihrr {
+  text-align: center;
+}
+.mat-column-KeyRisk {
+  text-align: center;
+}
+.mat-column-ihrr25 {
+  text-align: center;
+}
+.mat-column-Composite {
+  text-align: center;
+}
+
+th::first-letter{
+  text-transform: uppercase;
+}
+td::first-letter{
+  text-transform: uppercase;
+}

@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+table tr:nth-child(odd) {
+    background-color: #d1f3f3;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.strongComposite {
+    display: inline-block;
+
+    .ratingComposite {
+        font-family: 'Inter', sans-serif;
+        margin: auto;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        padding: 4px 0;
+        text-align: center;
+        background-color: #0DA136;
+        border-radius: 6px;
+    }
+}
+
+.satisfactoryComposite {
+    display: inline-block;
+
+    .ratingComposite {
+        font-family: 'Inter', sans-serif;
+        margin: auto;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        padding: 4px 0;
+        text-align: center;
+        background-color: #74D99C;
+        border-radius: 6px;
+    }
+}
+
+.fairComposite {
+    display: inline-block;
+
+    .ratingComposite {
+        font-family: 'Inter', sans-serif;
+        margin: auto;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        padding: 4px 0;
+        text-align: center;
+        background-color: #FEDB21;
+        border-radius: 6px;
+    }
+}
+
+
+.approvedComposite {
+    display: inline-block;
+
+    .statusComposite {
+        font-family: 'Inter', sans-serif;
+        margin: auto;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        text-align: center;
+        color: var(--approved);
+        border-radius: 6px;
+        background-color: var(--bg-approved);
+    }
+}
+
+.rejectedComposite {
+    display: inline-block;
+
+    .statusComposite {
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        color: var(--white);
+        border-radius: 6px;
+        background-color: var(--bg-rejected);
+    }
+}
+
+.waitingComposite {
+    display: inline-block;
+
+    .statusComposite {
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        color: var(--waiting);
+        border-radius: 6px;
+        background-color: var(--bg-waiting);
+    }
+}
+
+.draftedComposite {
+    display: inline-block;
+
+    .statusComposite {
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        color: var(--drafted);
+        border-radius: 6px;
+        background-color: var(--bg-drafted);
+    }
+}
+
+.buttonDialogClose {
+    background-color: #51ce74;
+    width: 100%;
+}
+
+.DialogExample {
+    text-align: center;
+}
+
+.greenRC {
+    display: inline-block;
+
+    .statusRating {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        border-radius: 6px;
+        color: Black;
+        background-color: #0da136;
+    }
+}
+
+.green-lightRC {
+    display: inline-block;
+    .statusRating {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        border-radius: 6px;
+        color: Black;
+        background-color: #74d99c;
+    }
+}
+
+.yellowRC {
+    display: inline-block;
+    .statusRating {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        border-radius: 6px;
+        color: Black;
+        background-color: #fedb21;
+    }
+}
+
+.orangeRC {
+    display: inline-block;
+    .statusRating {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        border-radius: 6px;
+        color: Black;
+        background-color: #ff842c;
+    }
+}
+
+.redRC {
+    display: inline-block;
+    .statusRating {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        width: 150px;
+        height: 33px;
+        line-height: 33px;
+        border-radius: 6px;
+        color: Black;
+        background-color: #a10d0d;
+    }
+}

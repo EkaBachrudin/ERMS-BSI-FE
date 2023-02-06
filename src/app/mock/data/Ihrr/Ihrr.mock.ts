@@ -1,0 +1,68 @@
+import { IIhrr } from "src/app/models/rcsa/Ihrr/Ihrr.model";
+
+export const IhrrMock: IIhrr[] = [
+    {
+        id: 1,
+        IhrrRating: "LOW",
+        LikeLiHood: "1",
+        Impact: "1",
+        Ihrr: "1",
+        Status: "APPROVED",
+    },
+    {
+        id: 2,
+        IhrrRating: "LOW",
+        LikeLiHood: "1",
+        Impact: "2",
+        Ihrr: "2",
+        Status: "APPROVED",
+    },
+    {
+        id: 3,
+        IhrrRating: "LOW",
+        LikeLiHood: "1",
+        Impact: "2",
+        Ihrr: "3",
+        Status: "APPROVED",
+    },
+    {
+        id: 4,
+        IhrrRating: "MEDIUM",
+        LikeLiHood: "1",
+        Impact: "4",
+        Ihrr: "3",
+        Status: "APPROVED",
+    },
+    {
+        id: 5,
+        IhrrRating: "MEDIUM",
+        LikeLiHood: "1",
+        Impact: "5",
+        Ihrr: "3",
+        Status: "APPROVED",
+    },
+    {
+        id: 6,
+        IhrrRating: "LOW TO MEDIUM",
+        LikeLiHood: "2",
+        Impact: "1",
+        Ihrr: "2",
+        Status: "APPROVED",
+    },
+    {
+        id: 7,
+        IhrrRating: "MEDIUM",
+        LikeLiHood: "2",
+        Impact: "2",
+        Ihrr: "3",
+        Status: "APPROVED",
+    },
+    {
+        id: 8,
+        IhrrRating: "MEDIUM",
+        LikeLiHood: "2",
+        Impact: "3",
+        Ihrr: "3",
+        Status: "APPROVED",
+    },
+];

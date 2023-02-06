@@ -1,0 +1,97 @@
+<div style="background-color: #f1f1f1; padding-top: 0.2rem">
+  <div class="key-control">
+    <div class="list-action-key-control">
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </label>
+      </div>
+      <button *ngIf="!isApprover" style="display: none">
+        <p>+</p>
+        ADD KEY CONTROL
+      </button>
+    </div>
+    <table aria-describedby>
+      <thead>
+        <th>No.</th>
+        <th class="left">Key Risk</th>
+        <th class="left" style="width: 40%">Key Control</th>
+        <th class="status">Status</th>
+        <th style="display: none">Action</th>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of keyControlData
+              | searchFilterMulti : 'name' : searchText;
+            let i = index
+          "
+        >
+          <td>{{ currentPage * pageSize + i + 1 }}</td>
+          <td class="left">{{ item.key_risk_name }}</td>
+          <td class="left">
+            <!-- item.name.split('\n \n') -->
+            <ol>
+              <li *ngFor=" let control of item.name.split('\n \n')" class="mb-2">
+                {{removeNumber(control.replace('.', ' '))}}
+              </li>
+            </ol>
+          </td>
+          <td
+            class="approved"
+            *ngIf="item.status === statusApprove; else reject"
+          >
+            <div class="status">
+              <strong>{{ item.status }}</strong>
+            </div>
+          </td>
+          <ng-template #reject>
+            <td
+              class="rejected"
+              *ngIf="item.status === statusReject; else waiting"
+            >
+              <div class="status">
+                <strong>{{ item.status }}</strong>
+              </div>
+            </td>
+          </ng-template>
+          <ng-template #waiting>
+            <td class="approved">
+              <div class="status">
+                <strong>APPROVED</strong>
+              </div>
+            </td>
+          </ng-template>
+          <td style="display: none">
+            <div class="action-table" *ngIf="!isApprover; else approverRisk">
+              <i class="fa fa-trash" id="trash" aria-hidden="true"></i>
+              <i
+                class="fa-solid fa-pen-to-square"
+                id="edit"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <ng-template #approverRisk>
+              <div class="action-table">
+                <i class="fa fa-check" id="check" aria-hidden="true"></i>
+                <i class="fa fa-xmark" id="xmark" aria-hidden="true"></i>
+              </div>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="footer">
+                <p id="count-page">1 - 5 of 5</p>
+                <i class="fa fa-chevron-left"></i>
+              </div> -->
+    <mat-paginator
+      [length]="totalPages"
+      [pageSizeOptions]="[10, 25, 100]"
+      aria-label="Select page"
+      (page)="onPaginateChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

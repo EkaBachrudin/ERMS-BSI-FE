@@ -1,0 +1,351 @@
+<h4 style="text-align: center" mat-dialog-title>
+  Formulir Usulan dan Keputusan Pembukaan KRO
+</h4>
+<hr />
+
+<div
+  style="overflow: auto; width: 40rem; height: 28rem; font-size: small"
+  *ngIf="testing; else bismillah"
+>
+  <p class="title1">APAKAH TERDAPAT KERUGIAN FINANCIAL</p>
+  <div class="form-group">
+    <select class="form-control" id="kerugian">
+      <option value="TIDAK TERDAPAT KERUGIAN FINANCIAL">
+        TIDAK TERDAPAT KERUGIAN FINANCIAL
+      </option>
+      <option value="TERDAPAT KERUGIAN FINANCIAL">
+        TERDAPAT KERUGIAN FINANCIAL
+      </option>
+      <option value="TERDAPAT KERUGIAN FINANCIAL DAN NON FINANCIAL">
+        TERDAPAT KERUGIAN FINANCIAL DAN NON FINANCIAL
+      </option>
+    </select>
+  </div>
+  <p style="margin-top: 1rem">APAKAH TEDAPAT RECOVERY</p>
+  <div class="form-group">
+    <select class="form-control" id="recovery">
+      <option value="TIDAK TERDAPAT RECOVERY">TIDAK TERDAPAT RECOVERY</option>
+      <option value="TERDAPAT RECOVERY">TERDAPAT RECOVERY</option>
+    </select>
+  </div>
+  <div class="title2">
+    <p style="margin-right: 4em">FORM KERUGIAN</p>
+    <hr />
+  </div>
+  <!-- Ini di comment kalo pake checkbox -->
+  <p style="margin-top: 1rem">KERUGIAN KARENA</p>
+  <div class="form-group">
+    <select class="form-control" id="recovery">
+      <option>Proses Internal</option>
+      <option>Manusia</option>
+    </select>
+  </div>
+
+  <p style="margin-top: 1rem">KETERANGAN</p>
+  <div class="form-group">
+    <select class="form-control" id="recovery">
+      <option>Volume Transaksi</option>
+      <option>Kelalaian</option>
+    </select>
+  </div>
+  <!-- Ini di comment kalo pake checkbox ^^^^ -->
+
+  <!-- <div class="input1">
+    <input type="checkbox" />
+    <p>
+      KERUGIAN DISEBABKAN KARENA TERDAPATNYA KELEMAHAN ATAU KETIDAKCUKUPAN PADA
+      <br />
+      ASPEK PROSES INTERNAL DAN PROSEDUR PADA SETIAP AKTIVITAS BANK
+    </p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="input2">
+    <input type="checkbox" />
+    <p>
+      KERUGIAN DISEBABKAN KARENA TERDAPATNYA KELEMAHAN ATAU KETIDAKCUKUPAN PADA
+      <br />
+      ASPEK PROSES INTERNAL DAN PROSEDUR PADA SETIAP AKTIVITAS BANK
+    </p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <hr style="background-color: #000000" />
+  <div class="input1">
+    <input type="checkbox" />
+    <p>
+      KERUGIAN DISEBABKAN KARENA TERDAPATNYA KELEMAHAN ATAU KETIDAKCUKUPAN PADA
+      <br />
+      ASPEK PROSES INTERNAL DAN PROSEDUR PADA SETIAP AKTIVITAS BANK
+    </p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="input2">
+    <input type="checkbox" />
+    <p>
+      KERUGIAN DISEBABKAN KARENA TERDAPATNYA KELEMAHAN ATAU KETIDAKCUKUPAN PADA
+      <br />
+      ASPEK PROSES INTERNAL DAN PROSEDUR PADA SETIAP AKTIVITAS BANK
+    </p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <div class="check">
+    <input type="checkbox" />
+    <p>KETIDAKCUKUPAN PROSEDUR/KETENTUAN</p>
+  </div>
+  <hr style="background-color: #000000" /> -->
+</div>
+<label for="menyetujui" *ngIf="!testing">
+  <input type="checkbox" />
+  <p>Dengan ini saya meyakini untuk submit LED</p>
+</label>
+<div class="action">
+  <button class="btn-cancel" (click)="cancelAdd()">
+    <strong>CANCEL</strong>
+  </button>
+  <button class="btn-submit" (click)="changePages()">
+    <strong>NEXT</strong>
+  </button>
+</div>
+
+<ng-template #bismillah>
+  <div style="overflow: auto; width: 40rem; height: 25rem; font-size: small">
+    <p class="title1">UNIT</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <select class="form-control" id="unit">
+        <option value="KANTOR PUSAT">KANTOR PUSAT</option>
+      </select>
+    </div>
+    <p class="title1">KATEGORI BANYAK NYA TEMPAT KEJADIAN</p>
+    <div class="selectadd">
+      <div class="form-group" style="margin-bottom: 1em">
+        <select class="form-control" id="unit">
+          <option value="INDIVIDUAL ATAU MULTIPLE">
+            INDIVIDUAL ATAU MULTIPLE
+          </option>
+        </select>
+      </div>
+      <!-- <p>+</p> -->
+    </div>
+    <p class="title1">RISK ISSUE</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <select class="form-control" id="unit">
+        <option>Pencatatan</option>
+        <option value="">Phising</option>
+        <option value="">Skimming</option>
+        <option value="">Rekening Terduga Penipuan</option>
+        <option value="">Phising</option>
+        <option value="">Pencurian Kas</option>
+        <option value="">Kerusakan Aset Karena Kecelakaan</option>
+        <option value="">Cyber Crime</option>
+        <option value="">Kerusakan Aset Karena Bencana Alam</option>
+      </select>
+    </div>
+    <p class="title1">LOSS EVENT TYPE</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <select class="form-control" id="unit">
+        <option>Kecurangan Intern</option>
+      </select>
+    </div>
+    <p class="title1">DAMPAK FINANCIAL</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <select class="form-control" id="unit">
+        <option>Reputational Damage (Penurunan Reputasi)</option>
+        <option value="">Loss of recourse (Hilangnya hak regress)</option>
+        <option value="">Restitution (Restitusi)</option>
+        <option value="">
+          Legal Liability (Keputusan dan penyelesaian hukum)
+        </option>
+        <option value="">
+          Regulatory and compilance (Peraturan dan kepatuhan)
+        </option>
+        <option value="">
+          Loss or damage to assets (Kerugian atau kerusakan asset fisik)
+        </option>
+        <option value="">Reputational Damage (Penurunan Reputasi)</option>
+      </select>
+    </div>
+    <p class="title1">DAMPAK NON FINANCIAL</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <select class="form-control" id="unit">
+        <option>Reputational Damage (Penurunan Reputasi)</option>
+        <option value="">Regulatory Action (Sanksi Regulator)</option>
+      </select>
+    </div>
+    <div class="title3">
+      <p>IDENTIFIKASI PERISTIWA</p>
+      <hr />
+    </div>
+    <p class="title1">NOMINAL KERUGIAN</p>
+    <div class="form-group" style="margin-bottom: 1em">
+      <input
+        type="number"
+        name="nominalkerugian"
+        id="nominalkerugian"
+        class="form-control"
+        placeholder="Rp"
+      />
+    </div>
+    <div class="group-input">
+      <div class="kewajiban" style="margin-bottom: 1em">
+        <p>KEWAJIBAN HUKUM ( JIKA ADA )</p>
+        <input type="number" class="form-control" />
+      </div>
+      <div class="keterangan">
+        <p>KETERANGAN</p>
+        <input type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="group-input" style="margin-top: 1rem; margin-bottom: 1em">
+      <div class="kewajiban">
+        <p>RECOVERY</p>
+        <input type="number" class="form-control" placeholder="Rp" />
+      </div>
+      <div class="keterangan">
+        <p>KERUGIAN BERSIH</p>
+        <input type="number" class="form-control" placeholder="Rp" />
+      </div>
+    </div>
+    <div class="group-input">
+      <div class="kewajiban">
+        <p>TANGGAL PERTAMA KEJADIAN</p>
+        <input type="date" class="form-control" />
+      </div>
+      <div class="keterangan">
+        <p>TANGGAL TERDETEKSI</p>
+        <input type="date" class="form-control" />
+      </div>
+    </div>
+    <p class="title1" style="margin-top: 1rem">PENYEBAB KEJADIAN</p>
+    <div class="form-group">
+      <input type="text" name="penyebab" id="penyebab" class="form-control" />
+      <!-- <input
+        type="text"
+        name="penyebab"
+        id="penyebab"
+        class="form-control"
+        style="margin-top: 1rem"
+      /> -->
+    </div>
+    <p class="title1" style="margin-top: 1rem">
+      PENJELASAN PENYEBAB SECARA SPESIFIK
+    </p>
+    <div class="form-group">
+      <textarea
+        name="penjelasanpenyebab"
+        id="penjelasanpenyebab"
+        cols="13"
+        rows="4"
+        class="form-control"
+      ></textarea>
+    </div>
+    <p class="title1" style="margin-top: 1rem">DESKRIPSI KEJADIAN</p>
+    <div class="form-group">
+      <textarea
+        name="deskripsiKejadian"
+        id="deskripsiKejadian"
+        cols="13"
+        rows="4"
+        class="form-control"
+      ></textarea>
+    </div>
+    <!-- <div class="title3">
+      <p>USULAN</p>
+    </div>
+    <p class="title1">LOSS EVENT TYPE</p>
+    <div class="form-group">
+      <input type="text" name="lossevent" id="lossevent" class="form-control" />
+    </div>
+    <p class="title1">GL KRO</p>
+    <div class="form-group">
+      <input type="text" name="glkro" id="glkro" class="form-control" />
+      <textarea
+        name="glkroarea"
+        id="glkroarea"
+        cols="13"
+        rows="4"
+        class="form-control"
+        style="margin-top: 1rem"
+      ></textarea>
+    </div>
+    <div class="title3">
+      <p>UNIT KERJA PEMBINA SISTEM</p>
+    </div>
+    <div class="form-group">
+      <select class="form-control" id="pembina">
+        <option value="">RBC MANAGER</option>
+      </select>
+    </div>
+    <div class="title3">
+      <p>VERIFIKATOR</p>
+    </div>
+    <div class="selectadd">
+      <div class="form-group">
+        <select class="form-control" id="unit">
+          <option value="">FRAUD</option>
+        </select>
+      </div>
+      <p>+</p>
+    </div>
+    <div class="selectadd">
+      <div class="form-group">
+        <select class="form-control" id="unit">
+          <option value="">RBC MANAGER</option>
+        </select>
+      </div>
+    </div>
+    <div class="title3">
+      <p>PILIH PEMUTUS</p>
+    </div>
+    <div class="selectadd">
+      <div class="form-group">
+        <select class="form-control" id="unit">
+          <option value="">PEMASARAN</option>
+        </select>
+      </div>
+      <p>+</p>
+    </div>
+    <p class="title1" style="margin-top: 1rem">UPLOAD DOKUMEN TAMBAHAN</p>
+    <div class="form-group">
+      <input class="form-control" type="file" id="formFileMultiple" multiple />
+    </div> -->
+  </div>
+</ng-template>

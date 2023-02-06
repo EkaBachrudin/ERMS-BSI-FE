@@ -1,0 +1,67 @@
+<div class="content-modal">
+  <h6 mat-dialog-title>Setting Impact</h6>
+  <div style="
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      margin-top: 2rem;
+    ">
+    <div style="flex-direction: column; display: flex; width: 75%">
+      <p>Score Description</p>
+      <input type="text" style="padding: 0.3rem; border-radius: 4px" value="{{temporarys.Rating}}" />
+    </div>
+    <div style="flex-direction: column; display: flex; width: 20%">
+      <p>Level Score</p>
+      <mat-form-field>
+        <mat-select [(ngModel)]="temporarys.Score">
+          <mat-option value="{{temporarys.Score}}">{{temporarys.Score}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <p style="margin-top: 1rem">Financial Factors</p>
+  <input type="text" style="width: 100%; padding: 0.3rem; border-radius: 4px" value="{{temporarys.Detail.Financial}}" />
+  <div style="
+      width: 100%;
+      padding: 0.3rem;
+      border-radius: 4px;
+      margin-top: 0.6rem;
+      background-color: #224957;
+      color: var(--white);
+      text-align: center;
+    ">
+    ADD FINANCIAL FACTORS
+  </div>
+  <p style="margin-top: 2rem">Non-Financial Factors</p>
+  <select name="" id="" style="width: 100%; padding: 0.4rem; border-radius: 4px">
+    <option value="">Choose or Create Type Factor</option>
+  </select>
+  <input type="text" style="width: 100%; padding: 0.3rem; border-radius: 4px; margin-top: 0.6rem" />
+  <hr />
+  <select name="" id="" style="width: 100%; padding: 0.4rem; border-radius: 4px">
+    <option value="">Choose or Create Type Factor</option>
+  </select>
+  <input type="text" style="width: 100%; padding: 0.3rem; border-radius: 4px; margin-top: 0.6rem" />
+  <div style="
+      width: 100%;
+      padding: 0.3rem;
+      border-radius: 4px;
+      margin-top: 0.6rem;
+      background-color: #224957;
+      color: var(--white);
+      text-align: center;
+    ">
+    ADD NON-FINANCIAL FACTORS
+  </div>
+  <button style="
+      width: 100%;
+      background-color: var(--blue-button);
+      padding: 0.4rem;
+      color: var(--white);
+      border: none;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+    " (click)="submit()">
+    SAVE
+  </button>
+</div>

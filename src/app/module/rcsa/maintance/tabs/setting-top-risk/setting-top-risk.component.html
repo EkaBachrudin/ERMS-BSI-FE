@@ -1,0 +1,49 @@
+<div class="setting-top-risk-content">
+  <div class="setting-top-risk">
+    <table aria-describedby>
+      <thead>
+        <th class="left">SETTING</th>
+        <th class="left">Nilai</th>
+        <th>Status</th>
+        <th style="display: none;">Action</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>JUMLAH TOP RISK ALL GROUP</td>
+          <td>-</td>
+          <td class="approved">
+            <div class="status">
+              <strong>APPROVED</strong>
+            </div>
+          </td>
+          <td style="display: none;">
+              <div class="action-table">
+                  <i class="fa-solid fa-gear" aria-hidden="true"></i>
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td>JUMLAH TOP RISK PER GROUP</td>
+          <td>5</td>
+          <td class="approved">
+            <div class="status">
+              <strong>APPROVED</strong>
+            </div>
+          </td>
+          <td style="display: none;">
+              <div class="action-table">
+                  <i class="fa-solid fa-gear" aria-hidden="true"></i>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+      [length]="1"
+      [pageSize]="10"
+      aria-label="Select page"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </div>
+</div>

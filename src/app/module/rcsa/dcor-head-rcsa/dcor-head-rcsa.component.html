@@ -1,0 +1,340 @@
+<app-content>
+  <ng-container content>
+    <div class="dcor-head-rcsa-content">
+      <div class="head-dcor-head-rcsa">
+        <div class="list-action">
+          <div class="unit">
+            <p>Status</p>
+            <select name="select-unit" id="select-unit">
+              <option value="">All</option>
+              <option value="">DRAFTED</option>
+              <option value="">WAITING FOR APPROVAL</option>
+              <option value="">WAITING FOR CHECKED</option>
+              <option value="">APPROVED</option>
+              <option value="">REJECTED</option>
+            </select>
+          </div>
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Cari" />
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </label>
+          </div>
+        </div>
+        <!--        <div class="action-button">-->
+        <!--          <button class="approve">APPROVE</button>-->
+        <!--          <button class="rejected">REJECTED</button>-->
+        <!--        </div>-->
+      </div>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="isloading == true; else showData"
+      ></mat-progress-bar>
+      <ng-template #showData>
+        <div class="data-dcor-head-rcsa">
+          <table aria-describedby="">
+            <thead>
+              <th><input type="checkbox" /></th>
+              <th>No.</th>
+              <th>GROUP</th>
+              <th>IHRR</th>
+              <th>Control</th>
+              <th>Composite</th>
+              <th>Periode</th>
+              <th>Status</th>
+              <th style="text-align: left; width: 6rem">Action</th>
+            </thead>
+            <tbody
+              *ngFor="let element of dataSource; let i = index"
+              [attr.data-index]="i"
+            >
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>{{ currentPage.Dcor * pageSize.Dcor + i + 1 }}</td>
+                <td>{{ element.group_name }}</td>
+                <td>
+                  <div
+                    *ngIf="element.ihrr; else ihrr"
+                    [ngClass]="{
+                      green: Math.trunc(element.ihrr) === 1,
+                      'green-light': Math.trunc(element.ihrr) === 2,
+                      yellow: Math.trunc(element.ihrr) === 3,
+                      orange: Math.trunc(element.ihrr) === 4,
+                      red: Math.trunc(element.ihrr) === 5
+                    }"
+                  >
+                    <span>{{ element.ihrr | number : "1.2" }}</span>
+                  </div>
+                  <ng-template #ihrr>
+                    <span> - </span>
+                  </ng-template>
+                </td>
+                <td>
+                  <div
+                    *ngIf="element.control; else control"
+                    [ngClass]="{
+                      green: Math.trunc(element.control) === 1,
+                      'green-light': Math.trunc(element.control) === 2,
+                      yellow: Math.trunc(element.control) === 3,
+                      orange: Math.trunc(element.control) === 4,
+                      red: Math.trunc(element.control) === 5
+                    }"
+                  >
+                    <span>{{ element.control | number : "1.2" }}</span>
+                  </div>
+                  <ng-template #control>
+                    <span>-</span>
+                  </ng-template>
+                </td>
+                <td>
+                  <div
+                    *ngIf="element.composite; else composite"
+                    [ngClass]="{
+                      green: Math.trunc(element.composite) === 1,
+                      'green-light': Math.trunc(element.composite) === 2,
+                      yellow: Math.trunc(element.composite) === 3,
+                      orange: Math.trunc(element.composite) === 4,
+                      red: Math.trunc(element.composite) === 5
+                    }"
+                  >
+                    <span>{{ element.composite | number : "1.2" }}</span>
+                  </div>
+                  <ng-template #composite>
+                    <span>-</span>
+                  </ng-template>
+                </td>
+                <td>{{ element.quarter + "/" + element.periode }}</td>
+                <td>
+                  <div
+                    *ngIf="
+                      element.currentStatus != null;
+                      else showStatusCurrent
+                    "
+                  >
+                    <div
+                      *ngIf="
+                        element.currentStatus
+                          .toLowerCase()
+                          .search('rejected ') != -1;
+                        else notRejected
+                      "
+                    >
+                      <div
+                        (click)="showNoteRejected($event, element.noted)"
+                        class="btn btn-danger btn-sm reject-btn"
+                      >
+                        <div class="status">{{ element.currentStatus }}</div>
+                      </div>
+                    </div>
+                    <ng-template #notRejected>
+                      <div
+                        [ngClass]="{
+                          approved:
+                            element.currentStatus
+                              .toLowerCase()
+                              .search('approved') != -1,
+                          waiting:
+                            element.currentStatus
+                              .toLowerCase()
+                              .search('approval') != -1
+                        }"
+                      >
+                        <div class="status">{{ element.currentStatus }}</div>
+                      </div>
+                    </ng-template>
+                  </div>
+                  <ng-template #showStatusCurrent>
+                    <span> - </span>
+                  </ng-template>
+                </td>
+                <td>
+                  <div class="action-table">
+                    <em
+                      [ngClass]="{
+                        disable: element.currentStatus != 'Ready For Approval'
+                      }"
+                      class="fa fa-check"
+                      (click)="openApproved(element)"
+                      id="check"
+                    ></em>
+                    <em
+                      class="fa fa-xmark"
+                      [ngClass]="{
+                        disable: element.currentStatus != 'Ready For Approval'
+                      }"
+                      (click)="openRejected(element)"
+                      id="xmark"
+                    ></em>
+
+                    <em
+                      class="fa fa-eye"
+                      id="eye"
+                      (click)="showDataView(element)"
+                    ></em>
+                    <em
+                      class="fa fa-chevron-down"
+                      id="downDcorHeadRcsa"
+                      (click)="expandByID(element.id)"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#expandDcorHeadRcsa' + i"
+                      aria-expanded="false"
+                      aria-controls="expandDcorHeadRcsa"
+                    ></em>
+                  </div>
+                </td>
+              </tr>
+              <tr class="collapse" [attr.id]="'expandDcorHeadRcsa' + i">
+                <td colspan="9" class="expand">
+                  <mat-progress-bar
+                    mode="indeterminate"
+                    *ngIf="isloading2 == true; else showExpand"
+                  ></mat-progress-bar>
+                  <ng-template #showExpand>
+                    <div class="expandData">
+                      <table>
+                        <thead>
+                          <th>No.</th>
+                          <th>Key Process</th>
+                          <th>Key Risk Issue</th>
+                          <th>Key Control</th>
+                          <th>Ketentuan</th>
+                          <th>IHRR</th>
+                          <th>Control</th>
+                          <th>Composite</th>
+                        </thead>
+                        <tbody
+                          aria-describedby="expand"
+                          *ngFor="let Details of dataRcsaByID; let o = index"
+                          [attr.data-index]="o"
+                        >
+                          <tr>
+                            <td>
+                              {{
+                                currentPage.RcsaByID * pageSize.RcsaByID + o + 1
+                              }}
+                            </td>
+                            <td>{{ Details.keyprocess }}</td>
+                            <td style="text-align: left">
+                              {{ Details.keyrisk }}
+                            </td>
+                            <td style="text-align: left;">
+                              <ol>
+                                <li *ngFor=" let control of Details.keycontrol.split('\n \n')" class="mb-2">
+                                  {{removeNumber(control.replace('.', ' '))}}
+                                </li>
+                              </ol>
+                            </td>
+                            <td>
+                              <Strong>{{ Details.ketentuan }}</Strong>
+                              <div *ngFor="let desc of Details.descriptionItem">
+                                <p>{{ desc.description }}</p>
+                              </div>
+                            </td>
+                            <td>
+                              <div
+                                class="text-center"
+                                *ngIf="Details.ihrr === null; else showIhrr"
+                              >
+                                <span>-</span>
+                              </div>
+                              <ng-template #showIhrr>
+                                <div
+                                  class="text-center"
+                                  [ngClass]="{
+                                    green: Details.ihrr === 1,
+                                    'green-light': Details.ihrr === 2,
+                                    yellow: Details.ihrr === 3,
+                                    orange: Details.ihrr === 4,
+                                    red: Details.ihrr === 5
+                                  }"
+                                >
+                                  <span>{{ Details.ihrr }}</span>
+                                </div>
+                              </ng-template>
+                            </td>
+                            <td>
+                              <div
+                                class="text-center"
+                                *ngIf="
+                                  Details.control === null;
+                                  else showControl
+                                "
+                              >
+                                <span>-</span>
+                              </div>
+                              <ng-template #showControl>
+                                <div
+                                  [ngClass]="{
+                                    green: Details.control === 1,
+                                    'green-light': Details.control === 2,
+                                    yellow: Details.control === 3,
+                                    orange: Details.control === 4,
+                                    red: Details.control === 5
+                                  }"
+                                >
+                                  <span>{{ Details.control }}</span>
+                                </div>
+                              </ng-template>
+                            </td>
+                            <td>
+                              <div
+                                class="text-center"
+                                *ngIf="Details.rating === null; else showRating"
+                              >
+                                <span>-</span>
+                              </div>
+                              <ng-template #showRating>
+                                <div
+                                  [ngClass]="{
+                                    green: Details.rating === 1,
+                                    'green-light': Details.rating === 2,
+                                    yellow: Details.rating === 3,
+                                    orange: Details.rating === 4,
+                                    red: Details.rating === 5
+                                  }"
+                                >
+                                  <span>{{ Details.rating }}</span>
+                                </div>
+                              </ng-template>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <mat-paginator
+                        [length]="totalPage.RcsaByID"
+                        [pageSizeOptions]="[10, 25, 100]"
+                        (page)="onPageChange($event, element.id, 'RcsaByID')"
+                      ></mat-paginator>
+                    </div>
+                  </ng-template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <mat-paginator
+            [length]="totalPage.Dcor"
+            [pageSizeOptions]="[10, 25, 100]"
+            (page)="onPageChange($event, '', 'Dcor')"
+          ></mat-paginator>
+        </div>
+      </ng-template>
+    </div>
+  </ng-container>
+</app-content>

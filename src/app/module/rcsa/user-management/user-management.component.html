@@ -1,0 +1,293 @@
+<app-content>
+  <ng-container content>
+    <mat-tab-group>
+      <mat-tab label="UNIT KERJA"
+        ><div
+          style="background-color: #f1f1f1; padding-top: 0.2rem"
+        >
+          <div class="head-unit-kerja">
+            <div class="list-action">
+              <div class="kantor-pusat">
+                <p>Kantor Pusat</p>
+                <div class="tabs">
+                  <div
+                    class="active"
+                    id="direktoratUserManagement"
+                    (click)="changeDirektorat()"
+                  >
+                    <div class="num"><strong>{{directorateTotalRow}}</strong></div>
+                    Directorat
+                  </div>
+                  <div
+                    class="nonActive"
+                    id="groupUserManagement"
+                    (click)="changeGroup()"
+                  >
+                    <div class="num"><strong>{{groupTotalRow}}</strong></div>
+                    Group
+                  </div>
+                  <div
+                    class="nonActive"
+                    id="departmentUserManagement"
+                   (click)="changeDepartment()"
+                  >
+                    <div class="num"><strong>{{departmentTotalRow}}</strong></div>
+                    Department
+                  </div>
+                </div>
+              </div>
+              <div class="jaringan" style="display: none">
+                <p>Jaringan</p>
+                <div class="tabs-jaringan">
+                  <div
+                    class="nonActive"
+                    id="regionUserManagement"
+
+                  >
+                    <div class="num"><strong>10</strong></div>
+                    Region
+                  </div>
+                  <div
+                    class="nonActive"
+                    id="areaUserManagement"
+
+                  >
+                    <div class="num"><strong>44</strong></div>
+                    Area
+                  </div>
+                  <div
+                    class="nonActive"
+                    id="cabangUserManagement"
+
+                  >
+                    <div class="num"><strong>123</strong></div>
+                    Cabang
+                  </div>
+                  <div
+                    class="nonActive"
+                    id="segmenUserManagement"
+
+                  >
+                    <div class="num"><strong>8</strong></div>
+                    Segmen
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="data-unit-kerja" *ngIf="direktoratUser">
+           <app-directorate (onDepartmentChange)="doSomething($event)"></app-directorate>
+          </div>
+          <div class="data-unit-kerja" *ngIf="group">
+            <app-group></app-group>
+          </div>
+          <div *ngIf="departmentUser">
+            <app-user-department></app-user-department>
+          </div>
+          <div *ngIf="region">
+            <app-user-region></app-user-region>
+          </div>
+          <div *ngIf="area">
+            <app-user-area></app-user-area>
+          </div>
+          <div *ngIf="cabang">
+            <app-user-cabang></app-user-cabang>
+          </div>
+          <div *ngIf="segmen">
+            <app-user-segmen></app-user-segmen>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="ROLE">
+        <div class="content">
+          <tabset type="pills">
+            <div class="tab">
+              <button
+                id="kantorPusatKeyProcess"
+                class="active"
+              >
+                OPERATIONAL RISK
+              </button>
+            </div>
+            <div class="role-operasional-risk">
+              <div class="head">
+                <div class="search">
+                  <label>
+                    <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                  </label>
+                </div>
+                <button class="btn-add" (click)="role()" style="display: none;">
+                  <p>+</p>
+                  ADD ROLE
+                </button>
+              </div>
+              <table aria-describedby>
+                <thead>
+                  <th>No.</th>
+                  <th style="text-align: left">Role</th>
+                  <th style="display: none;">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of rowsRole | searchFilterMulti: 'name':searchText;let i = index">
+                    <td>{{i + 1 }}</td>
+                    <td style="text-align: left">{{ item.name }}</td>
+                    <td class="approved">
+                    </td>
+                    <td style="display: none">
+                      <div class="action-table">
+                        <i
+                          class="fa fa-trash"
+                          id="trash"
+                          [hidden]="isApprover"
+                          aria-hidden="true"
+                        ></i
+                        ><i
+                          class="fa-solid fa-pen-to-square"
+                          id="edit"
+                          [hidden]="isApprover"
+                          aria-hidden="true"
+                        ></i>
+                        <i
+                          class="fa fa-check"
+                          id="check"
+                          (click)="approve(item, 'APPROVED')"
+                          *ngIf="isApprover"
+                          aria-hidden="true"
+                        ></i>
+                        <i
+                          class="fa fa-xmark"
+                          id="xmark"
+                          (click)="approve(item, 'REJECTED')"
+                          *ngIf="isApprover"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <mat-paginator
+                    [length]="0"
+                    [pageSize]="20"
+                    aria-label="Select page"
+                    showFirstLastButtons
+            >
+            </mat-paginator>
+            </div>
+          </tabset>
+        </div>
+      </mat-tab>
+      <mat-tab label="USER">
+
+        <div
+          style="background-color: #f1f1f1; height: 100vh; padding-top: 0.2rem"
+        >
+          <div class="user">
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </label>
+              </div>
+              <button class="btn-add" (click)="user()">
+                <p>+</p>
+                ADD USER
+              </button>
+            </div>
+            <table aria-describedby>
+              <thead>
+                <th>No.</th>
+                <th>Email</th>
+                <th>NIP</th>
+                <th>Nama Lengkap</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th style="text-align: left">Action</th>
+              </thead>
+              <tbody *ngFor="let item of rowsUser  | searchFilterMulti: 'nip':searchText; index as i">
+                <tr>
+                  <td>{{(currentPage.user*pageSize.user) +  i + 1 }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.nip }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.jabatan }}</td>
+
+                  <td [ngClass]="{
+                      drafted: item.status == 'DRAFTED',
+                      approved: item.status == 'APPROVED',
+                      rejected: item.status == 'REJECTED'
+                    }" style="display: none">
+                    <div class="status">
+                      <strong>APPROVED</strong>
+                    </div>
+                  </td>
+                  <td class="approved">
+                    <div class="status">
+                      <strong>APPROVED</strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-table" *ngIf="!isApprover; else approverRisk">
+                      <em class="fa fa-chevron-down" id="user{{ item.id }}" type="button" data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#collapseExample' + item.id" aria-expanded="false" aria-controls="collapseExample"
+                        style="margin-left: 2rem" (click)="expand(item.id)"></em>
+                    </div>
+                    <ng-template #approverRisk>
+                      <div class="action-table">
+                        <em class="fa fa-check" id="check" (></em>
+                        <em class="fa fa-xmark" id="xmark"></em>
+                        <em class="fa fa-chevron-down" id="testa" type="button" data-bs-toggle="collapse"
+                          [attr.data-bs-target]="'#collapseExample' + item.id" aria-expanded="false" aria-controls="collapseExample"
+                          style="margin-left: 2rem" (click)="expand(item.id)"></em>
+                      </div>
+                    </ng-template>
+                  </td>
+                </tr>
+                <tr class="collapse" [attr.id]="'collapseExample' + item.id">
+                      <td colspan="7">
+                        <table style="font-size: 15px">
+                          <thead>
+                            <th>Operational Risk</th>
+                            <th>Risk Intergration</th>
+                            <th>Market Risk</th>
+                            <th>Unit Kerja</th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of item.rolesDetails; index as i">
+                              <td>
+                                <span *ngIf="item.modul == 'oprisk'; else noOprisk ">{{item.rolesInitial}}</span>
+                                <ng-template #noOprisk> - </ng-template>
+                              </td>
+                              <td>
+                                <span *ngIf="item.modul == 'Ri'; else noRi ">{{item.rolesInitial}}</span>
+                                <ng-template #noRi> - </ng-template>
+                              </td>
+                              <td>
+                                <span *ngIf="item.modul == 'market_risk'; else noMarket ">{{item.rolesInitial}}</span>
+                                <ng-template #noMarket> - </ng-template>
+                              </td>
+                              <td>Kantor Pusat</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+              </tbody>
+            </table>
+            <mat-paginator
+                    [length]="totalPage.user"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[10, 20, 50, 100]"
+                    aria-label="Select page"
+                    showFirstLastButtons
+                    (page)="onChangePage($event, 'user')"
+            >
+    </mat-paginator>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</app-content>

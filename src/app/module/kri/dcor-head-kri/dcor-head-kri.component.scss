@@ -1,0 +1,291 @@
+.content {
+    background-color: #f1f1f1;
+    height: 100vh;
+    padding: 0.1rem;
+    padding-top: 1px;
+    .head {
+      height: 6rem;
+      display: flex;
+      justify-content: space-between;
+      background: #ffffff;
+      border: rgb(228, 225, 225) solid 0.1px;
+      align-items: center;
+      border-radius: 11px;
+      margin: 16px;
+      padding: 16px;
+      font-size: small;
+      .list-action {
+        display: flex;
+        justify-content: flex-start;
+        .periode {
+          margin-left: 0.8rem;
+        }
+        .periode p {
+          display: flex;
+          flex-direction: column;
+          color: rgb(209, 205, 205);
+          font-size: 13px;
+        }
+        .periode #select-periode {
+          width: 7rem;
+          border: none;
+          background-color: #f7f7f7;
+          padding: 0.4rem;
+          cursor: pointer;
+        }
+        .periode #select-q {
+          margin-left: 1rem;
+          width: 4rem;
+          border: none;
+          background-color: #f7f7f7;
+          padding: 0.4rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .data {
+      background: rgb(255, 255, 255);
+      border: rgb(228, 225, 225) solid 0.1px;
+      border-radius: 11px;
+      margin: 16px;
+      padding: 6px;
+      height: 27rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .show {
+        .search {
+          background-color: #f7f7f7;
+          width: 40%;
+          padding: 0.4rem;
+          border-radius: 0.6rem;
+          margin-top: 1.5rem;
+          margin-left: 0.6rem;
+          label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+              border: none;
+              background-color: #f7f7f7;
+              width: 100%;
+              color: #b1b1b1;
+              font-size: small;
+              padding-left: 1rem;
+            }
+            i {
+              font-size: medium;
+              margin-right: 0.3rem;
+              padding-right: 1rem;
+            }
+          }
+        }
+        table {
+          margin-top: 1.5rem;
+          width: 100%;
+          font-size: 12px;
+          thead {
+            th {
+              border-bottom: rgb(228, 225, 225) solid 2px;
+              padding: 0.7rem;
+              text-align: center;
+            }
+          }
+          tbody {
+            tr {
+              border-bottom: rgb(228, 225, 225) solid 0.1px;
+              td {
+                text-align: center;
+                .action-table {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 0.7rem;
+                  #ellipsis {
+                    font-size: small;
+                    margin-top: 0.4rem;
+                    cursor: pointer;
+                  }
+                  #right {
+                    margin-left: 2rem;
+                    margin-top: 5px;
+                    cursor: pointer;
+                  }
+                }
+              }
+              .approved {
+                display: flex;
+                justify-content: center;
+                padding: 0.7rem;
+                .status {
+                  height: 1.4rem;
+                  padding: 0.2rem;
+                  width: 10rem;
+                  border-radius: 6px;
+                  color: #00a39d;
+                  text-align: center;
+                  background-color: #d9f6f5;
+                  font-weight: 500;
+                }
+              }
+
+              .waiting-for-check {
+                display: flex;
+                justify-content: center;
+                padding: 0.7rem;
+                .status {
+                  height: 1.4rem;
+                  padding: 0.2rem;
+                  width: 10rem;
+                  border-radius: 6px;
+                  color: var(--waiting);
+                  text-align: center;
+                  background-color: var(--bg-waiting);
+                  font-weight: 500;
+                }
+              }
+
+              .drafted {
+                display: flex;
+                justify-content: center;
+                padding: 0.7rem;
+                .status {
+                  height: 1.4rem;
+                  padding: 0.2rem;
+                  width: 10rem;
+                  border-radius: 6px;
+                  color: var(--drafted);
+                  text-align: center;
+                  background-color: var(--bg-drafted);
+                  font-weight: 300;
+                }
+              }
+
+              .rejected {
+                display: flex;
+                justify-content: center;
+                padding: 0.7rem;
+                .status {
+                  height: 1.4rem;
+                  padding: 0.2rem;
+                  width: 10rem;
+                  border-radius: 6px;
+                  color: var(--rejected);
+                  text-align: center;
+                  background-color: var(--bg-rejected);
+                  font-weight: 300;
+                }
+              }
+              table {
+                thead {
+                  th {
+                    border-bottom: #dcf2f1 solid 1px;
+                    background-color: #dcf2f1;
+                  }
+                }
+                tbody {
+                  tr {
+                    td {
+                      background-color: #f7f7f7;
+                      text-align: center;
+                      padding: 0.3rem;
+                      .treshold {
+                        justify-content: center;
+                        display: flex;
+                        .green {
+                          width: fit-content;
+                          padding: 0.2rem;
+                          padding-right: 1rem;
+                          padding-left: 1rem;
+                          background-color: #0da136;
+                          color: #ffffff;
+                          border-radius: 3px;
+                          margin-left: 5px;
+                          font-size: small;
+                          border: none;
+                          text-align: center;
+                        }
+                        .yellow {
+                          width: 2.5rem;
+                          padding: 0.2rem;
+                          background-color: #ffdb59;
+                          border-radius: 3px;
+                          margin-left: 5px;
+                          font-size: small;
+                          border: none;
+                        }
+                        .red {
+                          width: fit-content;
+                          padding: 0.2rem;
+                          padding-right: 1rem;
+                          padding-left: 1rem;
+                          background-color: #a10d0d;
+                          color: #ffffff;
+                          border-radius: 3px;
+                          margin-left: 5px;
+                          font-size: small;
+                          border: none;
+                          text-align: center;
+                        }
+                      }
+                      .action-table {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0.7rem;
+                        #edit {
+                          font-size: small;
+                          margin-top: 0.4rem;
+                          cursor: pointer;
+                          background-color: #00a39d;
+                          color: white;
+                          padding: 0.6rem;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      .pagination {
+        background-color: #dfebf1;
+        height: 2.5rem;
+        padding: 1rem;
+        margin-top: 0.7rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      #check {
+        background-color: #0086a3;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: x-small;
+        cursor: pointer;
+      }
+
+      #xmark {
+        background-color: #c37474;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: x-small;
+        margin-left: 3px;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    }
+  }
+  

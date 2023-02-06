@@ -1,0 +1,47 @@
+<form onsubmit="return false">
+  <div style="width: 35rem; font-size: small">
+    <h5 mat-dialog-title>Tambah Group</h5>
+    <div class="input">
+      <p>Kode Unit Kerja</p>
+      <input type="text" />
+    </div>
+    <div class="input">
+      <p>Department</p>
+      <input type="text" />
+    </div>
+    <div class="input">
+      <p>Direcktorate</p>
+      <select name="selectDirektorate" id="selectDirektorate">
+        <option value="Direktorat Manajemen Risiko">
+          Direktorat Manajemen Risiko
+        </option>
+        <option value="Direktorat Informasi dan Teknologi">
+          Direktorat Informasi dan Teknologi
+        </option>
+        <option value="Direktorat Utama">Direktorat Utama</option>
+        <option value="Direktorat Jaringan">Direktorat Jaringan</option>
+        <option value="Direktorat Bisnis">Direktorat Bisnis</option>
+        <option value="Direktorat IT">Direktorat IT</option>
+      </select>
+    </div>
+    <div class="input">
+      <p>Group</p>
+      <select name="selectDirektorate" id="selectDirektorate">
+        <option value="Direktorat Manajemen Risiko">
+          Direktorat Manajemen Risiko
+        </option>
+        <option value="Direktorat Informasi dan Teknologi">
+          Direktorat Informasi dan Teknologi
+        </option>
+        <option value="Direktorat Utama">Direktorat Utama</option>
+        <option value="Direktorat Jaringan">Direktorat Jaringan</option>
+        <option value="Direktorat Bisnis">Direktorat Bisnis</option>
+        <option value="Direktorat IT">Direktorat IT</option>
+      </select>
+    </div>
+    <div class="action-btn">
+      <button class="cancel" (click)="cancel()">Batal</button>
+      <button class="add" (click)="submit()">Tambah</button>
+    </div>
+  </div>
+</form>

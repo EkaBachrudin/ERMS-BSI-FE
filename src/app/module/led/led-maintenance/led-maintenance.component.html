@@ -1,0 +1,549 @@
+<app-content>
+  <ng-container content>
+    <div class="led-maintenance">
+      <mat-tab-group>
+        <mat-tab label="RISK ISSUE">
+          <!-- content risk issue -->
+          <div class="content-risk-issue">
+            <!-- head risk issue -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="riskIssue()" *ngIf="!isApprover">
+                <p>+</p>
+                ADD RISK ISSUE
+              </button>
+            </div>
+            <!-- end head risk issue-->
+
+            <!-- data risk issue-->
+            <div class="data">
+              <table>
+                <thead>
+                  <th style="text-align: center">No.</th>
+                  <th style="text-align: center">Risk Issue</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of riskIssueData; let i = index">
+                    <td style="text-align: center">{{ i + 1 }}</td>
+                    <td>{{ item.riskIssue }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveRiskIssue(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectRiskIssue(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data risk issue-->
+          </div>
+          <!-- end content risk issue -->
+        </mat-tab>
+        <mat-tab label="CAUSE">
+          <!-- content cause -->
+          <div class="content-cause">
+            <!-- head cause -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="cause()" *ngIf="!isApprover">
+                <p>+</p>
+                ADD CAUSE
+              </button>
+            </div>
+            <!-- end head cause -->
+
+            <!-- data cause -->
+            <div class="data">
+              <table>
+                <thead>
+                  <th>No.</th>
+                  <th>LEVEL 1</th>
+                  <th>LEVEL 2</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of causeData; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.level1 }}</td>
+                    <td>{{ item.level2 }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveCause(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectCause(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data cause -->
+          </div>
+          <!-- end content cause -->
+        </mat-tab>
+        <mat-tab label="DAMPAK FINANCIAL">
+          <!-- content dampak financial -->
+          <div class="content-dampak-financial">
+            <!-- head dampak financial -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="dampakFinancial()" *ngIf="!isApprover">
+                <p>+</p>
+                ADD DAMPAK FINANCIAL
+              </button>
+            </div>
+            <!-- end head dampak financial -->
+
+            <!-- data dampak financial -->
+            <div class="data">
+              <table>
+                <thead>
+                  <th style="text-align: center">No.</th>
+                  <th style="text-align: center">Impact</th>
+                  <th style="text-align: center">Keterangan</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dampakFinData; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.impact }}</td>
+                    <td>{{ item.keterangan }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveDampakFin(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectDampakFin(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data dampak financial -->
+          </div>
+          <!-- end content dampak financial -->
+        </mat-tab>
+        <mat-tab label="DAMPAK NON FINANCIAL">
+          <div class="content-dampak-non-financial">
+            <!-- head dampak financial -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="dampakNonFinancial()" *ngIf="!isApprover">
+                <p>+</p>
+                ADD DAMPAK NON FINANCIAL
+              </button>
+            </div>
+            <!-- end head dampak financial -->
+
+            <!-- data dampak financial -->
+            <div class="data">
+              <table>
+                <thead>
+                  <th style="text-align: center">No.</th>
+                  <th style="text-align: center">Impact</th>
+                  <th style="text-align: center">Keterangan</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dampakNonFinData; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.impact }}</td>
+                    <td>{{ item.keterangan }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveDampakNonFin(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectDampakNonFin(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data dampak financial -->
+          </div>
+          <!-- end content dampak financial -->
+        </mat-tab>
+        <mat-tab label="UNIT PEMBUKU KRO">
+          <!-- content unit pembuku -->
+          <div class="content-unit-pembuku">
+            <!-- head unit pembuku -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="unitPembukuan()" *ngIf="!isApprover">
+                <p>+</p>
+                UNIT PEMBUKU KRO
+              </button>
+            </div>
+            <!-- end head unit pembuku -->
+
+            <!-- data unit pembuku -->
+            <div class="data">
+              <table>
+                <thead>
+                  <th style="text-align: center">No.</th>
+                  <th style="text-align: center">Unit Kerja</th>
+                  <th style="text-align: center">Kewenangan</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of unitKroData; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.unit }}</td>
+                    <td>{{ item.keterangan }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveUnitKro(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectUnitKro(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data unit pembuku -->
+          </div>
+          <!-- end content unit pembuku -->
+        </mat-tab>
+        <mat-tab label="GL PEMBUKUAN KRO">
+          <!-- content unit pembuku -->
+          <div class="content-unit-pembuku">
+            <!-- head unit pembuku -->
+            <div class="head">
+              <div class="search">
+                <label>
+                  <input type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+              </div>
+              <button (click)="glPembukuanKro()" *ngIf="!isApprover">
+                <p>+</p>
+                GL PEMBUKUAN KRO
+              </button>
+            </div>
+            <!-- end head unit pembuku -->
+
+            <!-- data unit pembuku -->
+            <div class="data">
+              <table>
+                <thead>
+                  <th style="text-align: center">No.</th>
+                  <th style="text-align: center">Rekening KRO</th>
+                  <th style="text-align: center">Nomor Rekening</th>
+                  <th style="text-align: center">Rekening Recovery</th>
+                  <th style="text-align: center">Nomor Rekening</th>
+                  <th style="padding-left: 4.5rem">Status</th>
+                  <th style="text-align: center">Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of glKroData; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.rekKro }}</td>
+                    <td>{{ item.noRekKro }}</td>
+                    <td>{{ item.rekRec }}</td>
+                    <td>{{ item.noRekRec }}</td>
+                    <td
+                      class="approved"
+                      *ngIf="item.status === statusApprove; else reject"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status }}</strong>
+                      </div>
+                    </td>
+                    <ng-template #reject>
+                      <td
+                        class="rejected"
+                        *ngIf="item.status === statusReject; else waiting"
+                      >
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <ng-template #waiting>
+                      <td class="waiting">
+                        <div class="status">
+                          <strong>{{ item.status }}</strong>
+                        </div>
+                      </td>
+                    </ng-template>
+                    <td>
+                      <div
+                        class="action-table"
+                        *ngIf="!isApprover; else approverRisk"
+                      >
+                        <i class="fa fa-trash" id="trash"></i
+                        ><i class="fa-solid fa-pen-to-square" id="edit"></i>
+                      </div>
+                      <ng-template #approverRisk>
+                        <div class="action-table">
+                          <i
+                            class="fa fa-check"
+                            id="check"
+                            (click)="toApproveGlKro(item)"
+                          ></i>
+                          <i
+                            class="fa fa-xmark"
+                            id="xmark"
+                            (click)="toRejectGlKro(item)"
+                          ></i>
+                        </div>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+            <!-- end data unit pembuku -->
+          </div>
+          <!-- end content unit pembuku -->
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </ng-container>
+</app-content>

@@ -1,0 +1,63 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah Risk Issue</h6>
+  <hr />
+  <form class="p-1 pb-3" onsubmit="return false">
+    <div>
+      <p class="title">UNIT</p>
+      <input type="text" value="{{ dataRCSA.unit }}" disabled />
+      <p class="title" style="margin-top: 7px">GROUP</p>
+      <input type="text" value="{{ dataRCSA.segmentgroup }}" disabled />
+      <p class="title" style="margin-top: 7px">KEY PROCESS</p>
+      <select name="" id="" [formControl]="keyPro" (change)="onSelectedkeyPro(risk.value)">
+        <option *ngFor="let item of dataKeyPro" value="{{ item.keyPro }}">
+          {{ item.keyPro }}
+        </option>
+      </select>
+      <!-- beda -->
+      <p class="title" style="margin-top: 7px">KEY RISK</p>
+      <select name="" id="" [formControl]="keyRisk" #risk (change)="onSelectedkeyRisk(risk.value)" >
+        <option *ngFor="let item of dataKeyRisk" value="{{ item.keyRisk }}">
+          {{ item.keyRisk }}
+        </option>
+      </select>
+      <div *ngIf="keyProKeyRiskSelect">
+        <div *ngFor="let item of dataLET1">
+          <p class="title" style="margin-top: 7px">BASEL TYPE 1</p>
+          <input readonly type="text" value="{{ item.name }}" />
+        </div>
+        <p class="title" style="margin-top: 7px">BASEL TYPE 2</p>
+        <div *ngFor="let item of dataLET2">
+          <input readonly class="mb-1" type="text" value="{{ item.name }}" />
+        </div>
+          <p class="title" style="margin-top: 7px">KEY CONTROL</p>
+          <div *ngFor="let item of dataKeyCont">
+              <textarea
+                name=""
+                id=""
+                cols="68"
+                rows="3"
+                value="{{ item.name }}"
+                readonly
+              ></textarea>
+          </div>
+          <p class="title" style="margin-top: 7px">Ketentuan</p>
+          <div class="mb-3" *ngFor="let item of dataKet">
+            <input type="text" style="font-weight:bold" class="mb-1" readonly value="{{ item.ketentuan }}" />
+            <div *ngFor="let item of item.deskripsi">
+              <input class="mb-1" type="text" readonly value="{{ item.name }}" />
+            </div>
+          </div>
+      </div>
+      <!-- <input
+        type="text"
+        class="input"
+        style="margin-top: 0.7rem"
+        value="{{ dataNameKet }}"
+      /> -->
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="submit()">ADD RISK LIBRARY</button>
+    </div>
+  </form>
+</div>

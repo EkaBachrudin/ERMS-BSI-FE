@@ -1,0 +1,186 @@
+<div class="head">
+  <div class="title">
+    <p mat-dialog-title class="ps-2 title-inner"> {{nomorUrut}} - KANTOR PUSAT</p>
+    <p class="cabang">{{data.group_name}}</p>
+  </div>
+  <div class="close-btn" (click)="close()">
+    <i class="fa fa-xmark" id="xmark" aria-hidden="true">
+    </i>
+  </div>
+</div>
+<div style="font-size:small" class="table-responsive">
+  <table class="table table-hover" style="width: 150rem;">
+    <thead>
+      <th class="text-center" style="width: 10rem">KEY PROCESS</th>
+      <th class="text-center">KEY RISK</th>
+      <th class="text-center" style="width: 5rem">LIKELIHOOD</th>
+      <th class="text-center" style="width: 5rem">IMPACT</th>
+      <th class="text-center" style="width: 5rem">IHRR</th>
+      <th class="text-center" style="width: 10rem">IHRR PREDICATE</th>
+      <th class="text-center" style="width: 5rem">CONTROL</th>
+      <th class="text-center" style="width: 10rem">CONTROL RATING</th>
+      <th class="text-center" style="width: 10rem">COMPOSITE SCORE</th>
+      <th class="text-center" style="width: 15rem">COMPOSITE RATING</th>
+      <th class="text-center">KEY CONTROL</th>
+      <th class="text-center" style="width: 10rem">REFERENSI KETENTUAN</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of dataRcsaByID">
+        <td class="text-left">{{element.keyprocess}}</td>
+        <td class="text-left">{{element.keyrisk}}</td>
+        <td class="text-center">
+          <span *ngIf="element.likelihood != null else likelihood">
+            {{element.likelihood}}
+          </span>
+          <ng-template #likelihood>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <span *ngIf="element.impact != null else impact">
+            {{element.impact}}
+          </span>
+          <ng-template #impact>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <span *ngIf="element.ihrr != null else ihrr">
+            {{element.ihrr}}
+          </span>
+          <ng-template #ihrr>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <div [ngClass]="
+          {
+            'greendcor': element.ihrr === 1,
+            'green-lightdcor': element.ihrr === 2,
+            'yellowdcor': element.ihrr === 3,
+            'orangedcor': element.ihrr === 4,
+            'reddcor': element.ihrr === 5
+          }">
+            <span class="">{{findTier(element.ihrr, "Ihrr")}}</span>
+          </div>
+        </td>
+        <td class="text-center">
+          <span *ngIf="element.control != null else control">
+            {{element.control}}
+          </span>
+          <ng-template #control>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <div [ngClass]="
+          {
+            'greendcor': element.control === 1,
+            'green-lightdcor': element.control === 2,
+            'yellowdcor': element.control === 3,
+            'orangedcor': element.control === 4,
+            'reddcor': element.control === 5
+          }">
+            <span class="">{{findTier(element.control, "Control")}}</span>
+          </div>
+        </td>
+        <td class="text-center">
+          <span *ngIf="element.rating != null else rating">
+            {{element.rating}}
+          </span>
+          <ng-template #rating>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <div *ngIf="element.rating else noRating" [ngClass]="
+              {
+                'greendcor': element.rating === 1,
+                'green-lightdcor': element.rating === 2,
+                'yellowdcor': element.rating === 3,
+                'orangedcor': element.rating === 4,
+                'reddcor': element.rating === 5
+              }">
+            <span class="">{{findTier(element.rating, "Ihrr")}}</span>
+          </div>
+          <ng-template #noRating>
+            <span> - </span>
+          </ng-template>
+        </td>
+        <td style="text-align: left;">
+          <ol>
+            <li *ngFor=" let control of element.keycontrol.split('\n \n')" class="mb-2">
+              {{removeNumber(control.replace('.', ' '))}}
+            </li>
+          </ol>
+        </td>
+        <td><Strong>{{element.ketentuan}}</Strong> {{element.descriptionItem[0].description}}</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="py-2 text-center">PREDICATE (AVARAGE)</td>
+        <td class="py-2 text-center">{{data.ihrr | number : '1.2'}}</td>
+        <td colspan="2" class="py-2 text-center">0</td>
+        <td class="py-2 text-center" colspan="2">{{data.control | number : '1.2'}}</td>
+        <td class="py-2 text-center">{{data.composite | number : '1.2' }}</td>
+        <td class="py-2 text-center  p-1 px-4 w-10 rounded">
+          <div [ngClass]="
+        {
+          'greendcor': data.composite === 1,
+          'green-lightdcor': data.composite === 2,
+          'yellowdcor': data.composite === 3,
+          'orangedcor': data.composite === 4,
+          'reddcor': data.composite === 5
+        }">
+            <span class="">{{findTier(data.composite, "Ihrr")}}</span>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">AVARAGE ROUND</td>
+        <td class="py-2 text-center">-</td>
+        <td colspan="2" class="py-2 text-center">{{math.round(data.ihrr) | number : '1.2'}}</td>
+        <td class="py-2 text-center">
+          <div [ngClass]="
+        {
+          'greendcor': data.ihrr === 1,
+          'green-lightdcor': data.ihrr === 2,
+          'yellowdcor': data.ihrr === 3,
+          'orangedcor': data.ihrr === 4,
+          'reddcor': data.ihrr === 5
+        }">
+            <span class="">{{findTier(data.ihrr, "Ihrr")}}</span>
+          </div>
+        </td>
+        <td class="py-2 text-center">{{math.round(data.control ) | number : '1.2'}}</td>
+        <td class="py-2 text-center">
+          <div [ngClass]="
+        {
+          'greendcor': data.control === 1,
+          'green-lightdcor': data.control === 2,
+          'yellowdcor': data.control === 3,
+          'orangedcor': data.control === 4,
+          'reddcor': data.control === 5
+        }">
+            <span class="">{{findTier(data.control, "Control")}}</span>
+          </div>
+        </td>
+        <td class="py-2 text-center">{{math.round(data.composite ) | number : '1.2' }} </td>
+        <td class="py-2 text-center">
+          <div [ngClass]="
+        {
+          'greendcor': data.composite === 1,
+          'green-lightdcor': data.composite === 2,
+          'yellowdcor': data.composite === 3,
+          'orangedcor': data.composite === 4,
+          'reddcor': data.composite === 5
+        }">
+            <span class="">{{findTier(data.composite, "Ihrr")}}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="totalPage.RcsaByID" [pageSizeOptions]="[5, 50, 100]"
+    (page)="onPageChange($event,id, 'RcsaByID')"></mat-paginator>
+</div>

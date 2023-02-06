@@ -1,0 +1,30 @@
+.title {
+  color: #090909;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.action {
+  display: flex;
+  width: 100%;
+  margin-top: 4rem;
+  justify-content: space-around;
+  align-items: center;
+  .btn-cancel {
+    background-color: #ff9a9a;
+    width: 48%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  .btn-submit {
+    background-color: var(--blue-button);
+    width: 48%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+}

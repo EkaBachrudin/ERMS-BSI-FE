@@ -1,0 +1,142 @@
+<app-content>
+  <ng-container content>
+    <div class="maintenance-content">
+      <mat-tab-group>
+        <mat-tab label="RISK LIBRARY">
+          <app-risk-library></app-risk-library>
+        </mat-tab>
+        <mat-tab label="KEY PROCESS">
+          <div class="key-process-content">
+            <div class="tab-key-process">
+              <button
+                id="kantorPusatKeyProcess"
+                class="active"
+                (click)="changeKantorPusatKeyProcess()"
+              >
+                KANTOR PUSAT
+              </button>
+              <button
+                id="jaringanKeyProcess"
+                class="nonActive"
+                (click)="changeJaringanKeyProcess()"
+                style="display: none;"
+              >
+                JARINGAN
+              </button>
+            </div>
+            <div *ngIf="kantorPusatKeyProcess; else jaringanKeyProcess">
+              <keypro-kantor-pusat></keypro-kantor-pusat>
+            </div>
+            <ng-template #jaringanKeyProcess>
+              <keypro-jaringan></keypro-jaringan>
+            </ng-template>
+          </div>
+        </mat-tab>
+        <mat-tab label="KEY RISK">
+          <div class="key-risk-content">
+            <div class="tab-key-risk">
+              <button
+                id="kantorPusatKeyRisk"
+                class="active"
+                (click)="changeKantorPusatKeyRisk()"
+              >
+                KANTOR PUSAT
+              </button>
+              <button id="jaringanKeyRisk" class="nonActive" (click)="changeJaringanKeyRisk()" style="display: none;">
+                JARINGAN
+              </button>
+            </div>
+            <div *ngIf="kantorPusatKeyRisk; else jaringanKeyRisk">
+              <app-kantor-pusat-key-risk></app-kantor-pusat-key-risk>
+            </div>
+            <ng-template #jaringanKeyRisk>
+              <app-jaringan-key-risk></app-jaringan-key-risk>
+            </ng-template>
+          </div>
+        </mat-tab>
+        <mat-tab label="KEY CONTROL">
+          <app-key-control></app-key-control>
+        </mat-tab>
+        <mat-tab label="KETENTUAN">
+          <app-ketentuan></app-ketentuan>
+        </mat-tab>
+        <mat-tab label="LET 1,2 DAN 3">
+          <app-let></app-let>
+        </mat-tab>
+        <mat-tab label="SETTING TOP RISK">
+          <app-setting-top-risk></app-setting-top-risk>
+        </mat-tab>
+        <mat-tab label="TOP RISK">
+          <div class="top-risk-content">
+            <app-top-risk></app-top-risk>
+          </div>
+        </mat-tab>
+        <mat-tab label="SETTING RATING">
+          <div class="setting-rating-content">
+            <div class="tabs-setting-rating">
+              <button
+                id="likelihood-setting-rating"
+                class="active"
+                (click)="changeLikelihood()"
+              >
+                LIKELIHOOD
+              </button>
+              <button
+                id="impact-setting-rating"
+                class="nonActive"
+                (click)="changeImpact()"
+              >
+                IMPACT
+              </button>
+              <button
+                id="control-setting-rating"
+                class="nonActive"
+                (click)="changeControl()"
+              >
+                CONTROL
+              </button>
+              <button
+                id="ihrrpredicate-setting-rating"
+                class="nonActive"
+                (click)="changeIhrrPredicate()"
+              >
+                IHRR PREDICATE
+              </button>
+              <button
+                id="ratingcomposite-setting-rating"
+                class="nonActive"
+                (click)="changeRatingComposite()"
+              >
+                RATING COMPOSITE
+              </button>
+            </div>
+            <div class="likehood" *ngIf="likelihood">
+              <div class="data">
+                <app-like-hood></app-like-hood>
+              </div>
+            </div>
+            <div class="impact" *ngIf="impact">
+              <div class="hiddenDisplay">
+                <button class="btn-add">
+                  <p>+</p>
+                  ADD RATING
+                </button>
+              </div>
+              <app-impact></app-impact>
+            </div>
+            <div class="control" *ngIf="control">
+              <app-control></app-control>
+            </div>
+            <div class="ihrr-predicate" *ngIf="ihrrPredicate">
+              <app-ihrr></app-ihrr>
+            </div>
+            <div class="rating-composite" *ngIf="ratingComposite">
+              <app-rating-composite></app-rating-composite>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-content>

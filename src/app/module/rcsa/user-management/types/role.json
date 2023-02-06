@@ -1,0 +1,79 @@
+[
+    {
+      "id": "1",
+      "name" : "OPR (USER ADMIN)"
+    },
+    {
+      "id": "2",
+      "name" : "CABANG"
+    },
+    {
+      "id": "3",
+      "name" : "AREA SEGMEN (AOSM)"
+    },
+    {
+        "id": "4",
+        "name" : "AREA SEGMENT (OFFICER/STAFF)"
+    },
+    {
+        "id": "5",
+        "name" : "AREA SEGMENT (MANAGER)"
+    },
+    {
+        "id": "6",
+        "name" : "RBC - ABCS (AREA)"
+    },
+    {
+        "id": "7",
+        "name" : "RBC - OFFICER"
+    },
+    {
+        "id": "8",
+        "name" : "RBC - BBC STAFF"
+    },
+    {
+        "id": "9",
+        "name" : "AREA MANAGER (AREA)"
+    },
+    {
+        "id": "10",
+        "name" : "OPERATIONAL DEPUTY (REGION)"
+    },
+    {
+        "id": "11",
+        "name" : "RBC MANAGER (REGION)"
+    },
+    {
+        "id": "12",
+        "name" : "RCEO HEAD (REGION)"
+    },
+    {
+        "id": "13",
+        "name" : "DEPARTMENT HEAD/MANAGER/OFFICER (KANTOR PUSAT)"
+    },
+    {
+        "id": "14",
+        "name" : "DCOR TL/OFFICER/STAFF (KANTOR PUSAT)"
+    },
+    {
+        "id": "15",
+        "name" : "DCOR HEAD (KANTOR PUSAT)"
+    },
+    {
+        "id": "16",
+        "name" : "GROUP HEAD (KANTOR PUSAT)"
+    },
+    {
+        "id": "17",
+        "name" : "MANAJEMEN"
+    },
+    {
+        "id": "18",
+        "name" : "(UIC BERKEPENTINGAN)"
+    },
+    {
+        "id": "19",
+        "name" : "SOR HEAD"
+    }
+    
+  ]

@@ -1,0 +1,67 @@
+<div class="content">
+  <h5 mat-dialog-title>Submit Periode Pengisian RCSA</h5>
+  <form onsubmit="return false" [formGroup]="submitPeriode">
+    <div  >
+      <mat-form-field appearance="fill" [style.width.%]="100" >
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input  [rangePicker]="picker">
+          <input matStartDate formControlName="startDate" placeholder="Start date" >
+          <input matEndDate formControlName="endDate" placeholder="End date" >
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="submitPeriode.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="submitPeriode.controls.endDate.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="option">
+      <div class="start">
+        TAHUN
+        <select formControlName="year">
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+      <div class="end">
+        QUARTAL
+        <select formControlName="quartal">
+          <option value="Q1">Q1</option>
+          <option value="Q2">Q2</option>
+          <option value="Q3">Q3</option>
+        </select>
+      </div>
+    </div>
+    <label>
+      <input type="checkbox" (change)="toggleRowKeyProcess()" />
+      Dengan ini periode pengisian RCSA akan diaktifkan
+    </label>
+    <div class="form-group">
+      <button
+        type="button"
+        class="btn"
+        style="width: 27%; border: var(--button) solid 1px"
+        (click)="cancel()"
+      >
+        CANCEL
+      </button>
+      <button
+        *ngIf="isActiveCheck"
+        type="submit"
+        class="btn"
+        (click)="submit()"
+        style="
+          width: 71%;
+          margin-left: 0.5rem;
+          background-color: var(--button);
+          color: white
+        "
+      >
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

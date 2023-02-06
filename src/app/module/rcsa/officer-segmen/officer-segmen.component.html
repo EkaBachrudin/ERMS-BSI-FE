@@ -1,0 +1,385 @@
+<app-content>
+  <ng-container content>
+    <div style="background-color: #f1f1f1; height: 100vh; padding-top: 0.2rem">
+      <div class="head-officer-segmen">
+        <div class="list-action">
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+        </div>
+        <div class="search">
+          <label>
+            <input type="text" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+        </div>
+      </div>
+      <div class="data-officer-segmen">
+        <table>
+          <thead>
+            <th>No.</th>
+            <th>Segmen</th>
+            <th style="text-align: center">IHRR</th>
+            <th>Control</th>
+            <th>Composite</th>
+            <th>Periode</th>
+            <th>Status</th>
+            <th style="text-align: left; width: 6rem">Action</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Gadai</td>
+              <td>
+                <div class="score"><strong class="red">23 - HIGH</strong></div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="green">8 - STRONG</strong>
+                </div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="green-light">15 LOW TO MEDIUM</strong>
+                </div>
+              </td>
+              <td>Q3/2022</td>
+              <td class="waiting">
+                <div class="status"><strong>WAITING FOR APPROVAL</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i
+                    class="fa fa-chevron-down"
+                    id="down"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#expandOfficerSegmen"
+                    aria-expanded="false"
+                    aria-controls="expandOfficerSegmen"
+                  ></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="collapse" id="expandOfficerSegmen">
+              <td colspan="8">
+                <table>
+                  <thead>
+                    <th>No.</th>
+                    <th>Key Process</th>
+                    <th>Key Risk Issue</th>
+                    <th>Key Control</th>
+                    <th>Ketentuan</th>
+                    <th>Status</th>
+                    <th>Risk Assessment</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Pengelolaan user id & Password Transaksi</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Kas dan Teller</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Kas dan Teller</td>
+                      <td>Risiko ketidaktertiban pelaksanaan cash opname</td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">SUDAH DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Kas dan Teller</td>
+                      <td>Risiko kelemahan kontrol pada Akhir Hari</td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">SUDAH DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Kas dan Teller</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Pengelolaan user id & Password Transaksi</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Kas dan Teller</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Kas dan Teller</td>
+                      <td>Risiko ketidaktertiban pelaksanaan cash opname</td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">SUDAH DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Kas dan Teller</td>
+                      <td>Risiko kelemahan kontrol pada Akhir Hari</td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">SUDAH DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Kas dan Teller</td>
+                      <td>
+                        Risiko kesalahan pencairan/penutupan rekening deposito.
+                      </td>
+                      <td>
+                        1. Branch Manager memonitor pegawai
+                        rotasi/mutasi/resign...
+                      </td>
+                      <td>
+                        <strong>SPP</strong> Manajemen Risiko Operasional Bab
+                        X...
+                      </td>
+                      <td class="status">
+                        <div class="belum-dinilai">BELUM DINILAI</div>
+                      </td>
+                      <td style="border-right: 0">
+                        <div class="action-table">
+                          <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="pagination">Pagination</div>
+                <button>SUBMIT RCSA</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Gadai</td>
+              <td>
+                <div class="score">
+                  <strong class="orange">23 - HIGH</strong>
+                </div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="orange">8 - STRONG</strong>
+                </div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="green">15 LOW TO MEDIUM</strong>
+                </div>
+              </td>
+              <td>Q3/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Gadai</td>
+              <td>
+                <div class="score">
+                  <strong class="orange">23 - HIGH</strong>
+                </div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="orange">8 - STRONG</strong>
+                </div>
+              </td>
+              <td>
+                <div class="score">
+                  <strong class="green-light">15 LOW TO MEDIUM</strong>
+                </div>
+              </td>
+              <td>Q3/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</app-content>

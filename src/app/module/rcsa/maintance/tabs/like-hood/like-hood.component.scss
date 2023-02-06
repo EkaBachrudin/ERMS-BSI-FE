@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+table tr:nth-child(even) {
+    background-color: #d7ebeb;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.approvedLlh {
+    width: 250px;
+
+    .status {
+        width: 250px;
+        color: var(--approved);
+        border-radius: 6px;
+        background-color: var(--bg-approved);
+    }
+}
+
+.rejectedLlh {
+    width: 250px;
+
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: var(--rejected);
+        border-radius: 6px;
+        background-color: var(--bg-rejected);
+    }
+}
+
+.draftedLlh {
+    width: 250px;
+
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: var(--drafted);
+        border-radius: 6px;
+        background-color: var(--bg-drafted);
+    }
+}
+
+.KecilKemungkinan{
+    width: 250px;
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: white;
+        border-radius: 6px;
+        background-color: #0da136;
+    }
+}
+
+.JarangRare{
+    width: 250px;
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: black;
+        border-radius: 6px;
+        background-color: #74d99c;
+    }
+}
+
+.KadangKadang{
+    width: 250px;
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: black;
+        border-radius: 6px;
+        background-color: #fedb21;
+    }
+}
+
+.SeringOften{
+    width: 250px;
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: white;
+        border-radius: 6px;
+        background-color: #ff842c;
+    }
+}
+
+.VeryOften{
+    width: 250px;
+    .status {
+        font-family: 'Inter', sans-serif;
+        width: 250px;
+        color: white;
+        border-radius: 6px;
+        background-color: #a10d0d;
+    }
+}

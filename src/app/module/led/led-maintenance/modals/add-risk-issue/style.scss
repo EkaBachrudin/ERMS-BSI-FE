@@ -1,0 +1,48 @@
+.content {
+  width: 40rem;
+  height: 20rem;
+  padding: 1rem;
+  font-size: small;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 93%;
+    .input {
+      .title1 {
+        color: #686868;
+        font-size: small;
+        margin-top: 1.5rem;
+      }
+      input {
+        border: none;
+        width: 100%;
+        border-bottom: var(--button) solid 2px;
+        background-color: #f7f7f7;
+        padding: 0.4rem;
+      }
+    }
+    .action {
+      display: flex;
+      width: 100%;
+      .btn-cancel {
+        width: 27%;
+        background-color: #ffffff;
+        border: var(--button) solid 1px;
+        font-size: small;
+        height: 2.2rem;
+        border-radius: 5px;
+      }
+      .btn-submit {
+        width: 70%;
+        margin-left: 1rem;
+        background-color: var(--button);
+        color: white;
+        font-size: small;
+        height: 2.2rem;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}

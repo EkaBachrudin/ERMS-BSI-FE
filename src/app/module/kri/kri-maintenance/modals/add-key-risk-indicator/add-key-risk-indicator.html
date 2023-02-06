@@ -1,0 +1,134 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah KRI</h6>
+  <hr />
+  <form onsubmit="return false">
+    <div class="scroll">
+      <p class="title1">KEY RISK INDICATOR</p>
+      <textarea name="" [formControl]="kri" cols="82" rows="3"></textarea>
+      <!-- <p class="title2">JENIS UNIT</p>
+      <input type="text" class="input" /> -->
+      <p class="title3">JENIS ISIAN KRI</p>
+      <select [formControl]="jenis_kri">
+        <option value="Kantor Pusat">KANTOR PUSAT</option>
+        <option value="Cabang">CABANG</option>
+        <option value="Area">AREA</option>
+      </select>
+      <!-- <p class="title3">JENIS UKURAN</p>
+      <select>
+        <option value="">NON OPERATION VARIABLE</option>
+        <option value="">OPERATION VARIABLE</option>
+      </select> -->
+      <p class="title3">VARIABLE UKURAN 1</p>
+      <input type="text" [formControl]="ukuran_1" />
+      <p class="title3">VARIABLE UKURAN 2</p>
+      <input type="text" [formControl]="ukuran_2" />
+      <p class="title3">OPERATION VARIABLE</p>
+      <select [formControl]="operation_variable">
+        <option value="pembagian">Pembagian</option>
+        <option value="perkalian">Perkalian</option>
+        <option value="pertambahan">Pertambahan</option>
+        <option value="pengurangan">Pengurangan</option>
+      </select>
+      <div class="title4">
+        <p>TRESHOLD</p>
+        <hr />
+      </div>
+      <span class="title-treshold"
+        >TRESHOLD GREEN
+        <div class="green">Green <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          JENIS
+          <select [formControl]="jenis_green">
+            <option value="Satuan">SATUAN</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" [formControl]="nilai_green" />
+        </div>
+        <div class="simbol">
+          <span> SIMBOL</span>
+          <select [formControl]="simbol_green">
+            <option value="NO GAP">0 (NO GAP)</option>
+            <option value="<="><= (KURANG DARI SAMA DENGAN)</option>
+            <option value=">=">>= (LEBIH DARI SAMA DENGAN)</option>
+          </select>
+        </div>
+      </div>
+      <span class="title-treshold" style="margin-top: 1rem"
+        >TRESHOLD YELLOW
+        <div class="yellow">Yellow <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          JENIS
+          <select [formControl]="jenis_yellow_1">
+            <option value="Satuan">SATUAN</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" [formControl]="nilai_yellow_1" />
+        </div>
+        <div class="simbol">
+          <span> SIMBOL</span>
+          <select [formControl]="simbol_yellow_1">
+            <option value="NO GAP">0 (NO GAP)</option>
+            <option value="<="><= (KURANG DARI SAMA DENGAN)</option>
+            <option value=">=">>= (LEBIH DARI SAMA DENGAN)</option>
+          </select>
+        </div>
+      </div>
+      <div class="check">
+        <div class="nilairentang">
+          <!-- <span
+            ><input type="checkbox" style="width: 11px" /> NILAI RENTANG</span
+          > -->
+          <input type="text" [formControl]="nilai_yellow_2" />
+        </div>
+        <div class="simbol">
+          <!-- <span><input type="checkbox" style="width: 10px" /> SIMBOL</span> -->
+          <select [formControl]="simbol_yellow_2">
+            <option value="NO GAP">0 (NO GAP)</option>
+            <option value="<="><= (KURANG DARI SAMA DENGAN)</option>
+            <option value=">=">>= (LEBIH DARI SAMA DENGAN)</option>
+          </select>
+        </div>
+      </div>
+      <span class="title-treshold" style="margin-top: 1rem"
+        >TRESHOLD RED
+        <div class="red">Red <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          NILAI
+          <select [formControl]="jenis_red">
+            <option value="Satuan">SATUAN</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" [formControl]="nilai_red" />
+        </div>
+        <div class="simbol">
+          <span> SIMBOL</span>
+          <select [formControl]="simbol_red">
+            <option value="">(NO GAP)</option>
+            <option value="<">< (KURANG DARI)</option>
+            <option value=">">> (LEBIH DARI)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">
+        <strong>CANCEL</strong>
+      </button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        <strong>ADD KEY RISK INDICATOR</strong>
+      </button>
+    </div>
+  </form>
+</div>

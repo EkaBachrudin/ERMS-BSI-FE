@@ -1,0 +1,179 @@
+<app-content>
+    <ng-container content>
+        
+<div style="background-color: #f1f1f1; height: 100vh; padding-top: 0.2rem">
+    <div class="example-large-box">
+      <div class="list-action">
+        <div class="periode">
+          <p>Periode</p>
+          <select name="select-periode" id="select-periode">
+            <option value="">2022</option>
+            <option value="">2021</option>
+            <option value="">2020</option>
+            <option value="">2019</option>
+          </select>
+          <select name="select-q" id="select-q">
+            <option value="">All</option>
+            <option value="">Q1</option>
+            <option value="">Q2</option>
+            <option value="" selected>Q3</option>
+            <option value="">Q4</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="data-dcor">
+      <table>
+        <thead>
+          <th>No</th>
+          <th>Unit</th>
+          <th>Periode</th>
+          <th>Jumlah Action Plan</th>
+          <th>Selesai</th>
+          <th>On Progress</th>
+          <th>Status</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>group 1</td>
+            <td>Q1/2022</td>
+            <td class="silver">
+              <div class="status">30</div>
+            </td>
+            <td class="blue"><div class="status">70%</div></td>
+            <td class="yellow"><div class="status">30%</div></td>
+            <td class="waiting">
+              <div class="status">WAITING FOR APPROVAL</div>
+            </td>
+            <td>
+              <div class="action-table">
+                <i class="fa fa-check" id="check" (click)="approved()"></i>
+                <i class="fa fa-xmark" id="xmark" (click)="openRejected()"></i>
+                <i class="fa fa-cloud-arrow-down" id="download"></i>
+                <i
+                  class="fa fa-chevron-up"
+                  id="up"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#tablecontent"
+                  aria-expanded="false"
+                  aria-controls="tablecontent"
+                ></i>
+              </div>
+            </td>
+          </tr>
+          <tr class="collapse" id="tablecontent">
+            <td colspan="8" id="dataexpand">
+              <div class="content">
+                <div class="data">
+                  <table>
+                    <tr>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2">Source</th>
+                      <th rowspan="2">Rincian Issue</th>
+                      <th rowspan="2">Rencana Action Plan</th>
+                      <th rowspan="2">Group in Charge</th>
+                      <th rowspan="2">JUmlah Action Plan/Open</th>
+                      <th colspan="2" style="padding: 0.5rem">
+                        Status Action Plan
+                      </th>
+                      <th rowspan="2" style="border-right: none">
+                        Tindak Lanjut
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>Selesai/Close</td>
+                      <td>On Progress/Open</td>
+                    </tr>
+                    <tr>
+                      <td style="border-left: none">1</td>
+                      <td>RCSA</td>
+                      <td>
+                        Risiko penyalahgunaan user ID dan password transaksi oleh
+                        pihak yang tidak berhak
+                      </td>
+                      <td>
+                        1. HT/BOSM/BM/AOSM melakukan cash count dan membuat berita
+                        acara; <br />
+                        2. Branch Manager melakukan cash count dan/atau cross cash
+                        opname dan membuat berita acara.
+                      </td>
+                      <td>KC. Natuna</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>0</td>
+                      <td style="border-right: none">
+                        1. HT/BOSM/BM/AOSM melakukan cash count dan membuat berita
+                        acara; <br />
+                        2. Branch Manager melakukan cash count dan/atau cross cash
+                        opname dan membuat berita acara.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="border-left: none">2</td>
+                      <td>KRI</td>
+                      <td>Transaksi (Trx) per Teller</td>
+                      <td>
+                        Sudah mengirimkan surat permintaan pemenuhan Teller ke
+                        Area
+                      </td>
+                      <td>Area Batam</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td style="border-right: none">
+                        Sudah mengirimkan surat permintaan pemenuhan Teller ke
+                        Area
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="border-left: none">3</td>
+                      <td>Fraud Internal</td>
+                      <td>Akan dimonitoring recovery</td>
+                      <td>KC. Tanjung Pinang</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td style="border-left: none">4</td>
+                      <td>CT</td>
+                      <td>Transaksi (Trx) per Teller</td>
+                      <td>
+                        Sudah mengirimkan surat permintaan pemenuhan Teller ke
+                        Area
+                      </td>
+                      <td>Area Batam</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td style="border-right: none"></td>
+                    </tr>
+                    <tr>
+                      <td style="border-left: none">5</td>
+                      <td>DMTL</td>
+                      <td>Fraud Internal</td>
+                      <td>Akan dimonitoring recovery</td>
+                      <td>KC. Tanjung Pinang</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td style="border-right: none"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+    </ng-container>
+</app-content>
+
+
+

@@ -1,0 +1,719 @@
+<app-content>
+  <ng-container content>
+
+    <div class="container">
+    
+        <button mat-stroked-button routerLink="/rcsa/aosm" style="height: 50px; border-radius: 20px; width: 20px;"><i class="fa-solid fa-angle-left"></i></button>
+    
+        <mat-card class="mt-5" style="width: 1250px;">
+            <mat-grid-list cols="17" rowHeight="70px">
+                <mat-grid-tile 
+                    [colspan]="2"
+                    [rowspan]="1">
+                    <h2>Risk Map</h2>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="3" rowHeight="400px">
+                
+    
+                <mat-grid-tile 
+                    [colspan]="1"
+                    [rowspan]="1">
+    
+                    <table style="margin-right: 30px;" aria-describedby>
+                        <tr>
+                            <td colspan="3" style="background-color: #f4f4f4; width: 400px; height: 50px; border: 8px; border-style: solid; border-color: #ffffff;" class="text-center">Risk Issue Map</td>
+                        </tr>
+                        <tr>
+                            <th id="1" style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Kategori</th>
+                            <th id="2" style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Jumlah</th>
+                            <th id="3" style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Persentase</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #0e9644; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Low</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">21</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">45%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Low To Medium</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">15%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Medium</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">5%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Medium To High</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">5%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #eb7b7a; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">Medium To High</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">6</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff;" class="text-center">35%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Total</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">37</td>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 5px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">100%</td>
+                        </tr>
+                    </table>
+    
+                </mat-grid-tile>
+                
+                <mat-grid-tile 
+                    [colspan]="1"
+                    [rowspan]="1">
+    
+                    <table style="margin-right: 30px;" aria-describedby>
+                        <tr>
+                            <td rowspan="2" colspan="2" style="background-color: #d9d9d9; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;"></td>
+                            <th id="Likelihood" colspan="5" style="background-color: #f4f4f4; width: 400px; height: 30px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">Likelihood</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #0e9644; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <th id="Impact" rowspan="5" style="background-color: #f4f4f4; width: 20px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Impact</th>
+                            <td style="background-color: #0e9644; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #0e9644; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #79eba6; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #ffdb59; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #f9ad3d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                    </table>
+                        
+                </mat-grid-tile>
+                
+                <mat-grid-tile 
+                    [colspan]="1"
+                    [rowspan]="1">
+    
+                    <table style="margin-right: 20px;" aria-describedby>
+                        <tr>
+                            <th style="background-color: #ffffff; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; color: white;" class="text-center"></th>
+                            <th style="background-color: #f4f4f4; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Risk Control</th>
+                            <th style="background-color: #0e9644; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Strong</th>
+                            <th style="background-color: #87f4b3; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Statisfactory</th>
+                            <th style="background-color: #fedb21; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Fair</th>
+                            <th style="background-color: #ff842c; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Marginal</th>
+                            <th style="background-color: #a10d0d; width: 100px; height: 120px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center writing-mode">Unstatisfactory</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #f4f4f4; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Preciate IHRR</td>
+                            <td style="background-color: white; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center"></td>
+                            <td style="background-color: #0e9644; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #0e9644; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Low</td>
+                            <td style="background-color: #0e9644; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #0e9644; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #0e9644; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #87f4b3; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Low To Medium</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #0e9644; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">1</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #fedb21; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Medium</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #ff842c; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">Medium To High</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #87f4b3; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">2</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #a10d0d; width: 400px; height: 50px; border: 2px; border-style: solid; border-color: #ffffff; font-weight: bold;" class="text-center">High</td>
+                            <td style="background-color: #a10d0d; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #fedb21; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">3</td>
+                            <td style="background-color: #ff842c; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">4</td>
+                            <td style="background-color: #a10d0d; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                            <td style="background-color: #a10d0d; width: 100px; height: 5px; border: 2px; border-style: solid; border-color: #ffffff;" class="text-center">5</td>
+                        </tr>
+                        
+                        
+                    </table>
+                </mat-grid-tile>
+                
+              </mat-grid-list>
+        </mat-card>
+    
+        <mat-card class="mt-5" style="width: 1250px;">
+            <h2>Peringkat RCSA</h2>
+            <p>Berdasarkan skor Inherent, Control, dan Composite</p>
+    
+            <table id="peringkat" style="width: 100%; border-spacing: 0;" aria-describedby>
+                <tr>
+                  <th id="SEGMEN" style="width: 500px;">SEGMEN</th>
+                  <th id="Inherit">Inherit Risk</th>
+                  <th id="Control">Control</th>
+                  <th id="Composite">Composite Risk</th>
+                  <th id="peringkatempty"></th>
+                </tr>
+                <tr>
+                  <td>OPERASIONAL</td>
+                  <td><p class="high">111 - HIGH</p></td>
+                  <td><p class="fair">21 - FAIR</p></td>
+                  <td><p class="mtoh">32 - MEDIUM TO HIGH</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" (click)="openDialog()" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GADAI</td>
+                  <td><p class="low">12 - LOW</p></td>
+                  <td><p class="statisfactory">21 - STATISFACTORY</p></td>
+                  <td><p class="mtoh">42 - MEDIUM TO HIGH</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MIKRO</td>
+                  <td><p class="medium">22 - MEDIUM</p></td>
+                  <td><p class="strong">21 - STRONG</p></td>
+                  <td><p class="ltom">15 - LOW TO MEDIUM</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CONSUMER CF1</td>
+                  <td><p class="ltom">15 - LOW TO MEDIUM</p></td>
+                  <td><p class="statisfactory">21 - STATISFACTORY</p></td>
+                  <td><p class="medium">22 - MEDIUM</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CONSUMER CF2</td>
+                  <td><p class="high">111 - HIGH</p></td>
+                  <td><p class="fair">21 - FAIR</p></td>
+                  <td><p class="mtoh">32 - MEDIUM TO HIGH</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SME</td>
+                  <td><p class="low">12 - LOW</p></td>
+                  <td><p class="statisfactory">21 - STATISFACTORY</p></td>
+                  <td><p class="mtoh">42 - MEDIUM TO HIGH</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PRIORITY BANKING</td>
+                  <td><p class="medium">22 - MEDIUM</p></td>
+                  <td><p class="strong">21 - STRONG</p></td>
+                  <td><p class="ltom">15 - LOW TO MEDIUM</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FUNDING</td>
+                  <td><p class="ltom">15 - LOW TO MEDIUM</p></td>
+                  <td><p class="statisfactory">21 - STATISFACTORY</p></td>
+                  <td><p class="medium">22 - MEDIUM</p></td>
+                  <td>
+                    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                  </td>
+                </tr>
+                <tr>
+                    <th id="skorarea">SKOR RCSA AREA</th>
+                    <th id="medtohi"><p class="mtoh">42 - MEDIUM TO HIGH</p></th>
+                    <th id="marg"><p class="marginal">21 - MARGINAL</p></th>
+                    <th id="low"><p class="low">12 - LOW</p></th>
+                    <th id="em"></th>
+                </tr>
+              </table>
+              
+        </mat-card>
+    
+        <mat-card class="mt-5" style="width: 1250px;">
+            <h2>Top 10 Risk Issues</h2>
+    
+            <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                <tr>
+                  <th>No.</th>
+                  <th>Key Risk</th>
+                  <th>Segmen</th>
+                  <th>Skor</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                  <td>RCSA Operasional</td>
+                  <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Risiko kesalahan penanganan transaksi Teller</td>
+                  <td>RCSA Operasional</td>
+                  <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                  <td>RCSA Operasional</td>
+                  <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                  <td>RCSA Funding</td>
+                  <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                  <td>RCSA Gadai</td>
+                  <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Risiko kesalahan proses penagihan nasabah</td>
+                  <td>RCSA CF2</td>
+                  <td><p class="mtoh" style="width: 150px; border-radius: 3px;">19</p></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Risiko perijinan kerjasama kepada developer yang dibuat kurang komperhensif, tidak cukup melindungi Bank</td>
+                  <td>RCSA CF1</td>
+                  <td><p class="medium" style="width: 150px; border-radius: 3px;">17</p></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Risiko kegagalan dalam peningkatan jaminan</td>
+                  <td>RCSA SME</td>
+                  <td><p class="medium" style="width: 150px; border-radius: 3px;">15</p></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Risiko agunan tidak dapat dieksekusi</td>
+                  <td>RCSA Operasional</td>
+                  <td><p class="ltom" style="width: 150px; border-radius: 3px;">14</p></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Risiko kelemahan dalam pemantauan first way out dan/atau second way out</td>
+                  <td>RCSA Operasional</td>
+                  <td><p class="low" style="width: 150px; border-radius: 3px;">12</p></td>
+                </tr>
+                
+              </table>
+              
+        </mat-card>
+    
+        <div class="mt-5" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA Operasional
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby="">
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA Gadai
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA Mikro
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA CF1
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA CF2
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA SME
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA Priority Banking
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    
+        <div class="mt-2" style="width: 1250px;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bold;">
+                      Top 5 Risk Issues RCSA Funding
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table id="risk-issues" style="width: 100%; border-spacing: 0;" aria-describedby>
+                    <tr>
+                      <th>No.</th>
+                      <th>Key Risk</th>
+                      <th>Skor</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Risiko penyalahgunaan user ID dan password transaksi</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">25</p></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Risiko kesalahan penanganan transaksi Teller</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">23</p></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Risiko terdapat kelemahan dalam penyelenggaraan public expose</td>
+                      <td><p class="high" style="width: 150px; border-radius: 3px;">22</p></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Risiko kesalahan dalam pengadministrasian dokumen pembiayaan dan dokumen legal</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">21</p></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Risiko kelemahan monitoring pembiayaan nasabah</td>
+                      <td><p class="mtoh" style="width: 150px; border-radius: 3px;">20</p></td>
+                    </tr>
+                    
+                </table>
+            </mat-expansion-panel>
+        </div>
+    </div>
+
+  </ng-container>
+</app-content>

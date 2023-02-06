@@ -1,0 +1,61 @@
+<div style="width: 35rem; font-size: small">
+  <h5 mat-dialog-title>ADD KRI</h5>
+  <form onsubmit="return true">
+    <div class="form-group">
+      <label for="unit">UNIT</label>
+      <select
+        class="form-control"
+        id="unit"
+        [formControl]="unit"
+        style="margin-top: 0.4rem"
+      >
+        <option value="JARINGAN">JARINGAN</option>
+        <option value="KP">KANTOR PUSAT</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-top: 0.4rem">
+      <label for="segmen/group">DIVISI</label>
+      <select
+        class="form-control"
+        id="segmen/group"
+        [formControl]="jaringan"
+        style="margin-top: 0.4rem"
+      >
+        <option value="AUD">Audit</option>
+        <option value="COC">Corporate Communication</option>
+        <option value="INJ">Infrastruktur Jaringan</option>
+        <option value="MRO">Risiko Operasional</option>
+        <option value="MRM">Risiko Pasar</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-top: 1.5rem">
+      <button
+        (click)="cancel()"
+        type="button"
+        class="btn"
+        style="
+          width: 27%;
+          border: var(--blue-button) solid 1px;
+          font-size: small;
+        "
+      >
+        CANCEL
+      </button>
+      <button
+        (click)="submit()"
+        type="button"
+        class="btn"
+        style="
+          width: 70%;
+          margin-left: 1rem;
+          background-color: var(--blue-button);
+          color: white;
+          font-size: small;
+        "
+      >
+        ADD
+      </button>
+    </div>
+  </form>
+</div>

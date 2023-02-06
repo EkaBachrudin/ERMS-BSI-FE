@@ -1,0 +1,27 @@
+.action {
+  display: flex;
+  width: 100%;
+  margin-top: 5rem;
+  justify-content: space-around;
+  align-items: center;
+  font-size: small;
+  .btn-cancel {
+    border: none;
+    color: white;
+    background-color: #ff9a9a;
+    border-radius: 5px;
+    font-size: small;
+    cursor: pointer;
+    width: 48%;
+    height: 2.5rem;
+    text-align: center;
+  }
+  .btn-submit {
+    background-color: #00a39d;
+    width: 48%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+}

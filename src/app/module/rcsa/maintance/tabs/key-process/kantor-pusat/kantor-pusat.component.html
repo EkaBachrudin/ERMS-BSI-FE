@@ -1,0 +1,59 @@
+<div class="kantor-pusat">
+  <div class="key-process">
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Cari" [(ngModel)]="searchText"/>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </label>
+    </div>
+    <button style="opacity: 0;" class="btn-key-control-add" (click)="keyProcess()">
+      <p>+</p>
+      ADD KEY PROCESS
+    </button>
+  </div>
+  <table class="table table-lg" aria-describedby="table">
+    <thead>
+      <th style="width: 5%;">No.</th>
+      <th style="width: 200px;" class="left">Group</th>
+      <th class="left">Key Process</th>
+      <th class="status">Status</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of keyPro | searchFilterMulti: 'name':searchText; let i = index">
+        <td>{{(currentPage*pageSize) + i + 1 }}</td>
+        <td style="width: 200px;" class="left">{{ item.group_name }}</td>
+        <td class="left">{{ item.name }}</td>
+        <td class="approved" *ngIf="item.status === statusApprove; else reject">
+          <div class="status">
+            <strong>{{ item.status }}</strong>
+          </div>
+        </td>
+        <ng-template #reject>
+          <td
+            class="rejected"
+            *ngIf="item.status === statusReject; else waiting"
+          >
+            <div class="status">
+              <strong>{{ item.status }}</strong>
+            </div>
+          </td>
+        </ng-template>
+        <ng-template #waiting>
+          <td class="approved">
+            <div class="status">
+              <strong>APPROVED</strong>
+            </div>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+              [length]="totalPages"
+              [pageSizeOptions]="[10, 25, 100]"
+              aria-label="Select page"
+              showFirstLastButtons
+              (page)="onPaginateChange($event)"
+            >
+  </mat-paginator>
+</div>

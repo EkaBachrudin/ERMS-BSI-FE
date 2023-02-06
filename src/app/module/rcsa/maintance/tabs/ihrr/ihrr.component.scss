@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+table tr:nth-child(even) {
+    background: #d1f3f3
+}
+
+table tr:nth-child(odd) {
+    // background: #ffffff
+}
+
+.LowIhrr {
+    display: inline-block;
+    .ScoreIhrr{
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        background-color: #0da136;
+    }
+}
+
+.MediumIhrr {
+    display: inline-block;
+    .ScoreIhrr{
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        background-color: #FEDB21;
+    }
+}
+
+.LowToMediumIhrr {
+    display: inline-block;
+    .ScoreIhrr{
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        background-color: #74d99c;
+    }
+}
+
+.MediumToHighIhrr {
+    display: inline-block;
+    .ScoreIhrr{
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        background-color: #ff842c;
+    }
+}
+
+.highIhrr {
+    display: inline-block;
+    .ScoreIhrr{
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        background-color: #a10d0d;
+    }
+}
+
+
+
+.approvedIhrr {
+    display: inline-block;
+    .status {
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        color: var(--approved);
+        border-radius: 6px;
+        background-color: var(--bg-approved);
+    }
+}
+
+.waitingIhrr {
+    display: inline-block;
+    .status {
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        color: var(--waiting);
+        border-radius: 6px;
+        background-color: var(--bg-waiting);
+    }
+}
+
+.draftedIhrr {
+    display: inline-block;
+    .status {
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        color: var(--drafted);
+        background-color: var(--bg-drafted);
+    }
+}
+
+.rejectedIhrr {
+    display: inline-block;
+    .status {
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        color: var(--rejected);
+        background-color: var(--bg-rejected);
+    }
+}
+
+.buttonDialogClose {
+    background-color: #51ce74;
+    width: 100%;
+}
+
+.DialogExample{
+    text-align: center;
+}
+
+th::first-letter{
+    text-transform: uppercase;
+}
+td::first-letter{
+    text-transform: uppercase;
+}

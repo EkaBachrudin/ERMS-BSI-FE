@@ -1,0 +1,208 @@
+<app-content>
+  <ng-container content>
+    <div style="background-color: #f1f1f1; height: 100vh; padding-top: 0.2rem">
+      <div class="head-od">
+        <div class="list-action">
+          <div class="segmen">
+            <p>Pilih Segmen/Group</p>
+            <select name="select-segmen" id="select-segmen">
+              <option value="">All</option>
+              <option value="">GADAI</option>
+              <option value="">MIKRO</option>
+              <option value="">CONSUMER FINANCING 1</option>
+              <option value="">CONSUMER FINANCING 2</option>
+              <option value="">SME</option>
+              <option value="">PRIORITY BANKING</option>
+              <option value="">FUNDING</option>
+            </select>
+          </div>
+          <div class="status">
+            <p>Status</p>
+            <select name="select-status" id="select-status">
+              <option value="">All</option>
+              <option value="">DRAFTED</option>
+              <option value="">WAITING FOR APPROVAL</option>
+              <option value="">WAITING TO BE CHECKED</option>
+              <option value="">APPROVED</option>
+              <option value="">REJECTED</option>
+            </select>
+          </div>
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+          </div>
+        </div>
+        <div class="action-btn">
+          <button class="approved">APPROVE</button>
+          <button class="rejected">REJECTED</button>
+        </div>
+      </div>
+      <div class="data-od">
+        <table>
+          <thead>
+            <th><input type="checkbox" /></th>
+            <th>No.</th>
+            <th>AREA</th>
+            <th>Cabang Kelolaan</th>
+            <th>Periode</th>
+            <th>Status</th>
+            <th style="width: 6rem">Action</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>1</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q2/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>2</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>3</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>4</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>5</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>6</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>7</td>
+              <td>AREA 1</td>
+              <td>7</td>
+              <td>Q1/2022</td>
+              <td class="approved">
+                <div class="status"><strong>APPROVED</strong></div>
+              </td>
+              <td>
+                <div class="action-table">
+                  <i class="fa fa-check" id="check"></i>
+                  <i class="fa fa-xmark" id="xmark"></i>
+                  <i class="fa fa-file-invoice" id="document"></i>
+                  <i class="fa fa-eye" id="eye"></i>
+                  <i class="fa fa-chevron-down" id="down"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</app-content>

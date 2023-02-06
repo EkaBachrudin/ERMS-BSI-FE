@@ -1,0 +1,253 @@
+<div class="risk-library-content">
+  <div class="example-large-box">
+    <div class="list-action">
+      <div class="unit">
+        <p>Pilih Unit</p>
+        <select name="select-unit" id="select-unit">
+          <option value="">KANTOR PUSAT</option>
+        </select>
+      </div>
+      <div class="segmen">
+        <p>Pilih Group</p>
+        <select name="group" id="select-segmen">
+          <option value="" selected>All</option>
+          < <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
+        </select>
+      </div>
+      <div class="periode">
+        <p>Periode</p>
+        <select name="yearOf" id="select-periode">
+          <option value="" selected>All</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+        </select>
+        <select name="quarter" id="select-q">
+          <option value="" selected>All</option>
+          <option value="Q1">Q1</option>
+          <option value="Q2">Q2</option>
+          <option value="Q3">Q3</option>
+          <option value="Q4">Q4</option>
+        </select>
+      </div>
+      <div class="periode">
+        <p>Search</p>
+        <button class="d-flex justify-content-between" (click)="filterRiskLibs()"><span>search</span> <i
+            aria-hidden="true" class="fa-solid fa-magnifying-glass mt-1"></i></button>
+      </div>
+    </div>
+
+    <button class="btn-add" (click)="addSegmenGroup()" *ngIf="!isApprover">
+      <p>+</p>
+      UPLOAD EXCEL
+    </button>
+  </div>
+  <div class="tab">
+    <button id="kelolaRiskLibrary" class="active" (click)="changeKelolaRiskLibrary()">
+      KELOLA RISK LIBRARY
+    </button>
+    <button id="risk" class="nonActive" (click)="changeRiskRegister()">
+      RISK REGISTER
+    </button>
+  </div>
+  <div class="kelola-risk-library" *ngIf="kelolaRiskLibrary; else riskRegister">
+    <div class="head">
+      <input type="text" placeholder="Cari" style="margin-bottom: 1em; margin-top: 1em" />
+    </div>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoadingdata.riskLibrary == true else showData"></mat-progress-bar>
+    <ng-template #showData>
+      <div class="data">
+        <table aria-describedby>
+          <thead>
+            <th style="text-align: center;display: none;">
+              <input type="checkbox" name="" id="" />
+            </th>
+            <th style="text-align: center">No</th>
+            <th style="text-align: left;">Segmen/Group {{isLoading | async}}</th>
+            <th class="status">Status</th>
+            <th>Periode</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal AKhir</th>
+            <th></th>
+          </thead>
+          <tbody *ngFor="let item of rcsaData; let i = index">
+            <tr>
+              <!-- <td><input type="checkbox" name="" id="" /></td> -->
+              <td>{{(currentPage.RiskLibrary*pageSize.RiskLibrary) + i + 1 }}</td>
+              <td style="text-align: left;">{{ item.group_name }}</td>
+              <td class="approved" *ngIf="item.currentStatus === statusApprove; else reject">
+                <div class="status">
+                  <strong>{{ item.currentStatus }}</strong>
+                </div>
+              </td>
+              <ng-template #reject>
+                <td class="rejected" *ngIf="item.currentStatus === statusReject; else waiting">
+                  <div class="status">
+                    <strong>{{ item.currentStatus }}</strong>
+                  </div>
+                </td>
+              </ng-template>
+              <ng-template #waiting>
+                <td class="approved" style="align-items: center;">
+                  <div class="status">
+                    <strong>{{ item.currentStatus }}</strong>
+                  </div>
+                </td>
+              </ng-template>
+              <td>{{item.quarter}} {{ item.periode ? item.periode : "-" }}</td>
+              <td>{{ item.tanggal_mulai ? item.tanggal_mulai : "-" }}</td>
+              <td>{{ item.tanggal_selesai ? item.tanggal_selesai : "-" }}</td>
+              <td>
+                <div class="action-table" *ngIf="!isApprover; else approverRisk">
+                  <i class="fa fa-eye" id="eye" (click)="showTable(item.id)" aria-hidden="true"
+                    style="display: none;"></i>
+                  <i class="fa fa-stop" id="stop" aria-hidden="true" style="display: none;"></i>
+                  <i class="fa fa-copy" id="copy" (click)="duplicateRcsa()" aria-hidden="true" style="display: none;"></i>
+                  <i class="fa fa-calendar" id="calendar" aria-hidden="true" style="display: none;"></i>
+                  <i class="fa fa-chevron-down" id="rcsa{{ item.id }}" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseExample' + item.id" aria-expanded="false"
+                    aria-controls="collapseExample" style="margin-left: 2rem" (click)="expand(item.id)"
+                    aria-hidden="true"></i>
+                </div>
+                <ng-template #approverRisk>
+                  <div class="action-table">
+                    <i class="fa fa-check" id="check" (click)="toApproveRR(item)" aria-hidden="true"></i>
+                    <i class="fa fa-xmark" id="xmark" (click)="toRejectRR(item)" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-down collapse_rcsa" type="button" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapseExample' + item.id" aria-expanded="false"
+                      aria-controls="collapseExample" style="margin-left: 2rem" (click)="expand(item.id)"
+                      aria-hidden="true"></i>
+                  </div>
+                </ng-template>
+              </td>
+            </tr>
+            <!-- BEDA -->
+            <tr class="collapse" id="collapse{{ item.id }}" [attr.id]="'collapseExample' + item.id" data-parent="#testa">
+              <td colspan="7">
+                <mat-progress-bar mode="indeterminate" *ngIf="isLoadingdata.riskLibraryDetail == true else showDataDetail"></mat-progress-bar>
+                <ng-template #showDataDetail>
+                  <table style="font-size: 15px" aria-hidden="true">
+                    <thead>
+                      <th>No</th>
+                      <th>Key Process</th>
+                      <th>Key Risk Issue</th>
+                      <th>Key Control</th>
+                      <th>Ketentuan</th>
+                      <th style="width: 3rem;display: none;"></th>
+                    </thead>
+                    <tbody *ngFor="let items of riskLibraryDetails; let n = index">
+                      <tr>
+                        <td>{{(currentPage.RiskLibraryDetail*pageSize.RiskLibraryDetail) + n + 1 }}</td>
+                        <td style="text-align: left; padding: 30px">
+                          {{ items.keyprocess }}
+                        </td>
+                        <td style="text-align: left; padding: 30px">
+                          {{ items.keyrisk }}
+                        </td>
+                        <td style="text-align: left; padding: 30px; white-space: pre-line">
+                          <ol>
+                            <li *ngFor=" let control of items.keycontrol.split('\n \n')" class="mb-2">
+                              {{removeNumber(control.replace('.', ' '))}}
+                            </li>
+                          </ol>
+                        </td>
+
+                        <td style="text-align: left;padding: 30px">
+                          {{ items.ketentuan }} {{ items.descriptionItem[0].description }}
+                        </td>
+                        <td style="display: none;">
+                          <div class="action-expand">
+                            <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i><label class="switch">
+                              <input type="checkbox" (change)="toggleRowKeyProcess()" />
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="pagination">
+                    <mat-paginator class="transparent-paginator" [length]="totalPage.RiskLibraryDetail" [pageSize]="riskLibraryDetailsRequest.size"
+                      [pageSizeOptions]="[5, 10, 25]" [showFirstLastButtons]="true"
+                      (page)="ongPageChange($event, 'RiskLibraryDetails',item.id)"></mat-paginator>
+                  </div>
+
+                  <mat-grid-list cols="1" rowHeight="10:1" *ngIf="item.id else nothingShow">
+                    <div *ngIf="!item.quarter else issue">
+                      <mat-grid-tile>
+                        <button class="btn-risk-issue w-100 p-3" (click)="submitPeriodePengisianRcsa(item.id)">
+                          SUBMIT RISK ISSUE
+                        </button>
+                      </mat-grid-tile>
+                    </div>
+
+                    <ng-template #issue>
+                      <mat-grid-tile>
+                        <button class="btn-risk-issue disabled">
+                          SUBMIT RISK ISSUE
+                        </button>
+                      </mat-grid-tile>
+                    </ng-template>
+                  </mat-grid-list>
+                  <ng-template #nothingShow>
+                    <div></div>
+                  </ng-template>
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+
+
+    <mat-paginator [length]="totalPage.RiskLibrary" [pageSize]="10" [pageSizeOptions]='[5, 10, 25]'
+        showFirstLastButtons (page)="ongPageChange($event, 'RiskLibrary')"></mat-paginator>
+  </div>
+  <ng-template #riskRegister>
+    <div class="risk-register">
+      <table class="table" aria-describedby>
+        <thead>
+          <th style="text-align: left">No.</th>
+          <th style="text-align: left">Jar/Dir</th>
+          <th style="text-align: left">Segmen/Group</th>
+          <th style="text-align: left">Key Process</th>
+          <th style="text-align: left">Key Risk Issue</th>
+          <th style="text-align: left">LET 1</th>
+          <th style="text-align: left">LET 2</th>
+          <th style="text-align: left">KEY CONTROL</th>
+          <th>KENTENTUAN</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of riskRegisterData;let i = index">
+            <td>{{(currentPageRiskRegister*pageSizeRiskRegister) + i + 1  }}</td>
+            <td>{{data.directorate_name}}</td>
+            <td>{{data.group_name}}</td>
+            <td>{{data.keyprocess}}</td>
+            <td>{{data.keyrisk}}</td>
+            <td>{{data.let1}}</td>
+            <td>{{data.let2}}</td>
+            <td>
+              <ol>
+                <li *ngFor=" let control of data.keycontrol.split('\n \n')" class="mb-2">
+                  {{removeNumber(control.replace('.', ' '))}}
+                </li>
+              </ol>
+            </td>
+            <td>{{data.ketentuan}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator
+          [length]="totalElementRiskRegister"
+          [pageSize]="5"
+          [pageSizeOptions]="[5, 10, 50, 100]"
+          aria-label="Select page"
+          showFirstLastButtons
+          (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+    </div>
+  </ng-template>
+</div>

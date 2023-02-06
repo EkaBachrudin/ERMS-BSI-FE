@@ -1,0 +1,31 @@
+<div style="width: 35rem; height: 12rem; font-size: small">
+  <h6 mat-dialog-title><strong>Edit Ketentuan</strong></h6>
+  <p class="title1" style="margin-top: 1rem">KETENTUAN</p>
+  <form>
+    <input type="text" class="input" />
+    <div class="form-group" style="margin-top: 1.5rem">
+      <button
+        type="button"
+        class="btn"
+        style="width: 27%; border: var(--button) solid 1px; font-size: small"
+        (click)="cancel()"
+      >
+        CANCEL
+      </button>
+      <button
+        type="submit"
+        class="btn"
+        style="
+          width: 70%;
+          margin-left: 1rem;
+          background-color: var(--button);
+          color: white;
+          font-size: small;
+        "
+        (click)="submit()"
+      >
+        EDIT AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

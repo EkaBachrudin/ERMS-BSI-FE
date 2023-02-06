@@ -1,0 +1,37 @@
+<table aria-describedby="table IHRR">
+    <thead style="font-family: Arial, Helvetica, sans-serif;" class="text-center">
+        <th>No.</th>
+        <th style="width: 16rem">IHRR Rating</th>
+        <th>Likelihood </th>
+        <th>Impact</th>
+        <th>IHRR 25</th>
+        <th>IHRR</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of IhrrSettings" class="text-center">
+            <td>{{ item.id }}</td>
+            <td [ngClass]="{
+                'LowIhrr': item.ihrrRating === 'Low',
+                'MediumIhrr': item.ihrrRating === 'Medium',
+                'LowToMediumIhrr': item.ihrrRating === 'Low To Medium',
+                'MediumToHighIhrr': item.ihrrRating === 'Medium To High',
+                'highIhrr': item.ihrrRating === 'High'
+            }">
+                <div class="ScoreIhrr">
+                    <p>{{ item.ihrrRating }}</p>
+                </div>
+            </td>
+            <td>{{ item.likelihood }}</td>
+            <td>{{ item.impact }}</td>
+            <td>{{item.ihrrSkala25}}</td>
+            <td>{{ item.ihrr }}</td>
+            <td class="approvedIhrr">
+                <div class="status">
+                    <p>APPROVED</p>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<mat-paginator [length]="totalPage" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons (page)="onPaginateChange($event)"></mat-paginator>

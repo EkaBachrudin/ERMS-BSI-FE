@@ -1,0 +1,66 @@
+<div class="jaringan">
+  <div class="head">
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Cari" />
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </label>
+    </div>
+    <button class="btn-key-control-add" style="display: none;">
+      <p>+</p>
+      KEY RISK
+    </button>
+  </div>
+  <table style="width: 100%" aria-describedby>
+    <thead>
+      <th>No.</th>
+      <th>Key Process</th>
+      <th>Key Risk</th>
+      <th>LET 3</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of keyRisk; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.keyPro }}</td>
+        <td>{{ item.keyRisk }}</td>
+        <td>{{ item.let3 }}</td>
+        <td class="approved" *ngIf="item.status === statusApprove; else reject">
+          <div class="status">
+            <strong>{{ item.status }}</strong>
+          </div>
+        </td>
+        <ng-template #reject>
+          <td
+            class="rejected"
+            *ngIf="item.status === statusReject; else waiting"
+          >
+            <div class="status">
+              <strong>{{ item.status }}</strong>
+            </div>
+          </td>
+        </ng-template>
+        <ng-template #waiting>
+          <td class="waiting">
+            <div class="status">
+              <strong>{{ item.status }}</strong>
+            </div>
+          </td>
+        </ng-template>
+        <td>
+          <div class="action" *ngIf="!isApprover; else approverRisk">
+            <i class="fa fa-trash" id="trash" aria-hidden="true"></i>
+            <i class="fa-solid fa-pen-to-square" id="edit" aria-hidden="true"></i>
+          </div>
+          <ng-template #approverRisk>
+            <div class="action">
+              <i class="fa fa-check" id="check" aria-hidden="true"></i>
+              <i class="fa fa-xmark" id="xmark" aria-hidden="true"></i>
+            </div>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

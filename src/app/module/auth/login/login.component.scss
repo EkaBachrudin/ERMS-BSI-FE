@@ -1,0 +1,251 @@
+// mat-grid-list {
+//   background-color: red;
+//   max-height: 100vh;
+// }
+
+// .left-column {
+//   flex-direction: column;
+// }
+
+// .main-title {
+//   margin-top: 10em;
+// }
+
+// .copyright {
+//   margin-left: 2em;
+//   margin-block-start: 5em;
+// }
+
+// .footer {
+//   background-color: orange;
+//   color: orange;
+// }
+
+// .example-card {
+//   display: flex;
+//   justify-content: center;
+//   width: 18em;
+
+//   border-radius: 1em;
+// }
+
+// .content-card {
+//   margin: 0 2em 0 2em;
+// }
+
+// .box-login {
+//   margin-top: 2em;
+// }
+
+// mat-card-title {
+//   margin-top: 1em;
+// }
+
+// .password-box {
+//   margin-top: 1em;
+// }
+
+// .login-button {
+//   margin-right: 1vw;
+//   background: rgb(0, 163, 157);
+//   color: white;
+//   font-size: 10px;
+//   height: auto;
+//   width: 220px;
+// }
+
+// .help-button {
+//   margin-right: 1vw;
+//   background: white;
+//   color: rgb(0, 163, 157);
+//   font-size: 10px;
+//   height: auto;
+//   width: 220px;
+// }
+
+// mat-card-actions {
+//   margin-top: 1em;
+//   flex-direction: column;
+// }
+
+// .content {
+//   background: rgba(54, 65, 85, 0.5)
+//     url("../../../../assets/side-view-cropped-unrecognizable-business-people-working-common-desk.png");
+//   width: 100%;
+//   height: 100%;
+//   background-size: 100%;
+// }
+// .content::before {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   background-color: inherit;
+//   content: " ";
+// }
+
+.page {
+  width: 100%;
+  height: 100%;
+  .content {
+    width: 100%;
+    height: 97.5%;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    // padding-left: 4rem;
+    // padding-right: 4rem;
+    // background-image: url("../../../../assets/background-login-1.png");
+    background-size: 100%;
+    background-color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    .readme {
+      color: var(--white);
+      width: 50%;
+      display: grid;
+      grid-template-areas:
+        "head"
+        "title"
+        "footer";
+      grid-template-columns: 0.1fr;
+      // grid-gap: 10px;
+      padding-left: 3rem;
+      grid-template-rows: 0.5fr 6fr 0.5fr;
+      .head {
+        grid-area: head;
+        display: flex;
+        color: var(--white);
+        // justify-content: center;
+        align-items: center;
+        font-weight: 200;
+        font-size: small;
+        width: 100%;
+        // height: 15%;
+        img {
+          margin-right: 1.2rem;
+          width: 3rem;
+          height: fit-content;
+        }
+      }
+      .title {
+        grid-area: title;
+        display: flex;
+        color: var(--white);
+        font-weight: 200;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+        img {
+          width: 25rem;
+          margin-bottom: 2.2rem;
+          height: fit-content;
+        }
+      }
+      span {
+        margin-bottom: 2.5rem;
+        font-weight: 100;
+        font-size: x-small;
+        grid-area: footer;
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 7rem;
+        }
+      }
+    }
+    .list-action {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .form {
+        padding: 2.5rem;
+        border-radius: 1rem;
+        width: 25rem;
+        height: 30rem;
+        background-color: var(--white);
+        box-shadow: 0 0 10px gray;
+        p {
+          font-size: large;
+          height: 15%;
+          align-items: center;
+          display: flex;
+          color: #525252;
+          font-weight: 500;
+          justify-content: center;
+        }
+        form {
+          .input {
+            display: flex;
+            flex-direction: column;
+            label {
+              font-size: small;
+              color: #aaaaaa;
+              font-weight: 200;
+            }
+            input {
+              margin-top: 2px;
+              border: none;
+              padding: 0.4rem;
+              background-color: #f6f6f6;
+            }
+            mat-error {
+              font-size: x-small;
+            }
+          }
+          .input2 {
+            display: flex;
+            flex-direction: column;
+            label {
+              font-size: small;
+              color: #aaaaaa;
+              font-weight: 200;
+            }
+            input {
+              margin-top: 2px;
+              border: none;
+              padding: 0.4rem;
+              background-color: #f6f6f6;
+            }
+            mat-error {
+              font-size: x-small;
+            }
+          }
+          button {
+            font-weight: 400;
+            font-size: small;
+            background-color: var(--button);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 0.9rem;
+            border-radius: 0.3rem;
+          }
+          .help {
+            font-weight: 300;
+            cursor: pointer;
+            margin-top: 2rem;
+            font-size: x-small;
+            color: #525252;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    width: 100%;
+    height: 2.5%;
+    background-color: var(--footer-yellow);
+  }
+}
+
+mat-icon{
+  position: absolute;
+  margin-top: 11px;
+  margin-left: -20px;
+}

@@ -1,0 +1,215 @@
+.under-toolbar {
+  background-color: rgb(241, 241, 241);
+  padding-top: 5px;
+  height: 80vh;
+}
+
+.topBox {
+  display: flex;
+  background-color: white;
+  margin: 1em 2em 1em 2em;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.allForm {
+  display: flex;
+  flex-direction: row;
+
+  .formSelect {
+    display: flex;
+    justify-content: start;
+
+    .periodYear {
+      margin-right: 1em;
+    }
+  }
+}
+
+.botBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 2em 1em 2em;
+  border-radius: 10px;
+}
+
+// table
+.headTable {
+  text-align: center;
+}
+
+.bodyTable {
+  background-color: white;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .fa-check-circle,
+  .fa-pen,
+  .fa-file-excel {
+    margin-right: 15px;
+  }
+
+  .fa-check-circle {
+    color: rgb(0, 163, 157);
+  }
+
+  .fa-pen {
+    color: rgb(249, 173, 61);
+  }
+
+  .fa-file-excel {
+    color: rgb(191, 53, 53);
+  }
+
+  .fa-download {
+    color: rgb(123, 195, 116);
+  }
+}
+
+.waiting,
+.rejected,
+.approved {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .pStatus {
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: smaller;
+    width: 140px;
+    height: 25px;
+    margin: 1px;
+  }
+}
+
+.waiting {
+  background-color: rgb(255, 245, 210);
+  color: rgb(250, 182, 80);
+}
+.rejected {
+  background-color: rgb(255, 191, 191);
+}
+
+.approved {
+  background-color: rgb(235, 250, 249);
+  color: rgb(0, 163, 157);
+}
+
+#report {
+  text-align: center;
+}
+
+.fa-file-signature {
+  color: rgb(0, 163, 157);
+}
+
+.headExpand {
+  background-color: rgb(223, 235, 241);
+}
+
+.boxPagination {
+  background-color: rgb(223, 235, 241);
+  border-radius: 0 0 10px 10px;
+  padding-right: 10px;
+}
+
+.sumPage {
+  margin-right: 20px;
+  margin-top: 8px;
+}
+
+.iconPagiLeft {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.iconPagiRight {
+  margin-top: 10px;
+  margin-left: 8px;
+}
+.iconPagiRight2 {
+  margin-top: 10px;
+  // margin-right: 2em;
+  margin-left: 5px;
+}
+
+.cdk-global-overlay-wrapper,
+.cdk-overlay-container {
+  z-index: 99999 !important;
+}
+
+.warningIcon {
+  color: rgb(249, 173, 61);
+  font-weight: 900;
+}
+
+.select1 {
+  margin-right: 5px;
+  width: 130px;
+}
+.select2 {
+  margin-right: 5px;
+  width: 100px;
+}
+
+.input2 {
+  margin-right: 5px;
+  width: 100px;
+}
+
+.input3 {
+  margin-right: 10px;
+  width: 160px;
+}
+
+.status {
+  width: 150px;
+}
+
+.scrollme {
+  width: auto;
+  max-width: 1100px;
+  overflow-x: scroll;
+}
+
+.strong,
+.fair {
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .pOverall {
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: smaller;
+    width: 140px;
+    height: 15px;
+    margin: 1px;
+  }
+}
+
+.strong {
+  background-color: rgb(13, 161, 54);
+  color: white;
+}
+
+.fair {
+  background-color: rgb(254, 219, 33);
+}
+
+.fa-exclamation-circle {
+  color: rgb(249, 173, 61);
+}
+
+.cancel-button {
+  background: black;
+}

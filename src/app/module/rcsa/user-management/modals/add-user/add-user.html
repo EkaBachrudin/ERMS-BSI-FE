@@ -1,0 +1,52 @@
+<form [formGroup]="addUserForm">
+  <div style="width: 35rem; font-size: small">
+    <h5 mat-dialog-title>Tambah User</h5>
+    <div class="input">
+      <p>NIP</p>
+      <input type="text" formControlName="nip" />
+    </div>
+    <div class="input">
+      <p>Nama Lengkap</p>
+      <input type="text" formControlName="nama_lengkap" />
+    </div>
+    <div class="input">
+      <p>Email</p>
+      <input type="text" formControlName="email" />
+    </div>
+    <div class="input">
+      <p>Jabatan</p>
+      <select name="jabatan" id="jabatan" formControlName="jabatan">
+        <option value="jabatan">JABATAN</option>
+      </select>
+    </div>
+    <div class="input">
+      <p>Unit Kerja</p>
+      <select
+        name="unitKerjaUser"
+        id="unitKerjaUser"
+        formControlName="unit_kerja"
+      >
+        <option value="Kantor Pusat">Kantor Pusat</option>
+      </select>
+    </div>
+    <p class="title">Kewenangan User</p>
+    <!-- <div class="input">
+      <p>Modul</p>
+      <select name="modul" id="modul" formControlName="modul">
+        <option value="KRI">RI</option>
+      </select>
+    </div> -->
+    <div class="input">
+      <p>Role</p>
+      <select name="jabatan" id="jabatan" formControlName="role">
+        <option value="Super-Admin">Super Admin</option>
+      </select>
+    </div>
+    <div class="action-btn">
+      <button class="btn-add" type="submit" (click)="submit()" type="submit">
+        Tambah User
+      </button>
+      <button class="btn-cancel" (click)="cancel()">Batal</button>
+    </div>
+  </div>
+</form>

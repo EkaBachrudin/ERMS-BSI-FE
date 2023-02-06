@@ -1,0 +1,38 @@
+<div class="DialogExample">
+    <h1 mat-dialog-title>Setting IHRR</h1>
+    <mat-dialog-content style="opacity: 0;">This dialog showcases the title, close, content and actions elements.
+    </mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Score Description</mat-label>
+                <input matInput [(ngModel)]="temporary.Rating">
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Score</mat-label>
+                <mat-select [(ngModel)]="temporary.Score">
+                    <mat-option value="{{temporary.Score}}">{{temporary.Score}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Deskripsi</mat-label>
+                <textarea matInput [(ngModel)]="temporary.Details.Deskripsi"></textarea>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <mat-label>Uraian</mat-label>
+                <textarea matInput [(ngModel)]="temporary.Details.Uraian"></textarea>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div mat-dialog-actions>
+        <button class="buttonDialogClose" mat-raised-button (click)="onNoClick()">Simpan</button>
+    </div>
+</div>

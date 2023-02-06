@@ -1,0 +1,65 @@
+<div class="let-content">
+  <div class="let1-2-3">
+    <div class="list-action-let-1-2-3">
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Cari" [(ngModel)]="searchText"/>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </label>
+      </div>
+      <button *ngIf="!isApprover" (click)="addLet()" style="display: none">
+                <p>+</p>
+                ADD LET 1 AND 2
+            </button>
+    </div>
+    <table aria-describedby="">
+      <thead>
+        <th>No.</th>
+        <th class="left">Level 1</th>
+        <th class="left">Level 2</th>
+        <th class="left">Level. 3</th>
+        <th>Status</th>
+        <th style="display: none;">Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of letList| searchFilterMulti: 'let1':searchText; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td class="left">{{ item.let1 }}</td>
+          <td class="left">
+           
+              {{ item.let2 }}
+          </td>
+          <td class="left">
+            {{ item.name }}
+
+          </td>
+          <td class="approved">
+            <div class="status"><strong>APPROVED</strong></div>
+          </td>
+          <td style="display: none">
+              <div class="action-table" *ngIf="!isApprover; else approverRisk">
+                  <i class="fa fa-trash" id="trash" (click)="deleteLet()" aria-hidden="true"></i>
+                  <i class="fa-solid fa-pen-to-square" id="edit"
+                      (click)="editLet()" aria-hidden="true"></i>
+              </div>
+              <ng-template #approverRisk>
+                  <div class="action-table">
+                      <i class="fa fa-check" id="check" aria-hidden="true"></i>
+                      <i class="fa fa-xmark" id="xmark" aria-hidden="true"></i>
+                  </div>
+              </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+          [length]="totalElement"
+          [pageSize]="10"
+          [pageSizeOptions]="[10, 20, 50, 100]"
+          aria-label="Select page"
+          showFirstLastButtons
+          (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+  </div>
+</div>

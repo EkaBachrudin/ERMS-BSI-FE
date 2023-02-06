@@ -1,0 +1,43 @@
+table,
+th,
+td {
+    padding: 6px;
+    border: 1px solid;
+    text-align: center;
+}
+
+thead {
+    background-color: #c9c6c67c;
+}
+
+.green {
+    padding: 0.4rem;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #0da136;
+}
+
+.green-light {
+    padding: 0.4rem;
+    border-radius: 10px;
+    background-color: #74d99c;
+}
+
+.yellow {
+    padding: 0.4rem;
+    border-radius: 10px;
+    background-color: #fedb21;
+}
+
+.orange {
+    padding: 0.4rem;
+    border-radius: 10px;
+    background-color: #ff842c;
+}
+
+.red {
+    padding: 0.4rem;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #a10d0d;
+}

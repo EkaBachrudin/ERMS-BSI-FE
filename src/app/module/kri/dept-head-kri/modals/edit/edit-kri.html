@@ -1,0 +1,136 @@
+<div
+  style="
+    width: 34rem;
+    height: 39.5rem;
+    background-color: #ffffff;
+    font-size: small;
+  "
+>
+  <h6 mat-dialog-title><strong>Isian Key Risk Indicator</strong></h6>
+  <hr />
+  <form onsubmit="return true" style="width: 100%; height: 80%">
+    <div style="width: 100%; height: 100%; overflow: auto">
+      <p class="title1">KEY RISK INDICATOR</p>
+      <textarea
+        name="penjelasanpenyebab"
+        id="penjelasanpenyebab"
+        cols="6"
+        rows="3"
+      >
+{{ kri }}</textarea
+      >
+      <div *ngIf="ukuran_arr.length == 2 && ukuran_arr[1].desc != ''; else arr1" class="sigma">
+        <div class="value">
+          <p class="value1">{{ ukuran_arr[0].desc }}</p>
+          <hr />
+          <p class="value2">{{ukuran_arr[1].desc}}</p>
+        </div>
+        <ng-container *ngIf="operator == 'pembagian' else perkalian">
+          <i class="fa-solid fa-divide"></i>
+        </ng-container>
+        <ng-template #perkalian>
+          <ng-container *ngIf="operator == 'perkalian' else pertambahan">
+            <i class="fa-solid fa-xmark"></i>
+          </ng-container>
+        </ng-template>
+        <ng-template #pertambahan>
+          <ng-container *ngIf="operator == 'pertambahan' else pengurangan">
+            <i class="fa-solid fa-plus"></i>
+          </ng-container>
+        </ng-template>
+        <ng-template #pengurangan>
+          <ng-container *ngIf="operator == 'pengurangan'">
+            <i class="fa-solid fa-minus"></i>
+          </ng-container>
+        </ng-template>
+      </div>
+      <ng-template #arr1>
+        <div class="sigma">
+          <div class="value">
+            <p class="value1">{{ ukuran_arr[0].desc }}</p>
+          </div>
+        </div>
+      </ng-template>
+      
+      <ng-container *ngIf="ukuran_arr[1].desc == '' else duaNilai">
+        <div class="group-title">
+          <p class="ukuran">UKURAN</p>
+          <p class="nilai">NILAI</p>
+        </div>
+        <div class="group-under-title">
+          <input
+            type="text"
+            class="ukuranvalue"
+            value="{{ ukuran_arr[0].desc }}"
+            readonly
+          />
+          <input
+            class="nilavalue"
+            type="text"
+            [formControl]="nilai_1"
+          />
+        </div>
+      </ng-container>
+      <ng-template #duaNilai>
+        <div class="group-title">
+          <p class="ukuran">UKURAN</p>
+          <p class="nilai">NILAI</p>
+        </div>
+        <div class="group-under-title">
+          <input
+            type="text"
+            class="ukuranvalue"
+            value="{{ ukuran_arr[0].desc }}"
+            readonly
+          />
+          <input
+            class="nilavalue"
+            type="text"
+            [formControl]="nilai_1"
+          />
+        </div>
+
+        <div class="group-title">
+          <p class="ukuran">UKURAN</p>
+          <p class="nilai">NILAI</p>
+        </div>
+        <div class="group-under-title">
+          <input
+            type="text"
+            class="ukuranvalue"
+            value="{{ ukuran_arr[1].desc }}"
+            readonly
+          />
+          <input
+            class="nilavalue"
+            type="text"
+            [formControl]="nilai_2"
+          />
+        </div>
+      </ng-template>
+      <p class="title1">Keterangan</p>
+      <textarea
+        name="penjelasanpenyebab"
+        id="penjelasanpenyebab"
+        [formControl]="keterangan"
+        cols="6"
+        rows="3"
+      ></textarea>
+
+      <!-- <div class="group-title2">
+        <p class="ukuran">REALISASI DATA</p>
+      </div>
+      <div class="realisasiData">
+        5.0% (YELLOW) &nbsp;<i class="fa fa-circle-exclamation"></i>
+      </div> -->
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">
+        <strong>CANCEL</strong>
+      </button>
+      <button class="btn-submit" (click)="onSubmit(parent_id, id)">
+        <strong>ASSIGN KRI</strong>
+      </button>
+    </div>
+  </form>
+</div>

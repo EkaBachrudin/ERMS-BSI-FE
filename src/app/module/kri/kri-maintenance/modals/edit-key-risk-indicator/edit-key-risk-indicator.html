@@ -1,0 +1,128 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah KRI</h6>
+  <hr />
+  <form onsubmit="return false">
+    <div class="scroll">
+      <p class="title1">KEY RISK INDICATOR</p>
+      <textarea name="" cols="82" rows="3"></textarea>
+      <p class="title2">JENIS UNIT</p>
+      <input type="text" class="input" />
+      <p class="title3">JENIS ISIAN KRI</p>
+      <select>
+        <option value="">KANTOR PUSAT</option>
+        <option value="">CABANG</option>
+        <option value="">AREA</option>
+      </select>
+      <p class="title3">JENIS UKURAN</p>
+      <select>
+        <option value="">NON OPERATION VARIABLE</option>
+        <option value="">OPERATION VARIABLE</option>
+      </select>
+      <p class="title3">UKURAN</p>
+      <input type="text" />
+      <div class="title4">
+        <p>TRESHOLD</p>
+        <hr />
+      </div>
+      <span class="title-treshold"
+        >TRESHOLD GREEN
+        <div class="green">Green <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          NILAI
+          <select>
+            <option value="">PERSENTASE</option>
+            <option value="">NO PERCENTASE</option>
+            <option value="">NULL (0)</option>
+            <option value="">NILAI DARI JUMLAH CABANG</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" />
+        </div>
+        <div class="simbol">
+          <span> SIMBOL</span>
+          <select>
+            <option value="">< (KURANG DARI)</option>
+          </select>
+        </div>
+      </div>
+      <span class="title-treshold" style="margin-top: 1rem"
+        >TRESHOLD YELLOW
+        <div class="yellow">Yellow <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          NILAI
+          <select>
+            <option value="">PERSENTASE</option>
+            <option value="">NO PERCENTASE</option>
+            <option value="">NULL (0)</option>
+            <option value="">NILAI DARI JUMLAH CABANG</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" />
+        </div>
+        <div class="simbol">
+          <span
+            ><input type="checkbox" style="width: 10px" />&nbsp; SIMBOL</span
+          >
+          <select>
+            <option value="">< (KURANG DARI)</option>
+          </select>
+        </div>
+      </div>
+      <div class="check">
+        <div class="nilairentang">
+          <span
+            ><input type="checkbox" style="width: 11px" /> NILAI RENTANG</span
+          >
+          <input type="text" class="input" disabled />
+        </div>
+        <div class="simbol">
+          <span><input type="checkbox" style="width: 10px" /> SIMBOL</span>
+          <select>
+            <option value="" selected disabled>< (KURANG DARI)</option>
+          </select>
+        </div>
+      </div>
+      <span class="title-treshold" style="margin-top: 1rem"
+        >TRESHOLD RED
+        <div class="red">Red <i class="fa fa-circle-exclamation"></i></div
+      ></span>
+      <div class="treshold">
+        <div class="jenis">
+          NILAI
+          <select>
+            <option value="">PERSENTASE</option>
+            <option value="">NO PERCENTASE</option>
+            <option value="">NULL (0)</option>
+            <option value="">NILAI DARI JUMLAH CABANG</option>
+          </select>
+        </div>
+        <div class="nilai">
+          NILAI
+          <input type="text" />
+        </div>
+        <div class="simbol">
+          <span> SIMBOL</span>
+          <select>
+            <option value="">< (KURANG DARI)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">
+        <strong>CANCEL</strong>
+      </button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        <strong>ADD KEY RISK INDICATOR</strong>
+      </button>
+    </div>
+  </form>
+</div>

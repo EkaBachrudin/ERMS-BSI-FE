@@ -1,0 +1,161 @@
+<div class="top-risk" style="display: none;">
+  <div class="list-action">
+    <div class="unit">
+      <p>Unit Kerja</p>
+      <mat-select placeholder="Unit Kerja">
+        <mat-option value="KP">KP</mat-option>
+        <mat-option value="ALL">ALL</mat-option>
+        <mat-option value="JARINGAN">JARINGAN</mat-option>
+        <mat-option value="KANTOR_PUSAT">KANTOR PUSAT</mat-option>
+      </mat-select>
+    </div>
+    <div class="segmen">
+      <p>Regional/Directorat</p>
+      <mat-select placeholder="Segment/Group">
+        <mat-option value="Aceh">Aceh</mat-option>
+        <mat-option value="Banten">Banten</mat-option>
+        <mat-option value="WBD">WBD</mat-option>
+        <mat-option value="CEO">CEO</mat-option>
+      </mat-select>
+    </div>
+    <div class="area">
+      <p>Area</p>
+      <mat-select placeholder="Area">
+        <mat-option value="Aceh">Aceh</mat-option>
+        <mat-option value="Banten">Banten</mat-option>
+      </mat-select>
+    </div>
+    <div class="group-segmen">
+      <p>Group/Segmen</p>
+      <mat-select placeholder="Group/Segmen">
+        <mat-option value="Operasional">Operasional</mat-option>
+        <mat-option value="MOR">MOR</mat-option>
+      </mat-select>
+    </div>
+    <div class="group-segmen">
+      <p>Periode</p>
+      <mat-select style="margin-right: 5px" placeholder="Periode">
+        <mat-option value="2022">2022</mat-option>
+        <mat-option value="2023">2023</mat-option>
+      </mat-select>
+    </div>
+    <mat-select
+      style="margin-right: 7px; margin-top: 2rem"
+      placeholder="Quater"
+    >
+      <mat-option value="Q1">Q1</mat-option>
+      <mat-option value="Q2">Q2</mat-option>
+      <mat-option value="Q3">Q3</mat-option>
+      <mat-option value="Q4">Q4</mat-option>
+    </mat-select>
+  </div>
+  <div class="group-segmen">
+    <p style="opacity: 0">Download PDF</p>
+    <button mat-raised-button color="primary">Download PDF</button>
+  </div>
+</div>
+<div class="data-top-risk">
+  <table mat-table [dataSource]="dataSource" aria-describedby>
+    <ng-container matColumnDef="No">
+      <th mat-header-cell *matHeaderCellDef>Peringkat</th>
+      <td mat-cell *matCellDef="let element; let i = index;">{{ (currentPage*pageSize) + i + 1 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="UnitKerja">
+      <th mat-header-cell *matHeaderCellDef>Unit Kerja</th>
+      <td mat-cell *matCellDef="let element">Kantor Pusat</td>
+    </ng-container>
+    <ng-container matColumnDef="Regional">
+      <th mat-header-cell *matHeaderCellDef>Regional / Direktora</th>
+      <td mat-cell *matCellDef="let element">{{ element.rcsaDraft.directorat_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Area">
+      <th mat-header-cell *matHeaderCellDef>Area</th>
+      <td mat-cell *matCellDef="let element">-</td>
+    </ng-container>
+    <ng-container matColumnDef="Segmen">
+      <th mat-header-cell *matHeaderCellDef>Group / Segmen</th>
+      <td mat-cell *matCellDef="let element">{{ element.rcsaDraft.group_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="KeyRisk">
+      <th mat-header-cell *matHeaderCellDef>Key Risk</th>
+      <td mat-cell *matCellDef="let element">{{ element.keyrisk }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ihrr25">
+      <th mat-header-cell *matHeaderCellDef>IHRR 25</th>
+      <td mat-cell *matCellDef="let element" >
+        <div [ngClass]="{
+          'LowTopRisk': element.ihrr === 1,
+          'LowToMediumTopRisk': element.ihrr === 2,
+          'MediumTopRisk': element.ihrr === 3,
+          'MediumTohighTopRisk': element.ihrr === 4,
+          'HighTopRisk': element.ihrr === 5
+      }">
+
+      <div class="status">
+        {{ element.likelihood * element.impact }}
+      </div>
+        </div>
+      </td>
+      <td mat-cell *matCellDef="let element">{{ element.likelihood * element.impact }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Ihrr">
+      <th mat-header-cell *matHeaderCellDef>IHRR</th>
+      <td mat-cell *matCellDef="let element" >
+        <div [ngClass]="{
+          'LowTopRisk': element.ihrr === 1,
+          'LowToMediumTopRisk': element.ihrr === 2,
+          'MediumTopRisk': element.ihrr === 3,
+          'MediumTohighTopRisk': element.ihrr === 4,
+          'HighTopRisk': element.ihrr === 5
+      }">
+
+      <div class="status">
+        {{ element.ihrr }}
+      </div>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Control">
+      <th mat-header-cell *matHeaderCellDef>Control</th>
+      <td mat-cell *matCellDef="let element" >
+        <div [ngClass]="{
+          'LowTopRisk': element.control === 1,
+          'LowToMediumTopRisk': element.control === 2,
+          'MediumTopRisk': element.control === 3,
+          'MediumTohighTopRisk': element.control === 4,
+          'HighTopRisk': element.control === 5
+      }">
+      <div class="status">
+        {{ element.control }}</div>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Composite">
+      <th mat-header-cell *matHeaderCellDef>Composite</th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngClass]="{
+          'LowTopRisk': element.rating === 1,
+          'LowToMediumTopRisk': element.rating === 2,
+          'MediumTopRisk': element.rating === 3,
+          'MediumTohighTopRisk': element.rating === 4,
+          'HighTopRisk': element.rating === 5
+      }">
+      <div class="status">
+        {{ element.rating }}
+      </div></div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Periode">
+      <th mat-header-cell *matHeaderCellDef>Periode</th>
+      <td mat-cell *matCellDef="let element">{{ element.rcsaDraft.quarter }}/{{ element.rcsaDraft.periode }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+  </table>
+  <mat-paginator
+    [length]="totalElements"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSize]="pageSize"
+    (page)="onChangePage($event)"
+    showFirstLastButtons ></mat-paginator>
+</div>

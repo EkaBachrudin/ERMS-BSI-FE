@@ -1,0 +1,17 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah Non Dampak Financial</h6>
+  <form onsubmit="return false">
+    <div class="input">
+      <p class="title1">IMPACT</p>
+      <input type="text" [formControl]="impact" />
+      <p class="title1">KETERANGAN</p>
+      <input type="text" [formControl]="keterangan" />
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

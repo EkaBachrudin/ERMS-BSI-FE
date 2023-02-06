@@ -1,0 +1,2134 @@
+<app-content>
+    <ng-container content>
+        <mat-tab-group>
+            <mat-tab label="CT JARINGAN">
+              <div class="under-toolbar">
+                <!-- Top Box -->
+                <div class="topBox mat-elevation-z4">
+                  <div class="allForm">
+                    <div class="formSelect">
+                      <mat-form-field appearance="fill" class="periodYear">
+                        <mat-label>Choose Periode Year</mat-label>
+                        <mat-select>
+                          <mat-option value="option1" disabled>All</mat-option>
+                          <mat-option value="2022">2022</mat-option>
+                          <mat-option value="2021">2021</mat-option>
+                          <mat-option value="2020">2020</mat-option>
+                          <mat-option value="2019">2019</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+          
+                      <mat-form-field appearance="fill">
+                        <mat-label>Choose Periode</mat-label>
+                        <mat-select>
+                          <mat-option value="option1" disabled>All</mat-option>
+                          <mat-option value="Q1">Q1</mat-option>
+                          <mat-option value="Q2">Q2</mat-option>
+                          <mat-option value="Q3">Q3</mat-option>
+                          <mat-option value="Q4">Q4</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Bottom Box -->
+                <div
+                  class="botBox mat-elevation-z8 table-responsive accordion"
+                  id="accordionExample"
+                >
+                  <table class="table">
+                    <thead class="headTable">
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">No. Reg</th>
+                        <th scope="col">CT</th>
+                        <th scope="col">Source CT</th>
+                        <th scope="col">Nama CT/Segmen</th>
+                        <th scope="col">Periode</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="bodyTable accordion-item">
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>AA21KRO22</td>
+                        <td>AREA</td>
+                        <td>Manual</td>
+                        <td>CT</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="waiting">
+                            <p class="pStatus">WAITING FOR APPROVAL</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-check-circle fa-lg"
+                                role="button"
+                                (click)="toSubmit()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-file-excel fa-lg"
+                                role="button"
+                                (click)="toRejected()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingOne">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseOne"
+                              aria-expanded="true"
+                              aria-controls="collapseOne"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                        id="collapseOne"
+                      >
+                        <td colspan="9">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>AA21KRO22</td>
+                        <td>AREA</td>
+                        <td>RCSA</td>
+                        <td>Operasional</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="waiting">
+                            <p class="pStatus">WAITING FOR APPROVAL</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-check-circle fa-lg"
+                                role="button"
+                                (click)="toSubmit()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-file-excel fa-lg"
+                                role="button"
+                                (click)="toRejected()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingTwo">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseTwo"
+                              aria-expanded="false"
+                              aria-controls="collapseTwo"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="9">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>AA21KRO22</td>
+                        <td>AREA</td>
+                        <td>RCSA</td>
+                        <td>Gadai</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="approved"><p class="pStatus">APPROVED</p></div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingThree">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseThree"
+                              aria-expanded="true"
+                              aria-controls="collapseThree"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="9">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>AA21KRO22</td>
+                        <td>AREA</td>
+                        <td>RCSA</td>
+                        <td>Priority Banking</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="approved"><p class="pStatus">APPROVED</p></div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingFour">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseFour"
+                              aria-expanded="true"
+                              aria-controls="collapseFour"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseFour"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingFour"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="9">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </mat-tab>
+          
+            <mat-tab label="CT KP">
+              <div class="under-toolbar">
+                <!-- Top Box -->
+                <div class="topBox mat-elevation-z4">
+                  <div class="allForm">
+                    <div class="formSelect">
+                      <mat-form-field appearance="fill" class="periodYear">
+                        <mat-label>Choose Periode Year</mat-label>
+                        <mat-select>
+                          <mat-option value="option1" disabled>All</mat-option>
+                          <mat-option value="2022">2022</mat-option>
+                          <mat-option value="2021">2021</mat-option>
+                          <mat-option value="2020">2020</mat-option>
+                          <mat-option value="2019">2019</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+          
+                      <mat-form-field appearance="fill">
+                        <mat-label>Choose Periode</mat-label>
+                        <mat-select>
+                          <mat-option value="option1" disabled>All</mat-option>
+                          <mat-option value="Q1">Q1</mat-option>
+                          <mat-option value="Q2">Q2</mat-option>
+                          <mat-option value="Q3">Q3</mat-option>
+                          <mat-option value="Q4">Q4</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Bottom Box -->
+                <div
+                  class="botBox mat-elevation-z8 table-responsive accordion"
+                  id="accordionExample"
+                >
+                  <table class="table">
+                    <thead class="headTable">
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">No. Reg</th>
+                        <th scope="col">CT</th>
+                        <th scope="col">Source CT</th>
+                        <th scope="col">Periode</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="bodyTable accordion-item">
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>AA21KRO22</td>
+                        <td>GROUP OPR</td>
+                        <td>Manual</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="waiting">
+                            <p class="pStatus">WAITING FOR APPROVAL</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-check-circle fa-lg"
+                                role="button"
+                                (click)="toSubmit()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-file-excel fa-lg"
+                                role="button"
+                                (click)="toRejected()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingOne">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseOne"
+                              aria-expanded="true"
+                              aria-controls="collapseOne"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                        id="collapseOne"
+                      >
+                        <td colspan="8">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>AA21KRO22</td>
+                        <td>GROUP OPR</td>
+                        <td>RCSA</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="waiting">
+                            <p class="pStatus">WAITING FOR APPROVAL</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-check-circle fa-lg"
+                                role="button"
+                                (click)="toSubmit()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-file-excel fa-lg"
+                                role="button"
+                                (click)="toRejected()"
+                              ></i>
+                            </div>
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingTwo">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseTwo"
+                              aria-expanded="false"
+                              aria-controls="collapseTwo"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="8">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>AA21KRO22</td>
+                        <td>GROUP OPR</td>
+                        <td>RCSA</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="approved"><p class="pStatus">APPROVED</p></div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingThree">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseThree"
+                              aria-expanded="true"
+                              aria-controls="collapseThree"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="8">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+          
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>AA21KRO22</td>
+                        <td>GROUP OPR</td>
+                        <td>RCSA</td>
+                        <td>Q1/2022</td>
+                        <td>
+                          <div class="approved"><p class="pStatus">APPROVED</p></div>
+                        </td>
+                        <td>
+                          <div class="icon">
+                            <div>
+                              <i
+                                class="fa fa-download fa-lg"
+                                role="button"
+                                (click)="toDownload()"
+                              ></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div id="headingFour">
+                            <i
+                              class="fa fa-chevron-down fa-lg"
+                              data-bs-toggle="collapse"
+                              role="button"
+                              data-bs-target="#collapseFour"
+                              aria-expanded="true"
+                              aria-controls="collapseFour"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+          
+                      <!-- Expanded Table -->
+                      <tr
+                        id="collapseFour"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingFour"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <td colspan="8">
+                          <div class="scrollme">
+                            <table
+                              class="table table-bordered table-hover table-responsive"
+                            >
+                              <thead>
+                                <tr class="headExpand">
+                                  <th scope="col">Key Process</th>
+                                  <th scope="col">No.</th>
+                                  <th scope="col">Key Risk</th>
+                                  <th scope="col">Key Control</th>
+                                  <th scope="col">Ketentuan</th>
+                                  <th scope="col">Control Testing Script</th>
+                                  <th scope="col">Sampel</th>
+                                  <th scope="col">Overall Error</th>
+                                  <th scope="col">Error</th>
+                                  <th scope="col">Control Rating Result Score</th>
+                                  <th scope="col">Rata-Rata %Error</th>
+                                  <th scope="col">Error Description</th>
+                                  <th scope="col">Operating Effectiveness</th>
+                                  <th scope="col">Penjelasan OE</th>
+                                  <th scope="col">Design Effectiveness</th>
+                                  <th scope="col">Penjelasan DE</th>
+                                  <th scope="col">Tindak Lanjut</th>
+                                  <th scope="col">PIC</th>
+                                  <th scope="col">Due Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="fair">
+                                    <p class="pOverall">
+                                      3 - FAIR <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                                <tr>
+                                  <td>A Pemasaran/Inisiasi</td>
+                                  <td>1</td>
+                                  <td>
+                                    Risiko gratifikasi oleh pemasar (menerima hadiah dari
+                                    nasabah)
+                                  </td>
+                                  <td>
+                                    1. Petugas harus memahami tupoksi pekerjaan sesuai SOP
+                                    dan mampu menyampaikannya dengan komunikasi yang baik
+                                    kepada nasabah/ calon nasabah
+                                  </td>
+                                  <td>
+                                    1. PTO Layanan BSI Prioritas (10 Juni 2022) <br />
+                                    2. BAB Ill - Layanan BSI Prioritas
+                                  </td>
+                                  <td>
+                                    1, Observasi/ konfirmasi ke pihak/ unit kerja terkait
+                                    (BOSM/ BM) atas proses pemberian hadiah dari nasabah
+                                  </td>
+                                  <td>20</td>
+                                  <td class="strong">
+                                    <p class="pOverall">
+                                      1 - STRONG <i class="fa fa-exclamation-circle"></i>
+                                    </p>
+                                  </td>
+                                  <td>33%</td>
+                                  <td></td>
+                                  <td>33%</td>
+                                  <td>BOSM/BM masih menerima hadiah dari nasabah</td>
+                                  <td>Tidak paham risiko pekerjaan</td>
+                                  <td>
+                                    Tidak paham risiko pekerjaan Petugas tidak memahami
+                                    risiko pekerjaan terkait dengan penerimaan hadiah dari
+                                    nasabah
+                                  </td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>Belum diatur di dalam SOP</td>
+                                  <td>
+                                    Petugas lebih memahami PTO Layanan BSI Prioritas
+                                  </td>
+                                  <td>GROUP HEAD</td>
+                                  <td>01/09/2022</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+          
+                          <!-- Pagination -->
+                          <div class="boxPagination">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination justify-content-end">
+                                <li class="sumPage">1 - 5 of 5</li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item disabled">
+                                  <i
+                                    class="fa fa-step-forward fa-flip-horizontal iconPagiLeft"
+                                    role="button"
+                                  ></i>
+                                </li>
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-step-forward iconPagiRight"
+                                    role="button"
+                                  ></i>
+                                </li>
+          
+                                <li class="page-item">
+                                  <i
+                                    class="fa fa-fast-forward iconPagiRight2"
+                                    role="button"
+                                  ></i>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- End Of Pagination -->
+                        </td>
+                      </tr>
+                      <!-- End Of Expand -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+    </ng-container>
+</app-content>

@@ -1,0 +1,23 @@
+<div style="width: 40rem; font-size: small">
+  <h5 mat-dialog-title>LED SIAP DISUBMIT</h5>
+  <p class="title1">APAKAH TERDAPAT KERUGIAN FINANCIAL</p>
+  <div class="form-group">
+    <select class="form-control" id="kerugian">
+      <option>TIDAK TERDAPAT KERUGIAN FINANCIAL</option>
+      <option>TERDAPAT KERUGIAN FINANCIAL</option>
+      <option>TERDAPAT KERUGIAN FINANCIAL DAN NON FINANCIAL</option>
+    </select>
+  </div>
+  <p class="title1" style="margin-top: 1rem">UPLOAD DOKUMEN TAMBAHAN</p>
+  <div class="form-group">
+    <input class="form-control" type="file" id="formFileMultiple" multiple />
+  </div>
+  <div class="action">
+    <button class="btn-cancel" (click)="cancel()">
+      <strong>CANCEL</strong>
+    </button>
+    <button class="btn-submit" (click)="submit()">
+      <strong>ADD</strong>
+    </button>
+  </div>
+</div>

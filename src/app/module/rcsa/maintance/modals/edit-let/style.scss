@@ -1,0 +1,16 @@
+.content-modal {
+  width: 35rem;
+  height: 23rem;
+  font-size: small;
+  .title {
+    margin-top: 1rem;
+    color: #686868;
+  }
+  input {
+    border: none;
+    width: 100%;
+    border-bottom: var(--button) solid 2px;
+    background-color: #f7f7f7;
+    padding: 0.4rem;
+  }
+}

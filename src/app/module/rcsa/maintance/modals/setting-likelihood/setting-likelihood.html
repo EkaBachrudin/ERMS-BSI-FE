@@ -1,0 +1,71 @@
+<div style="width: 25rem; height: 16rem; font-size: small">
+  <h6 style="text-align: center">Setting Likelihood</h6>
+  <div style="display: flex; justify-content: space-between">
+    <div
+      style="width: 68%; display: flex; flex-direction: column; color: #686868"
+    >
+      <p>Score Description</p>
+      <input type="text" style="border-radius: 4px; padding: 0.3rem" />
+    </div>
+    <div
+      style="width: 30%; display: flex; flex-direction: column; color: #686868"
+    >
+      <p>Level Score</p>
+      <select name="" id="" style="border-radius: 4px; padding: 0.4rem">
+        <option value="">1</option>
+      </select>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: space-between; margin-top: 1rem">
+    <div
+      style="width: 45%; display: flex; flex-direction: column; color: #686868"
+    >
+      <p>Occurrence Period</p>
+      <div style="display: flex">
+        <input
+          type="text"
+          style="border-radius: 4px; padding: 0.3rem; width: 6rem"
+        />
+        <select
+          name=""
+          id=""
+          style="padding: 0.4rem; border-radius: 4px; margin-left: 1rem"
+        >
+          <option value="">Month</option>
+        </select>
+      </div>
+    </div>
+    <div
+      style="width: 45%; display: flex; flex-direction: column; color: #686868"
+    >
+      <p style="display: flex"><input type="checkbox" /> Add Range</p>
+      <div style="display: flex">
+        <input
+          type="text"
+          style="border-radius: 4px; padding: 0.3rem; width: 6rem"
+        />
+        <select
+          name=""
+          id=""
+          style="padding: 0.4rem; border-radius: 4px; margin-left: 1rem"
+        >
+          <option value="">Month</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button
+    style="
+      width: 100%;
+      background-color: var(--blue-button);
+      padding: 0.4rem;
+      color: var(--white);
+      margin-top: 2rem;
+      border: none;
+      border-radius: 4px;
+    "
+    (click)="submit()"
+  >
+    Add Likelihood
+  </button>
+</div>

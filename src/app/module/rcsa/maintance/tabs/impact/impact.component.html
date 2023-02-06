@@ -1,0 +1,81 @@
+<div class="hiddenDisplay">
+  <button class="btn-add">
+    <p>+</p>
+    ADD RATING
+  </button>
+</div>
+<table aria-describedby>
+  <thead class="text-center">
+    <th>No.</th>
+    <th>Rating</th>
+    <th>Score</th>
+    <th class="status">Status</th>
+    <th style="display: none" class="status">Action</th>
+    <th class="details">Details</th>
+  </thead>
+  <tbody *ngFor="let item of dataSource; let i = index">
+    <tr class="row-stripe-blue text-center">
+      <td>{{ i + 1 }}</td>
+      <td class="score">
+        <div
+          class="text-center"
+          [ngClass]="{
+            green: item.rating === 'Insignificant',
+            yellow: item.rating === 'Moderate',
+            orange: item.rating === 'Significant',
+            'green-light': item.rating === 'Minor',
+            red: item.rating === 'Major to Catastropic'
+          }"
+        >
+          {{ item.rating }}
+        </div>
+      </td>
+      <td>{{ item.score }}</td>
+      <td class="approved">
+        <div class="status">APPROVED</div>
+      </td>
+      <td>
+        <em
+          class="fa fa-chevron-down"
+          id="impact{{ i }}"
+          type="button"
+          data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#impactTable' + i"
+          aria-expanded="false"
+          aria-controls="impactTable"
+          style="margin-left: 2rem"
+          (click)="expand(i)"
+        ></em>
+      </td>
+    </tr>
+    <tr class="collapse" [attr.id]="'impactTable' + i">
+      <td colspan="6" class="expand">
+        <table aria-describedby>
+          <tr>
+            <th rowspan="2">Financial</th>
+            <th colspan="7">
+              Non-Financial Factors (Factors Influencing Shareholder Value)
+            </th>
+          </tr>
+          <tr>
+            <td>Reputational</td>
+            <td>Regulatory Compliance</td>
+            <td>Legal</td>
+            <td>Staff</td>
+            <td>Kriminal</td>
+            <td>Customer Service</td>
+          </tr>
+          <tr>
+            <td rowspan="2">{{ item.description.financial }}</td>
+            <td rowspan="2">{{ item.description.reputational }}</td>
+            <td rowspan="2">{{ item.description.regulatoryCompliance }}</td>
+            <td rowspan="2">{{ item.description.legal }}</td>
+            <td rowspan="2">{{ item.description.staff }}</td>
+            <td rowspan="2">{{ item.description.kriminal }}</td>
+            <td rowspan="2">{{ item.description.customerService }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,57 @@
+<table aria-label>
+    <thead class="text-center">
+        <th>No.</th>
+        <th>Rating</th>
+        <th>Score</th>
+        <th class="status">Status</th>
+        <th style="display: none;" class="status">Action</th>
+        <th>Details</th>
+    </thead>
+    <tbody *ngFor="let element of dataSource; let i = index">
+        <tr class="table-utama row-stripe-blue" class="text-center">
+            <td>{{i + 1}}</td>
+            <td class="score">
+                <div class="text-center" [ngClass]="{
+                    'green': element.rating === 'STRONG',
+                    'yellow': element.rating === 'FAIR',
+                    'orange': element.rating === 'MARGINAL',
+                    'green-light': element.rating === 'SATISFACTORY',
+                    'red': element.rating === 'UNSATISFACTORY'
+                }">{{element.rating}}</div>
+            </td>
+            <td>{{element.score}}</td>
+            <td class="approved">
+                <div class="status">APPROVED</div>
+            </td>
+            <td style="display: none;">
+                <div class="action-table">
+                    <i class="fa-solid fa-pen-to-square" id="edit" (click)="settingControl(element)" aria-hidden="true"></i>
+                </div>
+            </td>
+            <td>
+                <em class="fa fa-chevron-down" id="control{{ i }}" role="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#controlTable' + i"
+                    aria-expanded="false" aria-controls="controlTable" (click)="expand(i)"></em>
+            </td>
+        </tr>
+        <tr class="collapse" [attr.id]="'controlTable' + i">
+            <td colspan="6">
+                <table aria-label>
+                    <thead>
+                        <th>DESKRIPSI</th>
+                        <th>URAIAN</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{element.detailsItem.deskripsi}}
+                            </td>
+                            <td>
+                                {{element.detailsItem.uraian}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

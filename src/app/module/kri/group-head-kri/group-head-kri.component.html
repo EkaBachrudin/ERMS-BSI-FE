@@ -1,0 +1,158 @@
+<app-content>
+  <ng-container content>
+    <div class="content">
+      <div class="head">
+        <div class="list-action">
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="data">
+        <div class="show">
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Cari" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+          </div>
+          <table>
+            <thead>
+              <th>No.</th>
+              <th>KRI</th>
+              <th>Divisi</th>
+              <th>Periode</th>
+              <th>Tanggal Mulai</th>
+              <th>Tanggal Akhir</th>
+              <th>Status</th>
+              <th>Action</th>
+            </thead>
+            <tbody *ngFor="let gh of group_head | async; let i = index">
+              <tr *ngIf="gh.status_dcor_head == 'APPROVED' && gh.status_dept_head != 'REJECTED'">
+                <td>{{ i }}</td>
+                <td>{{ gh.kri }}</td>
+                <td>{{ gh.jaringan_group }}</td>
+                <td>{{ gh.periode }}/{{ gh.tahun }}</td>
+                <td>{{ gh.tanggal_mulai }}</td>
+                <td>{{ gh.tanggal_akhir }}</td>
+                <ng-container *ngIf="gh.status_group_head == 'WAITING FOR APPROVE' else approved" >
+                  <td class="not-submit">
+                    <div class="status">{{ gh.status_group_head }}</div>
+                  </td>
+                </ng-container>
+                <ng-template #approved>
+                  <ng-container *ngIf="gh.status_group_head == 'APPROVED' else reject">
+                    <td class="submitted">
+                      <div class="status">{{ gh.status_group_head }}</div>
+                    </td>
+                  </ng-container>
+                </ng-template>
+                <ng-template #reject>
+                  <td class="rejected">
+                    <div class="status">{{ gh.status_group_head }}</div>
+                  </td>
+                </ng-template>
+                <td>
+                  <div class="action-table">
+                    <i class="fa fa-check" id="check" (click)="isApproved(gh.id, gh)"></i>
+                    <i class="fa fa-xmark" id="xmark" (click)="isReject(gh.id, gh)"></i>
+                    <i
+                      class="fa fa-chevron-right"
+                      id="right"
+                      role="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#groupheadkri' + gh.id"
+                      aria-expanded="false"
+                      aria-controls="groupheadkri"
+                    ></i>
+                  </div>
+                </td>
+              </tr>
+              <tr class="collapse" [attr.id]="'groupheadkri' + gh.id">
+                <td colspan="8">
+                  <table>
+                    <thead>
+                      <th>No.</th>
+                      <th>Key Risk Indicator</th>
+                      <th>Ukuran</th>
+                      <th>Jenis KRI</th>
+                      <th>Nilai</th>
+                      <th>Keterangan Data</th>
+                    </thead>
+                    <tbody *ngFor="let child_kri of gh.child_kri">
+                      <tr>
+                        <td>1</td>
+                        <td style="text-align: left">
+                          {{ child_kri.kri }}
+                        </td>
+                        <td>
+                          <p *ngFor="let ukuran of child_kri.ukuran">
+                            {{ ukuran.desc }}
+                          </p>
+                        </td>
+                        <td>{{ child_kri.jenis_kri }}</td>
+                        <ng-container *ngIf="child_kri.nilai == 0 || child_kri.nilai == null; else green" >
+                          <td style="text-align: center; color: #f9ad3d">
+                            BELUM DINILAI
+                          </td>
+                      </ng-container>
+                      <ng-template  #green>
+                        <ng-container *ngIf="child_kri.nilai >= 1 && child_kri.nilai <= 10; else yellow">
+                          <td>
+                            <div class="treshold">
+                              <div class="green">
+                                {{ child_kri.nilai }}
+                              </div>
+                            </div>
+                          </td>
+                        </ng-container>
+                      </ng-template>
+                      <ng-template #yellow>
+                        <ng-container *ngIf="child_kri.nilai >= 11 && child_kri.nilai <= 20; else red">
+                          <td>
+                            <div class="treshold">
+                              <div class="yellow">
+                                {{ child_kri.nilai }}
+                              </div>
+                            </div>
+                          </td>
+                        </ng-container>
+                      </ng-template>
+                      <ng-template #red>
+                        <ng-container *ngIf="child_kri.nilai > 20;">
+                          <td>
+                            <div class="treshold">
+                              <div class="red">
+                                {{ child_kri.nilai }}
+                              </div>
+                            </div>
+                          </td>
+                        </ng-container>
+                      </ng-template>
+                        <td>{{ child_kri.keterangan_data }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination"></div>
+      </div>
+    </div>
+  </ng-container>
+</app-content>

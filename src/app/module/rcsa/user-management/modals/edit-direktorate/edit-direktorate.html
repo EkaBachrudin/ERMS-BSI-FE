@@ -1,0 +1,17 @@
+<form [formGroup]="editDirForm" method="post">
+<div style="width: 35rem; font-size: small">
+      <h5>Tambah Directorate</h5>
+      <div  class="input" >
+        <p>Direktorate</p>
+        <input type="text" formControlName="direktorate" />
+      </div>
+      <div class="input" >
+        <p>Call Sign</p>
+        <input type="text" formControlName="callsign"/>
+      </div>
+      <div class="action-btn">
+        <!-- <button class="cancel" (click)="cancel()">Batal</button> -->
+        <button class="add" (click)="submit()">edit</button>  
+      </div>
+    </div>
+</form>

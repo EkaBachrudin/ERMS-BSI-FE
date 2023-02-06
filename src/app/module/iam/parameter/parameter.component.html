@@ -1,0 +1,43 @@
+<app-content>
+  <ng-container content>
+    <div class="content">
+      <mat-tab-group>
+        <mat-tab label="MAINTENANCE IAM">
+          <div class="data">
+            <div class="list-data">
+              <table>
+                <thead>
+                  <th>No.</th>
+                  <th>Source</th>
+                  <th>Parameter Ukuran</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>RSCA</td>
+                    <td>
+                      <div class="parameter">
+                        <div class="mediumtohigh">Medium To High</div>
+                        <div class="high">High</div>
+                      </div>
+                    </td>
+                    <td class="waiting">
+                      <div class="status">WAITING FOR APPROVAL</div>
+                    </td>
+                    <td>
+                      <div class="action-table">
+                        <i class="fa-solid fa-gear" (click)="openDialog()"></i>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </ng-container>
+</app-content>

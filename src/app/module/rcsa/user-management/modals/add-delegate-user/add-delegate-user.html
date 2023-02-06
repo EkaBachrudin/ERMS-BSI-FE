@@ -1,0 +1,49 @@
+<div style="width: 35rem; font-size: small">
+  <h5 mat-dialog-title>Add</h5>
+  <form [formGroup]="addDeligateForm">
+    <div class="input">
+      <p>User Pengusul</p>
+      <input formControlName="user_pengusul" type="text" />
+    </div>
+    <div class="input">
+      <p>User Pengganti</p>
+      <input formControlName="user_penganti" type="text" />
+    </div>
+    <div class="input">
+      <p>Role</p>
+      <input formControlName="role" type="text" />
+    </div>
+    <div class="input">
+      <p>Status Delegasi</p>
+      <select formControlName="status_delegasi" id="statusDelegasi">
+        <option>Sementara</option>
+      </select>
+    </div>
+    <div class="input">
+      <p>Start Date</p>
+      <input
+        type="date"
+        formControlName="start_date"
+        id="startDateUserDelegate"
+      />
+    </div>
+    <div class="input">
+      <p>End Date</p>
+      <input type="date" formControlName="end_date" id="endDateUserDelegate" />
+    </div>
+    <!-- <div class="input">
+      <p>Status</p>
+      <select
+        id="sel"
+        onclick="document.getElementById('sel').style.color='green';"
+      >
+        <option value="Approve">Approved</option>
+        <option value="Drafted">Drafted</option>
+      </select>
+    </div> -->
+    <div class="action-btn">
+      <button class="cancel" (click)="cancel()">Batal</button>
+      <button class="add" (click)="submit()" type="submit">Tambah</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<table aria-describedby>
+    <thead style="font-family: Arial, Helvetica, sans-serif;" class="text-center">
+        <th>No.</th>
+        <th>Composite Rating</th>
+        <th>IHRRR</th>
+        <th>Control</th>
+        <th>Composite</th>
+        <th>Status</th>
+        <th style="display: none;;">Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listSettingRatingComposite; let i = index" class="text-center">
+            <td>{{ (currentPage*pageSize) +  i + 1  }}</td>
+            <td [ngClass]="{
+                'greenRC': row.compositeRating === 'Low',
+                'yellowRC': row.compositeRating === 'Medium',
+                'orangeRC': row.compositeRating === 'Medium To High',
+                'green-lightRC': row.compositeRating === 'Low To Medium',
+                'redRC': row.compositeRating === 'High'
+            }">
+                <div class="statusRating">
+                    <p>{{ row.compositeRating }}</p>
+                </div>
+            </td>
+            <td>{{ row.ihrr }}</td>
+            <td>{{ row.control }}</td>
+            <td>{{ row.composite }}</td>
+            <td class="approvedComposite">
+                <div class="statusComposite">
+                    <p>APPROVED</p>
+                </div>
+            </td>
+            <td style="display: none;">
+                <div class="action">
+                  <em
+                    class="fa-solid fa-pen-to-square"
+                    id="edit"
+                    (click)="openDialog(row)"
+                  ></em>
+                </div>
+              </td>
+        </tr>
+    </tbody>
+</table>
+<mat-paginator
+    [length]="totalPage"
+    [pageSizeOptions]="[10, 25, 100]"
+    aria-label="Select page"
+    (page)="onPaginateChange($event)"
+  >
+  </mat-paginator>

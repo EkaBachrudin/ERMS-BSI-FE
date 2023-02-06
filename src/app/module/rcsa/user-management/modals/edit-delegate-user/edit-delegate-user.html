@@ -1,0 +1,39 @@
+<form [formGroup]="editDelegateUserForm" method="post">
+<div style="width: 35rem; font-size: small">
+  <h5 mat-dialog-title>Edit User Delegate</h5>
+  <div class="input">
+    <p>User pengusul</p>
+    <input type="text" formControlName="user_pengusul" />
+  </div>
+  <div class="input">
+    <p>User penganti</p>
+    <input type="text" formControlName="user_penganti" />
+  </div>
+  <div class="input">
+    <p>Role</p>
+    <input type="text" formControlName="role" />
+  </div>
+  <div class="input">
+    <p>Status Delegasi</p>
+    <select formControlName="status_delegasi">
+      <option value="Sementara">Sementara</option>
+      <option value="Permanen">Permanen</option>
+    </select>
+  </div>
+  <div class="input">
+    <p>Start date</p>
+    <input type="date" formControlName="start_date" />
+  </div>
+  <div class="input">
+    <p>end date</p>
+    <input type="date" formControlName="end_date"/>
+  </div>
+  <div class="input">
+    <p>Status</p>
+    <select  formControlName="status">
+      <option value="Approved">Approverd</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+  </div>
+</div>
+</form>

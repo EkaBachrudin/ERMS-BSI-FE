@@ -1,0 +1,24 @@
+<div class="content">
+  <h6 mat-dialog-title>Unit Pembukuan KRO</h6>
+  <form onsubmit="return false">
+    <div class="input">
+      <p class="title1">UNIT KERJA</p>
+      <select name="" id="" [formControl]="unit">
+        <option value="DBC">DBC</option>
+        <option value="DFP">DFP</option>
+        <option value="DTI">DTI</option>
+        <option value="DSD">DSD</option>
+      </select>
+    </div>
+    <div class="list-action">
+      <p class="title1">KETERANGAN</p>
+      <input type="text" [formControl]="keterangan" />
+      <div class="action">
+        <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+        <button class="btn-submit" (click)="submit()" type="submit">
+          ADD AND SUBMIT
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

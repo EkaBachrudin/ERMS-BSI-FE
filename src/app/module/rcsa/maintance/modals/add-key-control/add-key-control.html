@@ -1,0 +1,72 @@
+<div style="width: 35rem; height: 37rem; font-size: small; overflow: auto">
+  <h4 mat-dialog-title>Tambah Key Control</h4>
+  <form>
+    <p class="title1" style="margin-top: 1.5rem">PILIH UNIT</p>
+    <select class="option" [formControl]="unit">
+      <option value="Kantor Pusat">Kantor Pusat</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">PILIH SEGMEN/GROUP</p>
+    <select class="option" [formControl]="group">
+      <option value="Risiko Operasional">Risiko Operasional</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">PILIH KEY PROCESS</p>
+    <select class="option" [formControl]="keyPro">
+      <option *ngFor="let item of keyProData" value="{{item.keyPro}}">
+        {{item.keyPro}}
+      </option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">PILIH KEY RISK</p>
+    <select class="option" [formControl]="keyRisk">
+      <option *ngFor="let item of keyRiskData" value="{{item.keyRisk}}">
+        {{item.keyRisk}}
+      </option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">INPUT KEY CONTROL</p>
+    <div class="selectadd">
+      <textarea
+        name=""
+        id=""
+        cols="76"
+        rows="3"
+        [formControl]="keyControl"
+      ></textarea>
+      <!-- <p>-</p> -->
+    </div>
+    <p class="title1" style="margin-top: 1rem">KETENTUAN</p>
+    <select class="option" [formControl]="ketentuan">
+      <option value="Prosedur">Prosedur</option>
+      <option value="Kebijakan">Kebijakan</option>
+      <option value="Petunjuk Teknis">Petunjuk Teknis</option>
+    </select>
+    <input
+      type="text"
+      class="input"
+      style="margin-top: 1rem"
+      placeholder="Input Detail Ketentuan"
+      [formControl]="nameKet"
+    />
+    <div class="form-group" style="margin-top: 1rem">
+      <button
+        type="button"
+        class="btn"
+        style="width: 27%; border: var(--button) solid 1px"
+        (click)="cancel()"
+      >
+        CANCEL
+      </button>
+      <button
+        type="submit"
+        class="btn"
+        (click)="submit()"
+        style="
+          width: 70%;
+          margin-left: 1rem;
+          background-color: var(--button);
+          color: white;
+        "
+      >
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

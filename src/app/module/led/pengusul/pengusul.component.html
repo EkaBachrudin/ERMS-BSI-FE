@@ -1,0 +1,415 @@
+<app-content>
+  <ng-container content>
+    <mat-tab-group>
+      <mat-tab label="PENCATATAN DAN PELAPORAN KRO">
+        <div *ngIf="formulir; else utama">
+          <div class="formulir">
+            <header>
+              <p>
+                <i class="fa fa-chevron-left" (click)="closeFormulir()"></i>
+              </p>
+              <!-- <img src="../../../../assets/bsi_putih.png" alt="img-bsi" /> -->
+              <!-- <p>Enterprise Risk Management System</p> -->
+            </header>
+            <div class="title">
+              <h2>
+                <strong>FORMULIR USULAN DAN KEPUTUSAN MEMBUKU KRO</strong>
+              </h2>
+            </div>
+            <p class="nomor-formulir">NOMOR : AA21KRO22/2022/KRO</p>
+            <div class="unit">
+              <div class="tag">UNIT</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>KC ACEH 1</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">RISK ISSUE</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>Fraud Internal</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">LOSS EVENT TYPE</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>KECURANGAN INTERNAL</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">GL KRO</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>625589</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">DAMPAK NON FINANCIAL</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>REPUTATION DAMAGE</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag"></div>
+              <div class="detail">
+                <p></p>
+                <p class="data">Pemburukan pandangan publik terhadap Bank.</p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">DAMPAK FINANCIAL</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>WRITE-DOWN</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="sub-detail">IDENTIFIKASI PERISTIWA</div>
+            </div>
+            <div class="unit">
+              <div class="tag">TANGGAL PERTAMA KEJADIAN</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>12/12/20</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">TANGGAL TERDETEKSI</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>12/12/20</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">CAUSE TYPE 1</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data"><strong>ASPEK SDM</strong></p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">CAUSE TYPE 2</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data">
+                  <strong>KETIDAKCUKUPAN VOLUME TRANSAKSI/AKTIVITAS</strong>
+                </p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag"></div>
+              <div class="detail">
+                <p></p>
+                <p class="data2">Pemburukan pandangan publik terhadap Bank.</p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">NOMINAL KERUGIAN</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data">
+                  <strong>Rp. 2.988.211.000</strong>
+                </p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">KEWAJIBAN HUKUM JIKA ADA</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data">
+                  <strong>Rp. 2.988.211.000</strong>
+                </p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag"></div>
+              <div class="detail">
+                <p></p>
+                <p class="data">Pemburukan pandangan publik terhadap Bank.</p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">KEWAJIBAN HUKUM JIKA ADA</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data">
+                  <strong>Rp. 4.988.211.000</strong>
+                </p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">KERUGIAN BERSIH</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data3">
+                  <strong>Rp. 6.988.211.000</strong>
+                </p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag">DESKRIPSI KEJADIAN</div>
+              <div class="detail">
+                <p>:</p>
+                <p class="data">Pemburukan pandangan publik terhadap Bank.</p>
+              </div>
+            </div>
+            <div class="unit">
+              <div class="tag2"><strong>PENGUSUL</strong></div>
+            </div>
+            <div class="pengusul">
+              <div class="box">
+                <p>PENGUSUL 1</p>
+                <p><strong>JABATAN</strong></p>
+              </div>
+              <div class="box2">
+                <p>PENGUSUL 2</p>
+                <p><strong>JABATAN</strong></p>
+              </div>
+            </div>
+            <div class="unit" style="margin-top: 2rem">
+              <div class="tag2"><strong>VERIFIKATOR</strong></div>
+            </div>
+            <div class="pengusul">
+              <div class="box">
+                <p>VERIFIKATOR</p>
+                <p><strong>JABATAN</strong></p>
+              </div>
+              <div class="box2">
+                <p>VERIFIKATOR</p>
+                <p><strong>JABATAN</strong></p>
+              </div>
+            </div>
+            <div class="unit" style="margin-top: 2rem">
+              <div class="tag2"><strong>LEMBAR KEPUTUSAN</strong></div>
+            </div>
+            <table>
+              <thead>
+                <th class="sampaikan">Disampaikan Kepada Yth.</th>
+                <th class="keputusan">Keputusan</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border-right: #000000 solid 0.1px">
+                    <p>PEMUTUS</p>
+                    <p><strong>JABATAN</strong></p>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="date">Jakarta, 02 Agustus 2022</div>
+            <div class="name">PEMUTUS</div>
+            <div class="jabatan"><strong>JABATAN</strong></div>
+          </div>
+        </div>
+        <ng-template #utama>
+          <div class="pengusul-led">
+            <div class="list-action-pengusul-led">
+              <input type="text" placeholder="Cari" />
+              <button (click)="openFormLed()">
+                <p>+</p>
+                ADD LED
+              </button>
+            </div>
+          </div>
+          <div class="data-pengusul-led">
+            <table style="width: 100%">
+              <thead>
+                <th>No</th>
+                <th>No. Reg</th>
+                <th>Risk Issue</th>
+                <th>Unit Pengusul</th>
+                <th>Kerugian Bersih</th>
+                <th>Pesetujuan</th>
+                <th>Status</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of ledData; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ item.noReg }}</td>
+                  <td>{{ item.riskIssue }}</td>
+                  <td>{{ item.unit }}</td>
+                  <td>{{ toRupiah(item.netLoss - totalRecov) }}</td>
+                  <td class="online">
+                    <div class="status">{{ item.agreement }}</div>
+                  </td>
+                  <td
+                    class="approved"
+                    *ngIf="item.status1 === statusApprove; else reject"
+                  >
+                    <div class="status">{{ item.status1 }}</div>
+                  </td>
+                  <ng-template #reject>
+                    <td
+                      class="rejected"
+                      *ngIf="item.status1 === statusReject; else waiting"
+                    >
+                      <div class="status">
+                        <strong>{{ item.status1 }}</strong>
+                      </div>
+                    </td>
+                  </ng-template>
+                  <ng-template #waiting>
+                    <td class="waiting">
+                      <div class="status">
+                        <strong>{{ item.status1 }}</strong>
+                      </div>
+                    </td>
+                  </ng-template>
+                  <td>
+                    <div class="action-table">
+                      <i
+                        class="fa fa-eye"
+                        id="eye"
+                        (click)="openFormulir()"
+                      ></i>
+                      <i
+                        class="fa fa-cloud-arrow-up"
+                        id="upload"
+                        (click)="uploadDocument()"
+                      ></i>
+                      <i
+                        class="fa fa-cloud-arrow-down"
+                        id="download"
+                        (click)="download()"
+                      ></i>
+                      <i
+                        class="fa-solid fa-pen-to-square"
+                        id="edit"
+                        (click)="editLed()"
+                      ></i>
+                      <i
+                        (click)="getIdLed(item)"
+                        class="fa fa-chevron-up"
+                        id="up"
+                        role="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#ledpengusultable"
+                        aria-expanded="false"
+                        aria-controls="ledpengusultable"
+                      ></i>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="collapse" id="ledpengusultable">
+                  <td colspan="8">
+                    <div class="scroll">
+                      <table class="table-expand-1-led-pengusul">
+                        <thead>
+                          <th style="width: 3rem">No.id</th>
+                          <th style="width: 10rem">Unit Kerja</th>
+                          <th>Divisi</th>
+                          <th style="width: 14rem">
+                            Kategori Type Kejadian LV. 1
+                          </th>
+                          <th style="width: 14rem">
+                            Kategori Type Kejadian LV. 2
+                          </th>
+                          <th style="width: 14rem">
+                            Kategori Type Kejadian LV. 3
+                          </th>
+                          <th>Penyebab LV. 1</th>
+                          <th>Penyebab LV. 2</th>
+                          <th>Dampak Financial</th>
+                          <th style="width: 15rem">Dampak Non Financial</th>
+                          <th>Deskripsi Kejadian</th>
+                          <th style="width: 15rem">Tanggal Pertama Kejadian</th>
+                          <th style="width: 10rem">Tanggal Terdeteksi</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of ledData; let i = index">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.unit }}</td>
+                            <td>Risiko Operasional</td>
+                            <td>{{ item.let1 }}</td>
+                            <td>Aktivitas tidak sah</td>
+                            <td>Transaksi tidak dilaporkan</td>
+                            <td>{{ item.level1 }}</td>
+                            <td>{{ item.level2 }}</td>
+                            <td>{{ item.finImpact }}</td>
+                            <td>{{ item.nonFinImpact }}</td>
+                            <td>{{ item.descriptionEvent }}</td>
+                            <td>{{ item.firstDateEvent }}</td>
+                            <td>{{ item.dateDetected }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <table class="table-expand-2-led-pengusul">
+                      <thead>
+                        <th colspan="7">PEMBUKUAN KRO</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="sub-title">Tgl Pembukuan</td>
+                          <td class="sub-title">Rek.Pembukuan</td>
+                          <td class="sub-title">Tgl Pelaporan</td>
+                          <td class="sub-title">Nominal Kerugian (Rp)</td>
+                          <td class="sub-title">
+                            Nominal Kewajiban Hukum (Rp)
+                          </td>
+                          <td class="sub-title">Recovery awal</td>
+                          <td class="sub-title">Total Kerugian Bruto</td>
+                        </tr>
+                        <tr *ngFor="let item of ledData; let i = index">
+                          <td>{{ item.tglPembukuan }}</td>
+                          <td>5411{{ item.id }}</td>
+                          <td>{{ item.firstDateEvent }}</td>
+                          <td>{{ toRupiah(item.totalLoss) }}</td>
+                          <td>{{ toRupiah(item.legalObligation) }}</td>
+                          <td>{{ toRupiah(item.totalRecovery) }}</td>
+                          <td>
+                            {{
+                              toRupiah(item.totalLoss + item.legalObligation)
+                            }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table-expand-3-led-pengusul">
+                      <thead>
+                        <th colspan="5">RECOVERY</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="sub-title">Tgl Pembukuan</td>
+                          <td class="sub-title">Rek. Pembukuan</td>
+                          <td class="sub-title">Nominal Recovery (Rp)</td>
+                          <td class="sub-title">Sumber</td>
+                          <td class="sub-title">Kerugian bersih</td>
+                        </tr>
+                        <tr *ngFor="let item of recovData; let i = index">
+                          <td>{{ item.tglBukuRecovery }}</td>
+                          <td>5412{{ item.id }}</td>
+                          <td>{{ toRupiah(item.recoveryAdd) }}</td>
+                          <td>{{ item.sumber }}</td>
+                          <td>
+                            {{
+                              toRupiah(
+                                nominalKerugian +
+                                  nominalHukum -
+                                  (recoveryAwal + item.recoveryAdd)
+                              )
+                            }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <button (click)="openAddRecovery()">
+                      <p>+</p>
+                      ADD RECOVERY
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</app-content>

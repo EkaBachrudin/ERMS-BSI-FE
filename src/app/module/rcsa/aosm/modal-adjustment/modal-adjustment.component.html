@@ -1,0 +1,283 @@
+<div class="container">
+   <h3 style="font-weight: bold;">Risk Issue</h3>
+
+   <div class="overflow">
+       <form class="example-form">
+            <div class="mt-4">
+                <div>
+                    <label>KEY PROCESS</label>
+                </div>
+                <div class="mt-2">
+                    <mat-form-field class="example-full-width" style="width: 1000px;" appearance="fill">
+                        <input matInput placeholder="Ex. Kas" value="Kas dan Teller">
+                    </mat-form-field>
+                </div>
+                <div class="mt-2">
+                    <label>KEY RISK</label>
+                </div>
+                <div class="mt-2">
+                    <mat-form-field class="example-full-width" style="width: 1000px;" appearance="fill">
+                        <input matInput placeholder="Ex. Kas" value="Risiko kesalahan dan penanganan transaksi teller">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>LIKELIHOOD</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - KECIL KEMUNGKINAN</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - JARANG</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - KADANG-KADANG</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - SERING</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - SANGAT SERING</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IMPACT</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - INSIGNIFICANT</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - MINOR</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - MODERATE</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - OFTEN</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - SIGNIFICANT</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IHRR</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 220px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="1">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IHRR PREDICATE</label>
+                        </div>
+                        <div class="mt-2">
+                            <input matInput class="ltom-ri" placeholder="Ex. Kas" value="Low To Medium">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mt-2">
+                            <label>KEY CONTROL</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 460px" appearance="fill">
+                                <textarea matInput>Setiap pegawai menjaga PC dalam keadaan sign out ketika sedang tidak digunakan (system secara otomatis me-log off user ID dalam jangka waktu tertentu)</textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>CONTROL</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - STRONG</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - STATISFACTORY</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - FAIR</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - MARGINAL</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - UNSTATISFACTORY</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-35">
+                            <input matInput class="fair-ri" placeholder="Ex. Kas" value="FAIR">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <mat-form-field class="example-full-width" style="width: 460px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="Petugas melakukan pembaharuan password secara berkala">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-end">
+                    <div class="col-md-2">
+                        <div class="mt-2">
+                            <label>COMPOSITE SCORE</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 130px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="2.22">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="margin-top: -20px;">
+                        <div class="mt-2">
+                            <label>ROUND<br> COMPOSITE SCORE</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 130px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="2">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mt-2">
+                            <label>COMPOSITE RATING</label>
+                        </div>
+                        <div class="mt-2">
+                            <input matInput class="high-ri" style="width: 130px" placeholder="Ex. Kas" value="HIGH">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h3><b>RCSA ADJUSTMENT</b></h3>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>LIKELIHOOD</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - KECIL KEMUNGKINAN</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - JARANG</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - KADANG-KADANG</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - SERING</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - SANGAT SERING</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IMPACT</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - INSIGNIFICANT</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - MINOR</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - MODERATE</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - OFTEN</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - SIGNIFICANT</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IHRR</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 220px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="1">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>IHRR PREDICATE</label>
+                        </div>
+                        <div class="mt-2">
+                            <input matInput class="ltom-ri" placeholder="Ex. Kas" value="Low To Medium">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-end">
+                    <div class="col-md-3">
+                        <div class="mt-2">
+                            <label>CONTROL</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill">
+                                <mat-select style="text-align: center;">
+                                    <mat-option value="1" class="bg-green">1 - STRONG</mat-option>
+                                    <mat-option value="2" class="bg-light-green">2 - STATISFACTORY</mat-option>
+                                    <mat-option value="3" class="bg-yellow">3 - FAIR</mat-option>
+                                    <mat-option value="4" class="bg-orange">4 - MARGINAL</mat-option>
+                                    <mat-option value="5" class="bg-red-blood">5 - UNSTATISFACTORY</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mt-35">
+                            <input matInput class="ltom-ri" placeholder="Ex. Kas" value="STATISFACTORY">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 d-flex justify-content-end">
+                    <div class="col-md-2">
+                        <div class="mt-2">
+                            <label>COMPOSITE SCORE</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 130px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="2.22">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="margin-top: -20px;">
+                        <div class="mt-2">
+                            <label>ROUND<br> COMPOSITE SCORE</label>
+                        </div>
+                        <div class="mt-2">
+                            <mat-form-field class="example-full-width" style="width: 130px; text-align: center;" appearance="fill">
+                                <input matInput placeholder="Ex. Kas" value="2">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mt-2">
+                            <label>COMPOSITE RATING</label>
+                        </div>
+                        <div class="mt-2">
+                            <input matInput class="high-ri" style="width: 130px" placeholder="Ex. Kas" value="HIGH">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <div class="mt-2">
+                    <label>KETERANGAN ADJUSTMENT</label>
+                </div>
+
+                <div class="mt-2">
+                    <mat-form-field class="example-full-width" style="width: 1000px" appearance="fill">
+                        <textarea matInput>Setiap pegawai menjaga PC dalam keadaan sign out ketika sedang tidak digunakan (system secara otomatis me-log off user ID dalam jangka waktu tertentu)</textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+   </div>
+
+   <div class="mt-3">
+    <button mat-raised-button style="width: 500px;">CANCEL</button>
+    <button mat-raised-button class="ml-5" style="width: 500px; background-color: #03b5af;">ASSIGN RCSA</button>
+   </div>
+      
+</div>

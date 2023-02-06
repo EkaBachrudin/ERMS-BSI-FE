@@ -1,0 +1,187 @@
+.ketentuan {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  border: rgb(228, 225, 225) solid 0.1px;
+  border-radius: 11px;
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 0 3px rgb(226, 225, 225);
+  .list-action-ketentuan {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.4rem;
+    .search label {
+      position: relative;
+      width: 25rem;
+    }
+    .search label input {
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      padding: 5px 20px;
+      padding-left: 35px;
+      font-size: 15px;
+      outline: none;
+      border: none;
+      background-color: #f7f7f7;
+    }
+    .search label input:focus {
+      border: 1px solid #40bab5;
+      box-shadow: 0 0 3px #40bab5;
+    }
+    .search label i {
+      position: absolute;
+      top: 12px;
+      left: 370px;
+      font-size: 1.2em;
+    }
+    button {
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      background-color: var(--button);
+      color: #fff;
+      width: 18rem;
+      border: none;
+      border-radius: 5px;
+      align-items: center;
+      padding: 0.7rem;
+      cursor: pointer;
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: var(--button);
+        width: 13px;
+        padding: 0.2rem;
+        height: 13px;
+        border-radius: 18px;
+        margin-top: 12px;
+        margin-right: 4px;
+      }
+    }
+  }
+  table {
+    font-size: small;
+    margin-top: 2rem;
+    border-spacing: 0;
+    thead {
+      .left {
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+        padding: 0.7rem;
+        text-align: center;
+      }
+    }
+    tbody {
+      tr {
+        background-color: #ffffff;
+        border-bottom: rgb(228, 225, 225) solid 0.1px;
+        .left {
+          text-align: left;
+        }
+        td {
+          text-align: center;
+          // border-bottom: rgb(228, 225, 225) solid 0.1px;
+          padding: 0.7rem;
+          .action-table {
+            display: flex;
+            justify-content: center;
+            #trash {
+              background-color: #f18476;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: x-small;
+              margin-left: 2px;
+              color: #ffffff;
+              cursor: pointer;
+            }
+            #edit {
+              background-color: #3895b2;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: x-small;
+              margin-left: 2px;
+              color: #ffffff;
+              cursor: pointer;
+            }
+            #check {
+              background-color: #0086a3;
+              color: #fff;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: x-small;
+              cursor: pointer;
+            }
+            #xmark {
+              background-color: #c37474;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: x-small;
+              margin-left: 3px;
+              color: #ffffff;
+              cursor: pointer;
+            }
+          }
+        }
+        .approved {
+          width: 16rem;
+          padding-left: 1rem;
+          .status {
+            padding: 0.2rem;
+            width: 14rem;
+            color: var(--approved);
+            border-radius: 6px;
+            background-color: var(--bg-approved);
+          }
+        }
+        .rejected {
+          width: 16rem;
+          padding-left: 1rem;
+          .status {
+            padding: 0.2rem;
+            width: 14rem;
+            color: var(--rejected);
+            border-radius: 6px;
+            background-color: var(--bg-rejected);
+          }
+        }
+        .waiting {
+          width: 16rem;
+          padding-left: 1rem;
+          .status {
+            padding: 0.2rem;
+            width: 14rem;
+            color: var(--waiting);
+            border-radius: 6px;
+            background-color: var(--bg-waiting);
+          }
+        }
+      }
+      tr:hover {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+}

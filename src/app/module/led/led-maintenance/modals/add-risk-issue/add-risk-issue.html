@@ -1,0 +1,15 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah Risk Issue</h6>
+  <form onsubmit="return false">
+    <div class="input">
+      <p class="title1">RISK ISSUE</p>
+      <input type="text" [formControl]="riskIssue" />
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

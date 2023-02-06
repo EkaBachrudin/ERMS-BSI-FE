@@ -1,0 +1,29 @@
+<form [formGroup]="editIamRcsaForm">
+<div class="content">
+  <h6 mat-dialog-title>ADD IAM RCSA</h6>
+  <hr />
+  <p class="title">SOURCE</p>
+  <input type="text" formControlName="title" />
+  <p class="title2">RISK ISSUE</p>
+  <input type="text" formControlName="rician"  />
+  <p class="title3">ACTION PLAN</p>
+  <input type="text" style="background-color: #f7f7f7" formControlName="rencana" />
+  <p class="title2">STATUS ACTION PLAN</p>
+  <div class="status">
+    <div class="selesai">
+      Selesai
+      <input type="text"  formControlName="close"/>
+    </div>
+    <div class="onprogress">
+      On Progress
+      <input type="text"  formControlName="open"/>
+    </div>
+  </div>
+  <p class="title4">JUMLAH ACTION PLAN</p>
+  <input type="text" class="input" />
+  <div class="action">
+    <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+    <button class="btn-submit" (click)="submit()">ADD IAM RCSA</button>
+  </div>
+</div>
+</form>

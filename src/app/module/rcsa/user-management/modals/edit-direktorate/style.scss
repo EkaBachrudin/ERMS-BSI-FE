@@ -1,0 +1,37 @@
+.input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      width: 20%;
+      margin-top: 13px;
+      color: #686868;
+    }
+    input {
+      background-color: #f7f7f7;
+      width: 78%;
+      border: none;
+      padding: 0.2rem;
+    }
+  }
+  
+  .action-btn {
+    display: flex;
+    justify-content: flex-end;
+    .cancel {
+      border: none;
+      background-color: #ffffff;
+      width: 6rem;
+      font-weight: 500;
+    }
+    .add {
+      background-color: #00a39d;
+      border: none;
+      color: white;
+      width: 8.5rem;
+      height: 2.3rem;
+      border-radius: 5px;
+    }
+  }
+  

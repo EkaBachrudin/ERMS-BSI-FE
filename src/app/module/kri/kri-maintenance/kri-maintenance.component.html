@@ -1,0 +1,325 @@
+<app-content>
+  <ng-container content>
+    <div class="content">
+      <!-- head maintenance kri -->
+      <div class="head">
+        <div class="list-action">
+          <div class="unit">
+            <p>Pilih Unit</p>
+            <select name="select-unit" id="select-unit">
+              <option value="">All</option>
+              <option value="">JARINGAN</option>
+              <option value="">KANTOR PUSAT</option>
+            </select>
+          </div>
+          <div class="segmen">
+            <p>Pilih Segmen/Group</p>
+            <select name="select-segmen" id="select-segmen">
+              <option value="">All</option>
+              <option value="">GADAI</option>
+              <option value="">MIKRO</option>
+              <option value="">CONSUMER FINANCING 1</option>
+              <option value="">CONSUMER FINANCING 2</option>
+              <option value="">SME</option>
+              <option value="">PRIORITY BANKING</option>
+              <option value="">FUNDING</option>
+            </select>
+          </div>
+          <div class="periode">
+            <p>Periode</p>
+            <select name="select-periode" id="select-periode">
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+              <option value="">2019</option>
+            </select>
+            <select name="select-q" id="select-q">
+              <option value="">All</option>
+              <option value="">Q1</option>
+              <option value="">Q2</option>
+              <option value="" selected>Q3</option>
+              <option value="">Q4</option>
+            </select>
+          </div>
+        </div>
+
+        <ng-container *ngIf="role == 'admin_maker'">
+          <button class="btn-add" (click)="addJaringanKri()">
+            <p>+</p>
+            ADD KRI DIVISI
+          </button>
+        </ng-container>
+      </div>
+      <!-- end head maintenance kri -->
+
+      <!-- data maintenance kri -->
+
+      <div class="data-maintenance-kri">
+        <div class="head-data">
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Cari" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+          </div>
+          <!-- <button (click)="submitKri()">SUBMIT</button> -->
+        </div>
+        <table>
+          <thead>
+            <!-- <th></th> -->
+            <th>No.</th>
+            <th>KRI</th>
+            <th>Divisi</th>
+            <th>Periode</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal Akhir</th>
+            <th>Status</th>
+            <th>Action</th>
+          </thead>
+          <tbody
+            *ngFor="let maintenance of kri_maintenance | async; let i = index"
+          >
+            <tr>
+              <!-- <td><input type="checkbox" /></td> -->
+              <td>{{ i + 1 }}</td>
+              <td>{{ maintenance.kri }}</td>
+              <td>{{ maintenance.jaringan_group }}</td>
+              <td>{{ maintenance.periode }}/{{ maintenance.tahun }}</td>
+              <td>{{ maintenance.tanggal_mulai }}</td>
+              <td>{{ maintenance.tanggal_akhir }}</td>
+              <ng-container
+                *ngIf="maintenance.status == 'DRAFTED'; else waitingForApproved"
+              >
+                <td class="drafted">
+                  <div class="status">{{ maintenance.status }}</div>
+                </td>
+              </ng-container>
+              <ng-template #waitingForApproved>
+                <ng-container
+                  *ngIf="
+                    maintenance.status == 'WAITING FOR APPROVE';
+                    else approved
+                  "
+                >
+                  <td class="waiting-for-approve">
+                    <div class="status">{{ maintenance.status }}</div>
+                  </td>
+                </ng-container>
+              </ng-template>
+              <ng-template #approved>
+                <ng-container
+                  *ngIf="maintenance.status == 'APPROVED'; else rejected"
+                >
+                  <td class="approved">
+                    <div class="status">{{ maintenance.status }}</div>
+                  </td>
+                </ng-container>
+              </ng-template>
+              <ng-template #rejected>
+                <td class="rejected">
+                  <div class="status">{{ maintenance.status }}</div>
+                </td>
+              </ng-template>
+
+              <td>
+                <div class="action-table">
+                  <!-- <i class="fa fa-ellipsis-vertical" id="ellipsis"></i> -->
+                  <ng-container *ngIf="role == 'admin_approve'">
+                    <i
+                      class="fa fa-check"
+                      id="check"
+                      (click)="isApproved(maintenance.id, maintenance)"
+                    ></i>
+                    <i
+                      class="fa fa-xmark"
+                      id="xmark"
+                      (click)="isReject(maintenance.id, maintenance)"
+                    ></i>
+                  </ng-container>
+                  <i
+                    class="fa fa-chevron-right"
+                    id="right"
+                    role="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#krimaintenance' + maintenance.id"
+                    aria-expanded="false"
+                    aria-controls="krimaintenance"
+                  ></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="collapse" [attr.id]="'krimaintenance' + maintenance.id">
+              <td colspan="8">
+                <table>
+                  <thead>
+                    <th>No.</th>
+                    <th>Key Risk Indicator</th>
+                    <th>Ukuran</th>
+                    <th>Jenis KRI</th>
+                    <th>Treshold</th>
+                    <!-- <th>Action</th> -->
+                  </thead>
+                  <tbody *ngFor="let child_kri of maintenance.child_kri">
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        {{ child_kri.kri }}
+                      </td>
+                      <td>
+                        <ng-container
+                          *ngIf="
+                            child_kri.ukuran.length == 2 &&
+                              child_kri.ukuran[1].desc != '';
+                            else one
+                          "
+                        >
+                          <div class="sigma">
+                            <div class="value">
+                              <p class="value1">
+                                {{ child_kri.ukuran[0].desc }}
+                              </p>
+                              <hr />
+                              <p class="value2">
+                                {{ child_kri.ukuran[1].desc }}
+                              </p>
+                            </div>
+                            <ng-container *ngIf="child_kri.operation_variable == 'pembagian' else perkalian">
+                              <i class="fa-solid fa-divide"></i>
+                            </ng-container>
+                            <ng-template #perkalian>
+                              <ng-container *ngIf="child_kri.operation_variable == 'perkalian' else pertambahan">
+                                <i class="fa-solid fa-xmark"></i>
+                              </ng-container>
+                            </ng-template>
+                            <ng-template #pertambahan>
+                              <ng-container *ngIf="child_kri.operation_variable == 'pertambahan' else pengurangan">
+                                <i class="fa-solid fa-plus"></i>
+                              </ng-container>
+                            </ng-template>
+                            <ng-template #pengurangan>
+                              <ng-container *ngIf="child_kri.operation_variable == 'pengurangan'">
+                                <i class="fa-solid fa-minus"></i>
+                              </ng-container>
+                            </ng-template>
+                          </div>
+                        </ng-container>
+                        <ng-template #one>
+                          <div class="sigma1">
+                            <div class="value">
+                              <p class="value1">
+                                {{ child_kri.ukuran[0].desc }}
+                              </p>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </td>
+                      <td>{{ child_kri.jenis_kri }}</td>
+                      <td>
+                        <div class="treshold">
+                          <div *ngFor="let treshold of child_kri.treshold">
+                            <ng-container
+                              *ngIf="treshold.color == 'yellow'; else other"
+                            >
+                              <div class="{{ treshold.color }}">
+                                {{ treshold.min.nilai }} -
+                                {{ treshold.max.nilai }}
+                              </div>
+                            </ng-container>
+                            <ng-template #other>
+                              <div class="{{ treshold.color }}">
+                                {{ treshold.nilai }}
+                              </div>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="action-expand">
+                          <!-- <i class="fa-solid fa-pen-to-square"></i> -->
+                          <!-- <label class="switch">
+                            <input type="checkbox" checked />
+                            <span class="slider round"></span>
+                          </label> -->
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="pagination"></div>
+                <ng-container *ngIf="role == 'admin_maker'">
+                  <div class="action-button">
+                    <button
+                      class="btn-risk-indicator-add"
+                      (click)="addKeyRiskIndicator(maintenance.id, maintenance)"
+                    >
+                      ADD KEY RISK INDICATOR
+                    </button>
+                    <button
+                      class="btn-risk-indicator-submit"
+                      (click)="SubmitKeyIndicator(maintenance.id, maintenance)"
+                    >
+                      SUBMIT KEY RISK INDICATOR
+                    </button>
+                  </div>
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          style="
+            background-color: #dfebf1;
+            height: 2.5rem;
+            padding: 1rem;
+            margin-top: 0.7rem;
+            padding-right: 3rem;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: small;
+          "
+        >
+          <span style="color: #bababa; cursor: pointer"
+            >1 - 5 of 5 &nbsp;&nbsp; |</span
+          >
+          <i
+            class="fa fa-arrow-left"
+            style="color: #bababa; cursor: pointer"
+          ></i>
+          <i
+            class="fa fa-chevron-left"
+            style="
+              margin-left: 0.5rem;
+              color: #bababa;
+              font-size: smaller;
+              cursor: pointer;
+            "
+          ></i>
+          <i
+            class="fa fa-chevron-right"
+            style="
+              margin-left: 0.7rem;
+              color: #808283;
+              font-size: smaller;
+              cursor: pointer;
+            "
+          ></i>
+          <i
+            class="fa fa-chevron-right"
+            style="
+              margin-left: 0.7rem;
+              color: #808283;
+              font-size: smaller;
+              cursor: pointer;
+            "
+          ></i>
+          <span style="color: #808283; cursor: pointer">|</span>
+        </div>
+      </div>
+
+      <!-- end data maintenance kri -->
+    </div>
+  </ng-container>
+</app-content>

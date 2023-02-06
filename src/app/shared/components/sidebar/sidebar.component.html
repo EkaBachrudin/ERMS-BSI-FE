@@ -1,0 +1,64 @@
+<!-- <img src="../../../../assets/user.png" style=" width: 90px;
+height: fit-content;" alt="" /> -->
+
+<div style="display: flex; justify-content: center">
+  <div
+    style="
+      background-color: #cccccc;
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-top: 3rem;
+      font-size: 1.9rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #00a39d;
+      border-radius: 2.2rem;
+    "
+  >
+  {{getFirstLetters(user.payload.name)}}
+  </div>
+</div>
+<div class="p-2 d-flex align-items-center flex-column">
+  <h4 style="color: var(--white); text-align: center;">{{limitWord(user.payload.name, 2)}}</h4>
+  <p style="font-size: 13px; color: #ffffff">{{roleInitial.toUpperCase()}}</p>
+</div>
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    margin-top: -1.3rem;
+    font-size: small;
+    color: #ffffff;
+    font-weight: 200;
+  "
+>
+  <div class="p-3">
+    <i class="fa-regular fa-bell"> 1 </i>
+  </div>
+  <div class="p-3">
+    <i class="fa fa-circle-user"></i>
+  </div>
+  <div class="p-3">
+    <a style="text-decoration: none; color: var(--white)">
+      <i
+        class="fa-solid fa-arrow-right-from-bracket"
+        role="button"
+        (click)="toLogout()"
+      ></i>
+    </a>
+  </div>
+</div>
+
+<div class="navigation">
+  <ul>
+    <li (click)="toRouteRCSA(role)">
+      <a>
+        <div class="icon active">RC</div>
+        <span class="title">RCSA</span>
+      </a>
+    </li>
+  </ul>
+</div>

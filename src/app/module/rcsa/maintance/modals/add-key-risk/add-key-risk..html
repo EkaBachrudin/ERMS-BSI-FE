@@ -1,0 +1,72 @@
+<div style="width: 40rem; height: 49rem; font-size: small">
+  <h5 mat-dialog-title><strong>Tambah Key Risk</strong></h5>
+  <form onsubmit="return true">
+    <p class="title1" style="margin-top: 1.5rem">PILIH UNIT</p>
+    <select class="option">
+      <option value="Kantor Pusat">Kantor Pusat</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">PILIH SEGMEN/GROUP</p>
+    <select class="option">
+      <option value="Risiko Operasional">Risiko Operasional</option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">PILIH KEY PROCESS</p>
+    <select class="option">
+      <option *ngFor="let item of keyProData" value="{{item.keyPro}}">
+        {{item.keyPro}}
+      </option>
+    </select>
+    <p class="title1" style="margin-top: 1rem">KEY RISK</p>
+    <div class="selectadd">
+      <input class="option" type="text" />
+      <!-- <p>+</p> -->
+    </div>
+
+    <!-- LET 1 -->
+    <p class="title1" style="margin-top: 1rem">PILIH LOSS EVENT TYPE 1</p>
+    <select class="option">
+      <option value="Kecurangan Internal">Kecurangan Internal</option>
+    </select>
+
+    <!-- LET 2 -->
+    <p class="title1" style="margin-top: 1rem">PILIH LOSS EVENT TYPE 2</p>
+    <select class="option">
+      <option value="Aktifitas Tidak Sah">Aktifitas Tidak Sah</option>
+    </select>
+
+    <!-- LET 3 -->
+    <p class="title1" style="margin-top: 1rem">PILIH LOSS EVENT TYPE 3</p>
+    <select class="option">
+      <option value="Transaksi Tidak Sah">Transaksi Tidak Sah</option>
+      <option
+        value="Penyalahgunaan user ID dan password transaksi oleh pihak yang tidak berhak"
+      >
+        Penyalahgunaan user ID dan password transaksi oleh pihak yang tidak
+        berhak
+      </option>
+    </select>
+
+    <div class="form-group">
+      <button
+        type="button"
+        class="btn"
+        style="width: 27%; border: var(--button) solid 1px"
+        (click)="cancel()"
+      >
+        CANCEL
+      </button>
+      <button
+        type="submit"
+        class="btn"
+        (click)="submit()"
+        style="
+          width: 71%;
+          margin-left: 0.5rem;
+          background-color: var(--button);
+          color: white;
+        "
+      >
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

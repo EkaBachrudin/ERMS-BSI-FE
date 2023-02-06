@@ -1,0 +1,179 @@
+<div class="content-modal">
+  <h6 mat-dialog-title>RISK ISSUE</h6>
+  <form onsubmit="return false" [formGroup]="riskAssessmentForm">
+    <p class="title1">KEY PROCESS</p>
+    <input readonly formControlName="keyprocess" style="width: 100%;" type="text" value="{{datas.keyprocess}}" />
+    <div class="group">
+      <div class="left">
+        <p class="title2">KEY RISK</p>
+        <textarea readonly formControlName="keyrisk" type="text" value="{{datas.keyrisk}}"></textarea>
+      </div>
+      <div class="right">
+        <div class="likelihood">
+          <p>LIKELIHOOD</p>
+          <mat-form-field>
+            <mat-select [disabled]="status" formControlName="likelihood" (selectionChange)="optionLikelihood($event)"
+              [value]="datas?.likelihood">
+              <mat-option value="1" #tooltip="matTooltip" matTooltip="Kemungkinan dapat terjadi > 1 tahun"
+                matTooltipPosition="right">1 - KECIL KEMUNGKINAN</mat-option>
+              <mat-option value="2" #tooltip="matTooltip" matTooltip="Kemungkinan dapat terjadi > 6 bulan dan < 1 tahun"
+                matTooltipPosition="right">2 - JARANG</mat-option>
+              <mat-option value="3" #tooltip="matTooltip" matTooltip="Kemungkinan dapat terjadi > 3 bulan dan < 6 bulan"
+                matTooltipPosition="right">3 - KADANG - KADANG</mat-option>
+              <mat-option value="4" #tooltip="matTooltip" matTooltip="Kemungkinan dapat terjadi > 1 bulan dan < 3 bulan"
+                matTooltipPosition="right">4 - SERING</mat-option>
+              <mat-option value="5" #tooltip="matTooltip" matTooltip="Kemungkinan dapat terjadi < 1 bulan"
+                matTooltipPosition="right">5 - SANGAT SERING</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="impact">
+          <p>IMPACT</p>
+          <mat-form-field>
+            <mat-select [disabled]="status" [ngClass]="{'input-disabled' : status}" formControlName="impact"
+              (selectionChange)="optionImpact($event)" [value]="datas?.impact">
+              <mat-option value="1" #tooltip="matTooltip" matTooltip="{{getTooltipText(1)}}" matTooltipPosition="right"
+                matTooltipClass="my-tooltip">1 - INSIGNIFICANT</mat-option>
+              <mat-option value="2" #tooltip="matTooltip" matTooltip="{{getTooltipText(2)}}"
+                matTooltipClass="my-tooltip" matTooltipPosition="right">2 - MINOR</mat-option>
+              <mat-option value="3" #tooltip="matTooltip" matTooltip="{{getTooltipText(3)}}"
+                matTooltipClass="my-tooltip" matTooltipPosition="right">3 - MODERATE</mat-option>
+              <mat-option value="4" #tooltip="matTooltip" matTooltip="{{getTooltipText(4)}}"
+                matTooltipClass="my-tooltip" matTooltipPosition="right">4 - OFTEN</mat-option>
+              <mat-option value="5" #tooltip="matTooltip" matTooltip="{{getTooltipText(5)}}"
+                matTooltipClass="my-tooltip" matTooltipPosition="right">5 - SIGNIFICANT</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div *ngIf="datas.impact != null && datas.likelihood != null else IhrrKosong" class="ihrr">
+          <p>IHRR</p>
+          <input class="input-disabled" formControlName="ihrrScore" type="text" value="{{datas.ihrr}}" />
+        </div>
+        <ng-template #IhrrKosong>
+          <div class="ihrr">
+            <p>IHRR</p>
+            <input class="input-disabled" type="text" />
+          </div>
+        </ng-template>
+        <div class="ihrr-predicate">
+          <p>IHRR PREDICATE</p>
+          <div *ngIf="datas.impact != null && datas.likelihood != null else Predicatekosong" [ngClass]="{
+              'statusGreen': ihrrRating === 'Low',
+              'statusGreen-Light': ihrrRating === 'Low To Medium',
+              'statusYellow': ihrrRating === 'Medium',
+              'statusOrange': ihrrRating === 'Medium To High',
+              'statusRed text-white': ihrrRating === 'High'
+          }">{{ihrrRating}}</div>
+          <ng-template #Predicatekosong>
+            <div style="background-color: grey; text-align: center;">-</div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="left">
+        <p class="title2">KEY CONTROL</p>
+        <textarea readonly formControlName="keycontrol" cols="64" rows="4" value="{{datas.keycontrol}}"></textarea>
+      </div>
+      <div class="right">
+        <div class="likelihood">
+          <p>CONTROL</p>
+          <div style="display: flex">
+            <mat-form-field>
+              <mat-select [disabled]="status" formControlName="control" (selectionChange)="optionControl($event)"
+                [value]="datas.control">
+                <mat-option value="1" #tooltip="matTooltip"
+                  matTooltip="Manajemen risiko dan proses kontrol memadai di seluruh aspek material dlm hal kecukupan (adequacy) , efektifitas (effectiveness) dan keberlanjutan (sustainability). Unit kerja telah beroperasi pd level dimana kontrol telah memadai utk risiko operasional."
+                  matTooltipPosition="right">1 - STRONG</mat-option>
+                <mat-option value="2" #tooltip="matTooltip"
+                  matTooltip="Manajemen risiko dan proses kontrol memadai di banyak aspek material dlm hal kecukupan (adequacy) , efektifitas (effectiveness) dan keberlanjutan (sustainability). Namun dibutuhkan perbaikan spesifik dalam jumlah terbatas (limited)."
+                  matTooltipPosition="right">2 - SATISFACTORY</mat-option>
+                <mat-option value="3" #tooltip="matTooltip"
+                  matTooltip="Manajemen risiko dan proses kontrol memadai di banyak aspek material dlm hal kecukupan (adequacy) , efektifitas (effectiveness) dan keberlanjutan (sustainability). Namun dibutuhkan perbaikan spesifik dalam jumlah memadai (moderate)."
+                  matTooltipPosition="right">3 - FAIR</mat-option>
+                <mat-option value="4" #tooltip="matTooltip"
+                  matTooltip="Manajemen risiko dan proses kontrol memadai di banyak aspek material dlm hal kecukupan (adequacy) , efektifitas (effectiveness) dan keberlanjutan (sustainability). Namun dibutuhkan perbaikan spesifik dalam jumlah yang cukup berarti (signifikan) dan/atau terdapat hambatan/kemacetan pada suatu proses bisnis."
+                  matTooltipPosition="right">4 - MARGINAL</mat-option>
+                <mat-option value="5" #tooltip="matTooltip"
+                  matTooltip="Manajemen risiko dan proses kontrol memadai di banyak aspek material dlm hal kecukupan (adequacy) , efektifitas (effectiveness) dan keberlanjutan (sustainability). Namun dibutuhkan perbaikan spesifik dalam jumlah memadai (moderate)."
+                  matTooltipPosition="right">5 - UNSATISFACTORY</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="datas.control != null else Controlkosong" [ngClass]="{
+                'statusGreen': controlRating === 'STRONG',
+                'statusGreen-Light': controlRating === 'SATISFACTORY',
+                'statusYellow': controlRating === 'FAIR',
+                'statusOrange': controlRating === 'MARGINAL',
+                'statusRed text-white': controlRating === 'UNSATISFACTORY'
+            }">{{controlRating}}
+            </div>
+          </div>
+          <ng-template #Controlkosong>
+            <div></div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <div style="width: 45%; display: flex; justify-content: space-between">
+        <p>COMPOSITE SCORE</p>
+        <p style="width: 45%;">COMPOSITE RATING</p>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <div style="width: 45%; display: flex; justify-content: space-between">
+        <div style="
+              width: 45%;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              border: var(--button) solid 2px;
+            ">
+          <p>{{datas.rating}}</p>
+        </div>
+        <div *ngIf="ihrrRating != null && controlRating != null else compositeKosong" [ngClass]="{
+            'statusGreen': compositeRating?.toUpperCase() === 'LOW',
+            'statusGreen-Light': compositeRating?.toUpperCase() === 'LOW TO MEDIUM',
+            'statusYellow': compositeRating?.toUpperCase() === 'MEDIUM',
+            'statusOrange': compositeRating?.toUpperCase() === 'MEDIUM TO HIGH',
+            'statusRed text-white': compositeRating?.toUpperCase() === 'HIGH'
+        }">
+          <p>{{compositeRating}}</p>
+        </div>
+        <ng-template #compositeKosong>
+          <div></div>
+        </ng-template>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <div style="
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+          ">
+        <div style="
+              width: 45%;
+              text-align: center;
+              background-color: var(--white);
+              padding: 0.3rem;
+              border: var(--button) solid 2px;
+              border-radius: 4px;
+            " (click)="onNoClick()">
+          CANCEL
+        </div>
+        <div *ngIf="!status" style="
+              width: 45%;
+              text-align: center;
+              background-color: var(--button);
+              color: var(--white);
+              padding: 0.3rem;
+              border: var(--button) solid 2px;
+              border-radius: 4px;
+            " (click)="approved()">
+          ASSIGN RCSA
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

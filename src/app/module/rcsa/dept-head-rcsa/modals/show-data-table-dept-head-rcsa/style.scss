@@ -1,0 +1,249 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  overflow: auto;
+  
+  .title {
+    display: flex;
+    .title-inner{
+      margin-top: 10px;
+      font-size: 1rem;
+      display: flex;
+      align-items: baseline;
+    }
+    .cabang {
+      font-size: 0.9rem;
+      border: solid 2px #313131;
+      margin-left: 5px;
+      background-color: #d9d9d9;
+      color: #000000;
+      padding: 0 20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+
+table {
+  width: 100%;
+  thead {
+    th {
+      background-color: #f2f2f2;
+      padding: 5px;
+      padding: 0.1rem;
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: rgb(228, 225, 225) solid 0.1px;
+      td {
+        Vertical-align:middle;
+        justify-content: center; /* center flex items horizontally, in this case */
+        align-items: center;
+        padding: 0.1rem;
+        padding: 5px;
+        border-right: rgb(228, 225, 225) solid 0.1px;
+        .orange {
+          background-color: #ffa200;
+          font-weight: bold;
+          border-radius: 6px;
+        }
+        .yellow {
+          background-color: #fbff00;
+          font-weight: bold;
+          border-radius: 6px;
+        }
+        .greendcor {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: #0da136;
+          }
+        }
+        .yellowdcor {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: yellow;
+          }
+        }
+        .orangedcor {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: orange;
+          }
+        }
+        .green-lightdcor {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: #74d99c;
+          }
+        }
+        .reddcor {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            color: var(--white);
+            background-color: #a10d0d;
+          }
+        }
+        .green {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: #0da136;
+          }
+        }
+        .yellow {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: yellow;
+          }
+        }
+        .orange {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: orange;
+          }
+        }
+        .green-light {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            background-color: #74d99c;
+          }
+        }
+        .red {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            color: var(--white);
+            background-color: #a10d0d;
+          }
+        }
+        .grey {
+          display: flex;
+          justify-content: center;
+          span {
+            height: fit-content;
+            padding: 0.3rem;
+            width: 9rem;
+            font-weight: 500;
+            font-size: smaller;
+            text-align: center;
+            color: var(--white);
+            background-color: #6e6e6e;
+          }
+        }
+      }
+      th{
+        Vertical-align:middle;
+      }
+    }
+  }
+}
+
+pre {
+  font-size: 14px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap; /* Opera */
+  white-space: -o-pre-wrap; /* Opera */
+  white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+  word-wrap: break-word; /* IE 5.5+ */
+}
+
+mat-paginator{
+  display: flex;
+  justify-content: start;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-no{
+  background-color: #27b9b4;
+  color: white;
+}

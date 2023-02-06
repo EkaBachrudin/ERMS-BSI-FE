@@ -1,0 +1,56 @@
+<div class="page">
+  <div class="content">
+    <div class="readme">
+      <div class="title">
+        <img src="../../../../assets/Logo-BSI-White.png" alt="" />
+        <strong>
+          Enterprise Risk <br />
+          Management System
+        </strong>
+      </div>
+      <span>
+        <img src="../../../../assets/prospero.png" alt="" />
+        Powered by Prospero Solutions
+      </span>
+    </div>
+    <div class="list-action">
+      <div class="form">
+        <p>Login</p>
+        <form class="login-form">
+          <div class="input">
+            <mat-form-field >
+              <label>Email</label>
+              <input type="text"
+                matInput [formControl]="nip"
+                required
+                autocomplete="off" />
+              <mat-error *ngIf="nip.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="input2">
+            <mat-form-field>
+              <label>Password</label>
+              <input
+                type="password"
+                matInput
+                [formControl]="password"
+                required
+                autocomplete="off"
+                [type]="showPassword ? 'text' : 'password'"
+              />
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+              <mat-error *ngIf="password.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <button (click)="toLogin()">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

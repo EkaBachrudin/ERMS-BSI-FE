@@ -1,0 +1,24 @@
+<div class="content">
+  <h6 mat-dialog-title>Tambah Cause LV 1 dan LV 2</h6>
+  <form onsubmit="return false">
+    <div class="input">
+      <p class="title1">LEVEL 1</p>
+      <select name="" id="" [formControl]="level1">
+        <option
+          *ngFor="let item of dataLevel1; let i = index"
+          value="{{item.level1}}"
+        >
+          {{item.level1}}
+        </option>
+      </select>
+      <p class="title1">LEVEL 2</p>
+      <input type="text" [formControl]="level2" />
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="head">
+    <div class="search">
+        <label>
+            <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </label>
+    </div>
+    <button (click)="groupdialog()" style="display: none">
+        <p>+</p>
+        ADD GROUP
+    </button>
+</div>
+<table aria-describedby>
+    <thead>
+        <th>No.</th>
+        <th style="width: 16rem; text-align: left">Group</th>
+        <th>Call Sign</th>
+        <th>Directorate</th>
+        <th>Review</th>
+        <th style="width: 8rem;display: none">Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of rowsGroup | searchFilter : searchText : 'name';let i = index">
+            <td>{{(currentPage*pageSize) + i + 1 }}</td>
+            <td style="text-align: left">
+                {{ item.name }}
+            </td>
+            <td>{{ item.call_sign }}</td>
+            <td>{{ item.directorat_name }}</td>
+            <td class="approved">
+                <div class="status">
+                    <strong>APPROVED</strong>
+                </div>
+            </td>
+            <td style="display: none">
+                <div class="action-table">
+                    <i class="fa fa-trash" id="trash" (click)="deleteGroup(item)" [hidden]="isApprover"
+                        aria-hidden="true"></i><i class="fa-solid fa-pen-to-square" id="edit" (click)="editgroup(item)"
+                        [hidden]="isApprover" aria-hidden="true"></i>
+                    <i class="fa fa-check" id="check" *ngIf="isApprover" (click)="approve(item, 'APPROVED')"
+                        aria-hidden="true"></i>
+                    <i class="fa fa-xmark" id="xmark" (click)="approve(item, 'REJECTED')" aria-hidden="true"
+                        *ngIf="isApprover"></i>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<mat-paginator 
+[length]="totalElement" 
+[pageSize]="10" 
+[pageSizeOptions]="[10, 20, 50, 100]" 
+aria-label="Select page"
+showFirstLastButtons (page)="onPageChange($event)">
+</mat-paginator>

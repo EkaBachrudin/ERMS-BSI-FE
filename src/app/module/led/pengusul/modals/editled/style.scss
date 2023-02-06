@@ -1,0 +1,128 @@
+* {
+  font-size: small;
+}
+.title1 {
+  color: #686868;
+}
+.title2 {
+  display: flex;
+  margin-top: 1rem;
+  p {
+    color: var(--blue-button);
+  }
+  hr {
+    width: 68%;
+    margin-left: 12px;
+    background-color: #000000;
+  }
+}
+.title3 {
+  display: flex;
+  margin-top: 1rem;
+  p {
+    color: var(--blue-button);
+  }
+  hr {
+    width: 72%;
+    margin-left: 12px;
+    background-color: #000000;
+  }
+}
+.input1 {
+  display: flex;
+  input {
+    margin-bottom: 33px;
+    margin-right: 12px;
+  }
+  p {
+    color: #686868;
+  }
+}
+.check {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1.5rem;
+  input {
+    margin-bottom: 15px;
+  }
+  p {
+    color: #686868;
+    margin-left: 10px;
+  }
+}
+.input2 {
+  display: flex;
+  margin-top: 1.5rem;
+  input {
+    margin-bottom: 33px;
+    margin-right: 12px;
+  }
+  p {
+    color: #686868;
+  }
+}
+.action {
+  display: flex;
+  width: 100%;
+  margin-top: 2em;
+  justify-content: space-around;
+  align-items: center;
+  .btn-cancel {
+    font-weight: 300;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    font-size: small;
+    cursor: pointer;
+    width: 41%;
+    height: 2.5rem;
+    text-align: center;
+    border-color: var(--blue-button);
+  }
+  .btn-submit {
+    font-weight: 300;
+    background-color: var(--blue-button);
+    width: 58%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+}
+label {
+  display: flex;
+  p {
+    margin-left: 1rem;
+    margin-top: 15px;
+  }
+}
+.selectadd {
+  display: flex;
+  width: 100%;
+  .form-group {
+    .form-control {
+      width: 38.5rem;
+    }
+  }
+  p {
+    font-size: x-large;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.3rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    color: var(--white);
+    background-color: var(--blue-button);
+  }
+}
+.group-input {
+  display: flex;
+  .kewajiban {
+    width: 48%;
+  }
+  .keterangan {
+    margin-left: 1.5rem;
+    width: 48%;
+  }
+}

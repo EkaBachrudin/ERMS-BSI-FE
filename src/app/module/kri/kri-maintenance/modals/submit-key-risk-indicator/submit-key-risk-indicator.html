@@ -1,0 +1,56 @@
+<div class="content">
+  <h5 mat-dialog-title>Submit Periode Pengisian KRI</h5>
+  <form onsubmit="return false">
+    <div class="pickdate">
+      <div class="start">
+        START DATE
+        <input type="date" [formControl]="start_date" id="" />
+      </div>
+      <div class="end">
+        END DATE
+        <input type="date" [formControl]="end_date" id="" />
+      </div>
+    </div>
+    <div class="option">
+      <div class="start">
+        PERIODE
+        <select [formControl]="periode">
+          <option value="Q1">QUARTER 1</option>
+        </select>
+      </div>
+      <div class="end">
+        TAHUN
+        <select [formControl]="tahun">
+          <option value="2022">2022</option>
+        </select>
+      </div>
+    </div>
+    <label>
+      <input type="checkbox" />
+      Dengan ini periode pengisian KRI akan diaktifkan
+    </label>
+    <div class="form-group">
+      <button
+        (click)="cancel()"
+        type="button"
+        class="btn"
+        style="width: 27%; border: var(--blue-button) solid 1px"
+      >
+        CANCEL
+      </button>
+      <button
+        (click)="submit()"
+        type="submit"
+        class="btn"
+        style="
+          width: 71%;
+          margin-left: 0.5rem;
+          background-color: var(--blue-button);
+          color: white;
+        "
+      >
+        SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

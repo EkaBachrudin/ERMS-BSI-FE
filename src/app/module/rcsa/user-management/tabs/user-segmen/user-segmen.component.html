@@ -1,0 +1,51 @@
+<div class="segmen-user">
+  <div class="head">
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Cari" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+    <button>
+      <p>+</p>
+      ADD SEGMEN
+    </button>
+  </div>
+  <table>
+    <thead>
+      <th class="left">No.</th>
+      <th class="left">Segmen</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data;let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{row.segmen}}</td>
+        <td
+          [ngClass]="{
+            drafted: row.status == 'DRAFTED',
+            approved: row.status == 'APPROVED',
+            rejected: row.status == 'REJECTED'
+          }"
+        >
+        <div class="status">
+          <strong>{{ row.status }}</strong>
+        </div>
+      </td>
+      <td>
+        <div class="action-table">
+          <i
+            class="fa fa-trash"
+            id="trash"
+          ></i>
+          <i
+            class="fa fa-edit"
+            id="edit"
+          ></i>
+        </div>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

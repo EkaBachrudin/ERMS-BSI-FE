@@ -1,0 +1,36 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  .title {
+    display: flex;
+    .cabang {
+      background-color: #e6e6e6;
+      border: #000000 solid 1px;
+      border-radius: 6px;
+      width: 22rem;
+      padding-left: 1rem;
+      font-size: x-small;
+      margin-left: 6px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+  thead {
+    th {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 0.2rem;
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: rgb(228, 225, 225) solid 0.1px;
+      td {
+        text-align: center;
+        border-right: rgb(228, 225, 225) solid 0.1px;
+      }
+    }
+  }
+}

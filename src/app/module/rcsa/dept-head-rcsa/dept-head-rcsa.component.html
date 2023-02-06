@@ -1,0 +1,206 @@
+<app-content>
+  <ng-container content>
+    <div style="background-color: #f1f1f1; height: 100%; padding-top: 0.2rem">
+      <div>
+        <div class="head-dept-head-rcsa">
+          <div class="list-action">
+            <div class="periode">
+              <p>Periode</p>
+              <select name="select-periode" id="select-periode">
+                <option value="">2022</option>
+                <option value="">2021</option>
+                <option value="">2020</option>
+                <option value="">2019</option>
+              </select>
+              <select name="select-q" id="select-q">
+                <option value="">All</option>
+                <option value="">Q1</option>
+                <option value="">Q2</option>
+                <option value="" selected>Q3</option>
+                <option value="">Q4</option>
+              </select>
+            </div>
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" />
+              <em class="fa-solid fa-magnifying-glass"></em>
+            </label>
+          </div>
+        </div>
+        <mat-progress-bar mode="indeterminate" *ngIf="isloading == true else showDataTable"></mat-progress-bar>
+        <ng-template #showDataTable>
+          <div class="data-dept-head-rcsa">
+            <table aria-describedby="table">
+              <thead>
+                <th>No.</th>
+                <th>IHRR</th>
+                <th>Control</th>
+                <th>Composite</th>
+                <th>Periode</th>
+                <th>Status</th>
+                <th style="text-align: left; width: 6rem">Action</th>
+              </thead>
+              <tbody *ngFor="let element of dataSource let i = index">
+                <tr>
+                  <td>{{(currentPage.Dcor*pageSize.Dcor) + i + 1 }}</td>
+                  <td>
+                    <div *ngIf="element.ihrr else ihrr" [ngClass]="{
+                      'green': Math.trunc(element.ihrr) === 1,
+                      'green-light': Math.trunc(element.ihrr) === 2,
+                      'yellow': Math.trunc(element.ihrr) === 3,
+                      'orange': Math.trunc(element.ihrr) === 4,
+                      'red': Math.trunc(element.ihrr) === 5
+                  }">
+                      <span>{{element.ihrr | number : '1.2'}}</span>
+                    </div>
+                    <ng-template #ihrr>
+                      <span> - </span>
+                    </ng-template>
+                  </td>
+                  <td>
+                    <div *ngIf="element.control else control" [ngClass]="{
+                      'green': Math.trunc(element.control) === 1,
+                      'green-light': Math.trunc(element.control) === 2,
+                      'yellow': Math.trunc(element.control) === 3,
+                      'orange': Math.trunc(element.control) === 4,
+                      'red': Math.trunc(element.control) === 5
+                  }">
+                      <span>{{element.control | number : '1.2'}}</span>
+                    </div>
+                    <ng-template #control>
+                      <span>-</span>
+                    </ng-template>
+                  </td>
+                  <td>
+                    <div *ngIf="element.composite else composite" [ngClass]="{
+                      'green': Math.trunc(element.composite) === 1,
+                      'green-light': Math.trunc(element.composite) === 2,
+                      'yellow': Math.trunc(element.composite) === 3,
+                      'orange': Math.trunc(element.composite) === 4,
+                      'red': Math.trunc(element.composite) === 5
+                  }">
+                      <span>{{element.composite | number : '1.2'}}</span>
+                    </div>
+                    <ng-template #composite>
+                      <span>-</span>
+                    </ng-template>
+                  </td>
+                  <td>{{element.quarter + '/' + element.periode}}</td>
+                  <td>
+                    <div *ngIf="element.currentStatus != null else showStatusCurrent">
+                        <div *ngIf="element.currentStatus.toLowerCase().search('rejected') != -1 else notRejected">
+                          <div (click)="showNoteRejected($event, element.noted)" class="btn btn-danger btn-sm reject-btn" >
+                            <div class="status">{{element.currentStatus}}</div>
+                          </div>
+                      </div>
+                      <ng-template #notRejected>
+                        <div [ngClass]="{
+                          'approved': element.currentStatus.toLowerCase().search('approved') != -1,
+                          'waiting': element.currentStatus.toLowerCase().search('approval') != -1
+                          }">
+                          <div class="status">{{element.currentStatus}}</div>
+                        </div>
+                      </ng-template>
+                    </div>
+                    <ng-template #showStatusCurrent>
+                      <span> - </span>
+                    </ng-template>
+                  </td>
+                  <td>
+                    <div class="action-table">
+                     <!-- <em class="fa fa-file-invoice" id="document" (click)="openFormulir()"></em>-->
+                     <em class="fa fa-eye" id="eye" (click)="showData(element, (currentPage.Dcor*pageSize.Dcor) + i + 1)"></em>
+                      <em class="fa fa-chevron-down" id="down" (click)="expandByID(element.id,element.sudahDinilai)" role="button"
+                        data-bs-toggle="collapse" [attr.data-bs-target]="
+                          '#expandgroupheadrcsa' + i
+                        " aria-expanded="false" aria-controls="expandgroupheadrcsa"></em>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="collapse" [attr.id]="'expandgroupheadrcsa' + i">
+                  <td colspan="7">
+                    <mat-progress-bar mode="indeterminate" *ngIf="isloading2 == true else showExpand"></mat-progress-bar>
+                    <ng-template #showExpand>
+                      <table>
+                        <thead>
+                          <th>No.</th>
+                          <th>Key Process</th>
+                          <th>Key Risk Issue</th>
+                          <th>Key Control</th>
+                          <th style="width: 12rem">Ketentuan</th>
+                          <th style="width: 6rem">Status</th>
+                          <th>Risk Assessment</th>
+                        </thead>
+                        <tbody *ngFor=" let Details of dataRcsaByID let o = index">
+                          <tr>
+                            <td>{{ (currentPage.RcsaByID*pageSize.RcsaByID) +  o + 1  }}</td>
+                            <td>{{ Details.keyprocess }}</td>
+                            <td>
+                              {{ Details.keyrisk }}
+                            </td>
+                            <td style="text-align: left;">
+                              <ol>
+                                <li *ngFor=" let control of Details.keycontrol.split('\n \n')" class="mb-2">
+                                  {{removeNumber(control.replace('.', ' '))}}
+                                </li>
+                              </ol>
+                            </td>
+                            <td>
+                              <span style="border-bottom: 0; font-size: x-small">
+                                <strong>{{Details.ketentuan}}</strong>
+                                <div *ngFor="let desc of Details.descriptionItem; let d = index">
+                                  <ul>
+                                    <li>{{desc.description}}</li>
+                                  </ul>
+                                </div>
+                              </span>
+                            </td>
+                            <td>
+                              <div *ngIf="
+                              Details.ihrr == null && Details.control == null && Details.rating == null
+                              " class="belum-dinilai">
+                                <span>BELUM DI NILAI</span>
+                              </div>
+                              <div *ngIf="Details.ihrr != null && Details.control != null && Details.rating != null"
+                                class="sudah-dinilai">
+                                <span>SUDAH DI NILAI</span>
+                              </div>
+                            <td>
+                              <span class="blue-light" (click)="openRiskAssessment(Details,element)">
+                                <em class="fa-solid fa-pen-to-square"></em>
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <mat-paginator [length]="totalPage.RcsaByID" [pageSizeOptions]="[10, 25, 100]" (page)="onPageChange($event,element.id, 'RcsaByID')"></mat-paginator>
+                      <div *ngIf="totalDinilai != totalRcsa else enableBTN">
+                        <button class="disabled" (click)="openSubmit(element)"  [disabled]="true">SUBMIT RCSA</button>
+                      </div>
+                      <ng-template #enableBTN>
+                        <div *ngIf="element.currentStatus != null else currentStatusNotNull">
+                          <div *ngIf="element.currentStatus.toLowerCase().search('waiting') != -1 || element.currentStatus.toLowerCase().search('approved') != -1 else waitingNotFound">
+                            <button class="disabled" (click)="openSubmit(element)" [disabled]="true">SUBMIT RCSA</button>
+                          </div>
+                          <ng-template #waitingNotFound>
+                            <button (click)="openSubmit(element)"  [disabled]="false">SUBMIT RCSA</button>
+                          </ng-template>
+                        </div>
+                        <ng-template #currentStatusNotNull>
+                          <button (click)="openSubmit(element)"  [disabled]="false">SUBMIT RCSA</button>
+                        </ng-template>
+                      </ng-template>
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <mat-paginator [length]="totalPage.Dcor" [pageSizeOptions]="[10, 25, 100]" (page)="onPageChange($event,'', 'Dcor')"></mat-paginator>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-container>
+</app-content>
+

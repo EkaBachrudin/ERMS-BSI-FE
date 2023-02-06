@@ -1,0 +1,37 @@
+* {
+  font-size: small;
+}
+.title1 {
+  color: #686868;
+  font-size: small;
+}
+.option {
+  border: none;
+  width: 100%;
+  border-bottom: var(--button) solid 2px;
+  background-color: #f7f7f7;
+  padding: 0.4rem;
+}
+.selectadd {
+  display: flex;
+  width: 100%;
+  select {
+    padding: 0.4rem;
+    width: 93%;
+    border: none;
+    height: 2rem;
+    border-bottom: var(--button) solid 2px;
+    background-color: #f7f7f7;
+  }
+  p {
+    font-size: x-large;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    color: #ffffff;
+    background-color: #00a39d;
+  }
+}

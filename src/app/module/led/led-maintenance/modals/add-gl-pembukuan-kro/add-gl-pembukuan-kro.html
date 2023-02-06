@@ -1,0 +1,67 @@
+<div class="content">
+  <h6 mat-dialog-title>Unit Pembukuan KRO</h6>
+  <form onsubmit="return false">
+    <div class="input">
+      <p class="title1">REKENING KRO</p>
+      <select name="" id="" [formControl]="rekKro">
+        <option value="KRO Kecurangan Internal">KRO Kecurangan Internal</option>
+        <option value="KRO Kejahatan External">KRO Kejahatan External</option>
+        <option value="KRO Praktik Ketenagakerjaan & Keamanan Tempat Kerja">
+          KRO Praktik Ketenagakerjaan & Keamanan Tempat Kerja
+        </option>
+        <option value="KRO Klien, Produk & Praktik Bisnis">
+          KRO Klien, Produk & Praktik Bisnis
+        </option>
+        <option value="KRO Kerusakan Aset Fisik">
+          KRO Kerusakan Aset Fisik
+        </option>
+        <option value="KRO Gangguan Aktifitas Bisnis & Kegagalan Sistem">
+          KRO Gangguan Aktifitas Bisnis & Kegagalan Sistem
+        </option>
+        <option value="KRO Manajemen Pelaksana, Pengiriman & Pemrosesan">
+          KRO Manajemen Pelaksana, Pengiriman & Pemrosesan
+        </option>
+      </select>
+      <p class="title1">NOMOR REKENING</p>
+      <input type="text" [formControl]="noRekKro" />
+      <p class="title1">REKENING RECOVERY</p>
+      <select name="" id="" [formControl]="rekRec">
+        <option value="Recovery KRO Kecurangan Internal">
+          Recovery KRO Kecurangan Internal
+        </option>
+        <option value="Recovery KRO Kejahatan External">
+          Recovery KRO Kejahatan External
+        </option>
+        <option
+          value="Recovery KRO Praktik Ketenagakerjaan & Keamanan Tempat Kerja"
+        >
+          Recovery KRO Praktik Ketenagakerjaan & Keamanan Tempat Kerja
+        </option>
+        <option value="Recovery KRO Klien, Produk & Praktik Bisnis">
+          Recovery KRO Klien, Produk & Praktik Bisnis
+        </option>
+        <option value="Recovery KRO Kerusakan Aset Fisik">
+          Recovery KRO Kerusakan Aset Fisik
+        </option>
+        <option
+          value="Recovery KRO Gangguan Aktifitas Bisnis & Kegagalan Sistem"
+        >
+          Recovery KRO Gangguan Aktifitas Bisnis & Kegagalan Sistem
+        </option>
+        <option
+          value="Recovery KRO Manajemen Pelaksana, Pengiriman & Pemrosesan"
+        >
+          Recovery KRO Manajemen Pelaksana, Pengiriman & Pemrosesan
+        </option>
+      </select>
+      <p class="title1">NOMOR REKENING</p>
+      <input type="text" [formControl]="noRekRec" />
+    </div>
+    <div class="action">
+      <button class="btn-cancel" (click)="cancel()">CANCEL</button>
+      <button class="btn-submit" (click)="submit()" type="submit">
+        ADD AND SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="department-user">
+  <div class="head">
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+    <!-- <button>
+      <p>+</p>
+      ADD DEPARTMENT
+    </button> -->
+  </div>
+  <table>
+    <thead>
+      <th style="width: 5%;">No.</th>
+      <th style="text-align: left;">Department</th>
+      <th style="text-align: left;">Group</th>
+      <th style="text-align: left;">Directorat</th>
+      <th>Status</th>
+      <th class="hidden">Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rowsDepartment| searchFilterMulti: 'name':searchText; let i = index">
+        <td>{{(currentPage*pageSize) + i + 1 }}</td>
+        <td style="text-align: left;">{{row.name}}</td>
+        <td style="text-align: left;">{{row.groupName}}</td>
+        <td style="text-align: left;">{{row.directoratName}}</td>
+        <td
+          class="approved"
+        >
+          <div class="status">
+            <strong>APPROVED</strong>
+          </div>
+        </td>
+        <td class="hidden">
+          <div class="action-table">
+            <em class="fa fa-trash" id="trash"></em>
+            <em class="fa-solid fa-pen-to-square" id="edit"></em>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+                    [length]="totalElement"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[10, 20, 50, 100]"
+                    aria-label="Select page"
+                    showFirstLastButtons
+                    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

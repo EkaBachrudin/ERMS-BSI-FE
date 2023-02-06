@@ -1,0 +1,60 @@
+<div style="background-color: #f1f1f1; padding-top: 0.2rem">
+  <div class="ketentuan">
+    <div class="list-action-ketentuan">
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Cari" [(ngModel)]="searchText" />
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </label>
+      </div>
+      <button (click)="ketentuan()" *ngIf="!isApprover" style="display: none;">
+          <p>+</p>
+          ADD KETENTUAN
+      </button>
+    </div>
+    <table aria-describedby>
+      <thead>
+        <th class="left">No.</th>
+        <th class="left">KETENTUAN</th>
+        <th class="left">DESKRIPSI</th>
+        <th>Status</th>
+        <th style="display: none;">Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ketentuanData | searchFilterMulti: 'ketentuan':searchText; let i = index;">
+          <td class="left">{{ i + 1 }}</td>
+          <td style="text-align: left">{{ item.ketentuan }}</td>
+          <td style="text-align: left">
+            <ul *ngFor="let des of item.description; let i = index">
+              <li>
+                {{ des.description }}
+              </li>
+            </ul>
+          </td>
+          <td class="approved">
+            <div class="status"><strong>APPROVED</strong></div>
+          </td>
+          <td style="display: none;">
+              <div class="action-table" *ngIf="!isApprover; else approverRisk">
+                  <i class="fa fa-trash" id="trash" aria-hidden="true"></i><i
+                      class="fa-solid fa-pen-to-square" id="edit" aria-hidden="true"></i>
+              </div>
+              <ng-template #approverRisk>
+                  <div class="action-table">
+                      <i class="fa fa-check" id="check" aria-hidden="true"></i>
+                      <i class="fa fa-xmark" id="xmark" aria-hidden="true"></i>
+                  </div>
+              </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+      [length]="2"
+      [pageSize]="10"
+      aria-label="Select page"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </div>
+</div>

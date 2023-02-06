@@ -1,0 +1,148 @@
+.container {
+    margin: 10px 0px 10px 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.writing-mode {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+// Table
+
+#peringkat tr:nth-child(even){background-color: #f2f2f2;}
+
+#peringkat th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align: left;
+  background-color: #e3f1f1;
+  color: black;
+}
+
+#risk-issues th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+    background-color: #e3f1f1;
+    color: black;
+  }
+
+#peringkat td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: black;
+}
+
+#risk-issues td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: black;
+}
+
+.high {
+    background-color: #a10d0d;
+    text-align: center;
+    margin-right: 10px;
+    color: white;
+    max-width: 200px;
+}
+
+.low {
+    background-color: #0ea136;
+    text-align: center;
+    margin-right: 10px;
+    color: white;
+    max-width: 200px;
+}
+
+.medium {
+    background-color: #fedb21;
+    text-align: center;
+    margin-right: 10px;
+    color: black;
+    max-width: 200px;
+}
+
+.fair {
+    background-color: #fedb21;
+    text-align: center;
+    margin-right: 10px;
+    color: black;
+    max-width: 200px;
+}
+
+.marginal {
+    background-color: #ff842c;
+    text-align: center;
+    margin-right: 10px;
+    color: black;
+    max-width: 200px;
+}
+
+.statisfactory {
+    background-color: #74d99d;
+    text-align: center;
+    margin-right: 10px;
+    color: white;
+    max-width: 200px;
+}
+
+.strong {
+    background-color: #0ea136;
+    text-align: center;
+    margin-right: 10px;
+    color: black;
+    max-width: 200px;
+}
+
+.mtoh {
+    background-color: #ff852d;
+    text-align: center;
+    margin-right: 10px;
+    color: white;
+    max-width: 200px;
+}
+
+.ltom {
+    background-color: #74d99d;
+    text-align: center;
+    margin-right: 10px;
+    color: white;
+    max-width: 200px;
+}
+
+#modal-peringkat th{
+    border: 1px solid #dddddd;
+}
+
+#modal-peringkat td{
+    border: 1px solid #dddddd;
+}
